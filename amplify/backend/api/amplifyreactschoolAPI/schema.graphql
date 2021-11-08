@@ -29,9 +29,10 @@ type Class @model {
 
 type Student @model {
   id: ID!
-  studentFirstName: String!
-  studentLastName: String
   studentUsername: String
+  studentFirstName: String
+  studentLastName: String
+  moduleInfo: [moduleInfo]
 }
 
 type Instructor @model {
@@ -51,4 +52,11 @@ type StudentModuleRegistration @model {
   school: School
   organization: Organization
   registrationDate: AWSDateTime
+}
+
+type moduleInfo @model {
+  id: ID!
+  module: Module
+  class: Class
+  instructor: Instructor
 }

@@ -148,9 +148,35 @@ export const getStudent = /* GraphQL */ `
   query GetStudent($id: ID!) {
     getStudent(id: $id) {
       id
+      studentUsername
       studentFirstName
       studentLastName
-      studentUsername
+      moduleInfo {
+        id
+        module {
+          id
+          moduleName
+          moduleShortName
+          createdAt
+          updatedAt
+        }
+        class {
+          id
+          className
+          createdAt
+          updatedAt
+        }
+        instructor {
+          id
+          instructorFirstName
+          instructorLastName
+          instructorUsername
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -165,9 +191,14 @@ export const listStudents = /* GraphQL */ `
     listStudents(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        studentUsername
         studentFirstName
         studentLastName
-        studentUsername
+        moduleInfo {
+          id
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -212,9 +243,14 @@ export const getStudentModuleRegistration = /* GraphQL */ `
       id
       student {
         id
+        studentUsername
         studentFirstName
         studentLastName
-        studentUsername
+        moduleInfo {
+          id
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -281,9 +317,9 @@ export const listStudentModuleRegistrations = /* GraphQL */ `
         id
         student {
           id
+          studentUsername
           studentFirstName
           studentLastName
-          studentUsername
           createdAt
           updatedAt
         }
@@ -330,6 +366,73 @@ export const listStudentModuleRegistrations = /* GraphQL */ `
           updatedAt
         }
         registrationDate
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getModuleInfo = /* GraphQL */ `
+  query GetModuleInfo($id: ID!) {
+    getModuleInfo(id: $id) {
+      id
+      module {
+        id
+        moduleName
+        moduleShortName
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listModuleInfos = /* GraphQL */ `
+  query ListModuleInfos(
+    $filter: ModelmoduleInfoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listModuleInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        module {
+          id
+          moduleName
+          moduleShortName
+          createdAt
+          updatedAt
+        }
+        class {
+          id
+          className
+          createdAt
+          updatedAt
+        }
+        instructor {
+          id
+          instructorFirstName
+          instructorLastName
+          instructorUsername
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }

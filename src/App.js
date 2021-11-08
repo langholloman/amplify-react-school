@@ -22,7 +22,7 @@ import Classes from "./pages/classes/classes.component";
 import Modules from "./pages/modules/modules.component";
 
 // Student Module Registration Component
-import ListStudentModuleRegistrations from "./pages/studentregistrations/list.studentregistrations.component";
+import ListStudentModuleRegistrations from "./pages/studentregistrations/liststudentregistrations.component";
 
 Amplify.configure(config);
 

@@ -1,0 +1,91 @@
+// create a student with registrations json structure
+
+[
+  {
+    "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+    "studentFirstName": "theo",
+    "studentLastName": "von",
+    "studentUsername": "theo.von",
+    "createdAt": "2021-11-06T01:22:41.385Z",
+    "updatedAt": "2021-11-06T01:22:41.385Z",
+    "moduleInfo": [
+      {
+        "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+        "module": {
+          "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+          "moduleName": "Module 1",
+          "moduleShortName": "M1",
+          "createdAt": "2021-11-06T01:22:41.385Z",
+          "updatedAt": "2021-11-06T01:22:41.385Z"
+        },
+        "class": {
+          "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+          "className": "Class 1",
+          "classCode": "C1",
+          "classDescription": "Class 1 description",
+          "createdAt": "2021-11-06T01:22:41.385Z",
+          "updatedAt": "2021-11-06T01:22:41.385Z"
+        },
+        "instructor": {
+          "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+          "instructorFirstName": "instructor",
+          "instructorLastName": "instructor",
+          "instructorUsername": "instructor",
+          "createdAt": "2021-11-06T01:22:41.385Z",
+          "updatedAt": "2021-11-06T01:22:41.385Z"
+        }
+      },
+      {
+        "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+        "module": {
+          "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+          "moduleName": "Module 2",
+          "moduleCode": "M2",
+          "moduleDescription": "Module 2 description",
+          "createdAt": "2021-11-06T01:22:41.385Z",
+          "updatedAt": "2021-11-06T01:22:41.385Z"
+        },
+        "class": {
+          "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+          "className": "Class 1",
+          "classCode": "C1",
+          "classDescription": "Class 1 description",
+          "createdAt": "2021-11-06T01:22:41.385Z",
+          "updatedAt": "2021-11-06T01:22:41.385Z"
+        },
+        "instructor": {
+          "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+          "instructorFirstName": "instructor",
+          "instructorLastName": "instructor",
+          "instructorUsername": "instructor",
+          "createdAt": "2021-11-06T01:22:41.385Z",
+          "updatedAt": "2021-11-06T01:22:41.385Z"
+        }
+      }
+    ],
+    "course": {
+      "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+      "courseName": "Course 1",
+      "courseCode": "JCAC",
+      "courseDescription": "Course 1 description",
+      "createdAt": "2021-11-06T01:22:41.385Z",
+      "updatedAt": "2021-11-06T01:22:41.385Z"
+    },
+    "school": {
+      "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+      "schoolName": "School 1",
+      "schoolCode": "CAS",
+      "schoolDescription": "School 1 description",
+      "createdAt": "2021-11-06T01:22:41.385Z",
+      "updatedAt": "2021-11-06T01:22:41.385Z"
+    },
+    "organization": {
+      "id": "f2bb9ec9-54b1-4c0d-9210-39373eb25347",
+      "organizationName": "Organization 1",
+      "organizationCode": "Galaxy Security Agency",
+      "organizationDescription": "Organization 1 description",
+      "createdAt": "2021-11-06T01:22:41.385Z",
+      "updatedAt": "2021-11-06T01:22:41.385Z"
+    }
+  }
+]

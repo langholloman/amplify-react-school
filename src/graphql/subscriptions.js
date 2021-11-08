@@ -167,9 +167,35 @@ export const onCreateStudent = /* GraphQL */ `
   subscription OnCreateStudent {
     onCreateStudent {
       id
+      studentUsername
       studentFirstName
       studentLastName
-      studentUsername
+      moduleInfo {
+        id
+        module {
+          id
+          moduleName
+          moduleShortName
+          createdAt
+          updatedAt
+        }
+        class {
+          id
+          className
+          createdAt
+          updatedAt
+        }
+        instructor {
+          id
+          instructorFirstName
+          instructorLastName
+          instructorUsername
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -179,9 +205,35 @@ export const onUpdateStudent = /* GraphQL */ `
   subscription OnUpdateStudent {
     onUpdateStudent {
       id
+      studentUsername
       studentFirstName
       studentLastName
-      studentUsername
+      moduleInfo {
+        id
+        module {
+          id
+          moduleName
+          moduleShortName
+          createdAt
+          updatedAt
+        }
+        class {
+          id
+          className
+          createdAt
+          updatedAt
+        }
+        instructor {
+          id
+          instructorFirstName
+          instructorLastName
+          instructorUsername
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -191,9 +243,35 @@ export const onDeleteStudent = /* GraphQL */ `
   subscription OnDeleteStudent {
     onDeleteStudent {
       id
+      studentUsername
       studentFirstName
       studentLastName
-      studentUsername
+      moduleInfo {
+        id
+        module {
+          id
+          moduleName
+          moduleShortName
+          createdAt
+          updatedAt
+        }
+        class {
+          id
+          className
+          createdAt
+          updatedAt
+        }
+        instructor {
+          id
+          instructorFirstName
+          instructorLastName
+          instructorUsername
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -241,9 +319,14 @@ export const onCreateStudentModuleRegistration = /* GraphQL */ `
       id
       student {
         id
+        studentUsername
         studentFirstName
         studentLastName
-        studentUsername
+        moduleInfo {
+          id
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -301,9 +384,14 @@ export const onUpdateStudentModuleRegistration = /* GraphQL */ `
       id
       student {
         id
+        studentUsername
         studentFirstName
         studentLastName
-        studentUsername
+        moduleInfo {
+          id
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -361,9 +449,14 @@ export const onDeleteStudentModuleRegistration = /* GraphQL */ `
       id
       student {
         id
+        studentUsername
         studentFirstName
         studentLastName
-        studentUsername
+        moduleInfo {
+          id
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -410,6 +503,96 @@ export const onDeleteStudentModuleRegistration = /* GraphQL */ `
         updatedAt
       }
       registrationDate
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateModuleInfo = /* GraphQL */ `
+  subscription OnCreateModuleInfo {
+    onCreateModuleInfo {
+      id
+      module {
+        id
+        moduleName
+        moduleShortName
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateModuleInfo = /* GraphQL */ `
+  subscription OnUpdateModuleInfo {
+    onUpdateModuleInfo {
+      id
+      module {
+        id
+        moduleName
+        moduleShortName
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteModuleInfo = /* GraphQL */ `
+  subscription OnDeleteModuleInfo {
+    onDeleteModuleInfo {
+      id
+      module {
+        id
+        moduleName
+        moduleShortName
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }

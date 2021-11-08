@@ -86,22 +86,6 @@ class ListStudents extends Component {
     });
   };
 
-  async shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.students !== nextState.students) {
-      return true;
-    }
-    if (this.state.classs !== nextState.classs) {
-      return true;
-    }
-    if (this.props.students !== nextProps.students) {
-      return true;
-    }
-    if (this.props.classs !== nextProps.classs) {
-      return true;
-    }
-    return false;
-  }
-
   filterStudents = (students) => {
     const { search } = this.state;
     if (search) {
