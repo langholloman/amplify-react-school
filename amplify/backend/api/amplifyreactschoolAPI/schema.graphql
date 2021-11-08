@@ -1,0 +1,54 @@
+type Organization @model {
+  id: ID!
+  organizationName: String!
+  organizationShortName: String
+}
+
+type School @model {
+  id: ID!
+  schoolName: String!
+  schoolShortName: String
+}
+
+type Course @model {
+  id: ID!
+  courseName: String!
+  courseShortName: String
+}
+
+type Module @model {
+  id: ID!
+  moduleName: String!
+  moduleShortName: String
+}
+
+type Class @model {
+  id: ID!
+  className: String!
+}
+
+type Student @model {
+  id: ID!
+  studentFirstName: String!
+  studentLastName: String
+  studentUsername: String
+}
+
+type Instructor @model {
+  id: ID!
+  instructorFirstName: String!
+  instructorLastName: String
+  instructorUsername: String
+}
+
+type StudentModuleRegistration @model {
+  id: ID!
+  student: Student
+  class: Class
+  module: Module
+  instructorLastName: Instructor
+  course: Course
+  school: School
+  organization: Organization
+  registrationDate: AWSDateTime
+}

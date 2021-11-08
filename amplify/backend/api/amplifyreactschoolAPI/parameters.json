@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "amplifyreactschoolAPI",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authamplifyreactschool07773328",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
