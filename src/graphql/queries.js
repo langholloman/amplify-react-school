@@ -177,6 +177,10 @@ export const getStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -196,9 +200,34 @@ export const listStudents = /* GraphQL */ `
         studentLastName
         moduleInfo {
           id
+          module {
+            id
+            moduleName
+            moduleShortName
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -251,6 +280,10 @@ export const getStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -296,7 +329,6 @@ export const getStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }
@@ -320,6 +352,10 @@ export const listStudentModuleRegistrations = /* GraphQL */ `
           studentUsername
           studentFirstName
           studentLastName
+          currentClass
+          course
+          school
+          organization
           createdAt
           updatedAt
         }
@@ -365,7 +401,6 @@ export const listStudentModuleRegistrations = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        registrationDate
         createdAt
         updatedAt
       }

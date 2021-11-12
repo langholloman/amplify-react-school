@@ -80,7 +80,7 @@ class ListStudentModuleRegistrations extends Component {
       isLoading,
       error,
       search,
-      searchBy,
+      //searchBy,
       searchByOptions,
     } = this.state;
     const filteredStudentModuleRegistrations =

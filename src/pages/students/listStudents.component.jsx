@@ -4,6 +4,12 @@ import PropTypes from "prop-types";
 // AWS Amplify and GraphQL API and Mutations
 import { API, graphqlOperation } from "aws-amplify";
 import * as queries from "../../graphql/queries";
+// import * as mutations from "../../graphql/mutations";
+import {
+  onCreateStudent,
+  onUpdateStudent,
+  onDeleteStudent,
+} from "../../graphql/subscriptions";
 
 // Students Navbar Component
 import StudentsNavbar from "./studentsNavbar.component";
@@ -54,7 +60,6 @@ class ListStudents extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      classs: [],
       students: [],
       isLoading: false,
     };
@@ -73,11 +78,50 @@ class ListStudents extends Component {
     const students = await API.graphql(graphqlOperation(queries.listStudents));
     this.setState({ students: students.data.listStudents.items });
     console.log(students.data.listStudents.items);
-
-    const classs = await API.graphql(graphqlOperation(queries.listClasss));
-    this.setState({ classs: classs.data.listClasss.items });
-    console.log(classs.data.listClasss.items);
     this.setState({ isLoading: false });
+
+    this.subscription = API.graphql(
+      graphqlOperation(onCreateStudent)
+    ).subscribe({
+      next: (studentData) => {
+        const newStudent = studentData.value.data.onCreateStudent;
+        this.setState((prevState) => {
+          const students = [newStudent, ...prevState.students];
+          return { students };
+        });
+      },
+    });
+
+    this.subscription = API.graphql(
+      graphqlOperation(onUpdateStudent)
+    ).subscribe({
+      next: (studentData) => {
+        const updatedStudent = studentData.value.data.onUpdateStudent;
+        this.setState((prevState) => {
+          const students = prevState.students.map((student) => {
+            if (student.id === updatedStudent.id) {
+              return updatedStudent;
+            }
+            return student;
+          });
+          return { students };
+        });
+      },
+    });
+
+    this.subscription = API.graphql(
+      graphqlOperation(onDeleteStudent)
+    ).subscribe({
+      next: (studentData) => {
+        const deletedStudent = studentData.value.data.onDeleteStudent;
+        this.setState((prevState) => {
+          const students = prevState.students.filter(
+            (student) => student.id !== deletedStudent.id
+          );
+          return { students };
+        });
+      },
+    });
   }
 
   getStudents = () => {
@@ -99,18 +143,6 @@ class ListStudents extends Component {
     }
     return students;
   };
-
-  async componentDidUpdate(prevProps, prevState) {
-    if (this.state.students !== prevState.students) {
-      if (this.isCancelled) {
-        return null;
-      }
-      setTimeout(() => {
-        this.getStudents();
-        console.log("Students data retrieved");
-      }, 5000);
-    }
-  }
 
   componentWillUnmount() {
     console.log("Students data safely unmounted");
@@ -153,7 +185,7 @@ class ListStudents extends Component {
           }}
         />
         <Grid container spacing={2}>
-          {this.filterStudents(students).map((student, id) => (
+          {this.filterStudents(students).map((student) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={student.id}>
               <Card className={classes.card}>
                 <CardActions
@@ -178,6 +210,28 @@ class ListStudents extends Component {
                   >
                     Username: {student.studentUsername}
                   </Typography>
+                  <Typography
+                    className={classes.username}
+                    color="textSecondary"
+                    gutterBottom={true}
+                  >
+                    Current Class: {student.currentClass}
+                  </Typography>
+                  {student?.moduleInfo?.map((moduleInfo) => (
+                    <Typography
+                      key={moduleInfo.id}
+                      className={classes.username}
+                      color="textSecondary"
+                      gutterBottom={true}
+                    >
+                      Module: {moduleInfo.module.moduleName}
+                      <br />
+                      Instructor: {moduleInfo.instructor.instructorLastName}
+                      <br />
+                      Class: {moduleInfo.class.className}
+                      <br />
+                    </Typography>
+                  ))}
                 </CardContent>
                 <CardActions
                   style={{

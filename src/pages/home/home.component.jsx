@@ -11,7 +11,7 @@ import "./home.styles.scss";
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body3,
   padding: theme.spacing(1),
-  marginTop: theme.spacing(15),
+  //marginTop: theme.spacing(15),
   //marginBottom: theme.spacing(5),
   textAlign: "center",
   color: theme.palette.text.secondary,
@@ -34,6 +34,7 @@ const HomePage = () => {
         backgroundPosition: "center",
         backgroundColor: "#282C34",
         backgroundBlendMode: "overlay",
+        marginTop: "5rem",
       }}
     >
       <Grid
@@ -41,19 +42,16 @@ const HomePage = () => {
         spacing={2}
         style={{
           padding: "20px",
+          marginTop: "5rem",
+          marginBottom: "8rem",
+          paddingRight: "7rem",
+          paddingLeft: "7rem",
         }}
       >
-        <Grid
-          item
-          xs={12}
-          md={12}
-          lg={12}
-          xl={12}
-          style={{ textAlign: "center" }}
-        >
+        <Grid item xs={6} style={{ textAlign: "center" }}>
           <Item>
             <Link
-              to="/manageStudents"
+              to="/listStudents"
               style={{
                 textDecoration: "none",
                 color: "inherit",
@@ -71,7 +69,7 @@ const HomePage = () => {
             </Link>
           </Item>
         </Grid>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={6}>
           <Item>
             <Link
               to="/classes"
@@ -92,7 +90,7 @@ const HomePage = () => {
             </Link>
           </Item>
         </Grid>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={6}>
           <Item>
             <Link
               to="/instructors"
@@ -110,7 +108,7 @@ const HomePage = () => {
             </Link>
           </Item>
         </Grid>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={6}>
           <Item>
             <Link
               to="/reports"

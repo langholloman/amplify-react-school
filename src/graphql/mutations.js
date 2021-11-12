@@ -244,6 +244,10 @@ export const createStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -285,6 +289,10 @@ export const updateStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -326,6 +334,10 @@ export const deleteStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -393,6 +405,10 @@ export const createStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -438,7 +454,6 @@ export const createStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }
@@ -461,6 +476,10 @@ export const updateStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -506,7 +525,6 @@ export const updateStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }
@@ -529,6 +547,10 @@ export const deleteStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -574,7 +596,6 @@ export const deleteStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }

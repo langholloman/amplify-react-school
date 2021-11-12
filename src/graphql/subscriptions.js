@@ -196,6 +196,10 @@ export const onCreateStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -234,6 +238,10 @@ export const onUpdateStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -272,6 +280,10 @@ export const onDeleteStudent = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      currentClass
+      course
+      school
+      organization
       createdAt
       updatedAt
     }
@@ -327,6 +339,10 @@ export const onCreateStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -372,7 +388,6 @@ export const onCreateStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }
@@ -392,6 +407,10 @@ export const onUpdateStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -437,7 +456,6 @@ export const onUpdateStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }
@@ -457,6 +475,10 @@ export const onDeleteStudentModuleRegistration = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        currentClass
+        course
+        school
+        organization
         createdAt
         updatedAt
       }
@@ -502,7 +524,6 @@ export const onDeleteStudentModuleRegistration = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      registrationDate
       createdAt
       updatedAt
     }

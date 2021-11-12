@@ -23,6 +23,16 @@ class UpdateStudent extends Component {
       studentFirstName: "",
       studentLastName: "",
       studentUsername: "",
+      currentClass: "",
+      moduleInfo: [
+        {
+          id: "",
+          module: {
+            id: "",
+            moduleName: "",
+          },
+        },
+      ],
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -34,9 +44,19 @@ class UpdateStudent extends Component {
     console.log("Current Student: ", this.props.student);
     this.setState({
       open: true,
-      studentFirstName: this.props.student.firstName,
-      studentLastName: this.props.student.lastName,
-      studentUsername: this.props.student.username,
+      studentFirstName: this.props.student.studentFirstName,
+      studentLastName: this.props.student.studentLastName,
+      studentUsername: this.props.student.studentUsername,
+      currentClass: this.props.student.currentClass,
+      moduleInfo: [
+        {
+          id: this.props?.student?.moduleInfo?.id,
+          module: {
+            id: this.props?.student?.moduleInfo?.module?.id,
+            moduleName: this.props?.student?.moduleInfo?.module?.moduleName,
+          },
+        },
+      ],
     });
   };
 
@@ -47,16 +67,18 @@ class UpdateStudent extends Component {
   // Handle change of input fields
   handleChange = (name) => (event) => {
     this.setState({
-      [name]: event.target.value,
+      [name]: event?.target?.value,
     });
-    /*     console.log(
+    console.log(
       "Name: " +
         this.state.studentFirstName +
         " " +
         this.state.studentLastName +
         " " +
-        this.state.studentUsername
-    ); */
+        this.state.studentUsername +
+        " " +
+        this.state.currentClass
+    );
   };
 
   // Handle update of student
@@ -66,9 +88,20 @@ class UpdateStudent extends Component {
       graphqlOperation(mutations.updateStudent, {
         input: {
           id: this.props.student.id,
-          studentFirstName: this.state.studentFirstName,
-          studentLastName: this.state.studentLastName,
-          studentUsername: this.state.studentUsername,
+          studentFirstName: this.props.student.studentFirstName,
+          studentLastName: this.props.student.studentLastName,
+          studentUsername: this.props.student.studentUsername,
+          currentClass: this.props.student.currentClass,
+          // moduleInfo array of objects with id and module id of module
+          moduleInfo: [
+            {
+              id: this.props?.student?.moduleInfo?.id,
+              module: {
+                id: this.props?.student?.moduleInfo?.module?.id,
+                moduleName: this.props?.student?.moduleInfo?.module?.moduleName,
+              },
+            },
+          ],
         },
       })
     );
@@ -139,6 +172,37 @@ class UpdateStudent extends Component {
                 onChange={this.handleChange("studentUsername")}
               />
             </Typography>
+            <Typography variant="h6">
+              Current Class:{" "}
+              <TextField
+                margin="dense"
+                id="currentClass"
+                placeholder={this.props.student.currentClass}
+                label={this.props.student.currentClass}
+                type="text"
+                fullwidth="true"
+                // value={this.state.currentClass}
+                onChange={this.handleChange("currentClass")}
+              />
+            </Typography>
+            <Typography variant="h6">Modules: </Typography>
+            {this.props.student.moduleInfo?.map((moduleInfo) => (
+              <Typography variant="h6" key={moduleInfo.id}>
+                Module: {moduleInfo.module.moduleName}
+                <br />
+                <TextField
+                  key={moduleInfo.module.id}
+                  margin="dense"
+                  id="moduleName"
+                  placeholder={moduleInfo.module.moduleName}
+                  label={moduleInfo.module.moduleName}
+                  type="text"
+                  fullwidth="true"
+                  // value={moduleInfo.module.moduleName}
+                  onChange={this.handleChange("moduleName")}
+                />
+              </Typography>
+            ))}
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

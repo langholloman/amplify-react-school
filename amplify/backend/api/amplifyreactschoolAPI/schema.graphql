@@ -33,6 +33,10 @@ type Student @model {
   studentFirstName: String
   studentLastName: String
   moduleInfo: [moduleInfo]
+  currentClass: String
+  course: String
+  school: String
+  organization: String
 }
 
 type Instructor @model {
@@ -51,7 +55,6 @@ type StudentModuleRegistration @model {
   course: Course
   school: School
   organization: Organization
-  registrationDate: AWSDateTime
 }
 
 type moduleInfo @model {

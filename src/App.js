@@ -15,6 +15,9 @@ import HomePage from "./pages/home/home.component";
 // List Students component
 import ListStudents from "./pages/students/listStudents.component";
 
+// Manage Students component
+import ManageStudents from "./pages/managestudents/manageStudents.component";
+
 // Classes component
 import Classes from "./pages/classes/classes.component";
 
@@ -34,7 +37,8 @@ function App() {
       </div>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/manageStudents" component={ListStudents} />
+        <Route path="/listStudents" component={ListStudents} />
+        <Route path="/manageStudents" component={ManageStudents} />
         <Route path="/modules" component={Modules} />
         <Route path="/classes" component={Classes} />
         <Route
