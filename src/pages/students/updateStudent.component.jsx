@@ -20,14 +20,15 @@ class UpdateStudent extends Component {
     super(props);
     this.state = {
       open: false,
+      students: [],
       studentFirstName: "",
       studentLastName: "",
       studentUsername: "",
       currentClass: "",
-      /*       moduleInfo: "",
-      module: "", */
       moduleName: "",
       moduleShortName: "",
+      moduleInfo: [],
+      module: {},
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -39,14 +40,15 @@ class UpdateStudent extends Component {
     console.log("Current Student: ", this.props.student);
     this.setState({
       open: true,
-      studentFirstName: this.props.student.studentFirstName,
+      ...this.props.student,
+      /* studentFirstName: this.props.student.studentFirstName,
       studentLastName: this.props.student.studentLastName,
       studentUsername: this.props.student.studentUsername,
       currentClass: this.props.student.currentClass,
-      // moduleInfo: this.props.student.moduleInfo,
-      // module: this.props.moduleInfo?.module,
+      moduleInfo: this.props.student.moduleInfo,
+      module: this.props.student.moduleInfo?.module,
       moduleName: this.props.student.moduleInfo?.module?.moduleName,
-      moduleShortName: this.props.student.moduleInfo?.module?.moduleShortName,
+      moduleShortName: this.props.student.moduleInfo?.module?.moduleShortName, */
     });
   };
 
@@ -72,29 +74,29 @@ class UpdateStudent extends Component {
     ); */
   };
 
-  // Handle update of student
+  // handleSubmit function
   handleSubmit = async () => {
-    // Update student
+    console.log("Current Student: ", this.props.student);
+    console.log("Current Student: ", this.state);
+    const student = {
+      ...this.state.students,
+      /* studentFirstName: this.state.studentFirstName,
+      studentLastName: this.state.studentLastName,
+      studentUsername: this.state.studentUsername,
+      currentClass: this.state.currentClass, */
+      // moduleName: this.state.moduleName,
+      // moduleShortName: this.state.moduleShortName,
+    };
+    console.log("Student: ", student);
     await API.graphql(
       graphqlOperation(mutations.updateStudent, {
         input: {
-          id: this.props.student.id,
-          studentFirstName: this.state.studentFirstName,
-          studentLastName: this.state.studentLastName,
-          studentUsername: this.state.studentUsername,
-          currentClass: this.state.currentClass,
-          // moduleInfo array of objects with id and module id of module
-
-          moduleName: this.state.moduleName,
-          moduleShortName: this.state.moduleShortName,
+          ...this.props.student,
         },
       })
     );
-    // Close dialog
+    // this.props.refresh();
     this.handleClose();
-    // Refresh student list
-    // this.props.refreshStudents();
-    // window.location.reload();
   };
 
   // Render dialog
@@ -170,18 +172,29 @@ class UpdateStudent extends Component {
                 onChange={this.handleChange("currentClass")}
               />
             </Typography>
-            {this.props.student.moduleInfo?.forEach((moduleInfo) => (
-              <Typography variant="h6" key={moduleInfo.id}>
-                Module:{" "}
+
+            {this.props.student.moduleInfo?.map((module) => (
+              <Typography variant="h6" key={module.id}>
+                Module Name:{" "}
                 <TextField
                   margin="dense"
                   id="moduleName"
-                  placeholder={this.props.moduleInfo?.module?.moduleName}
-                  label={this.props.moduleInfo?.module?.moduleName}
+                  placeholder={module.module.moduleName}
+                  label={module.module.moduleName}
                   type="text"
                   fullwidth="true"
-                  //value={this.state.moduleName}
+                  // value={this.state.moduleName}
                   onChange={this.handleChange("moduleName")}
+                />
+                <TextField
+                  margin="dense"
+                  id="moduleShortName"
+                  placeholder={module.module.moduleShortName}
+                  label={module.module.moduleShortName}
+                  type="text"
+                  fullwidth="true"
+                  // value={this.state.moduleShortName}
+                  onChange={this.handleChange("moduleShortName")}
                 />
               </Typography>
             ))}
