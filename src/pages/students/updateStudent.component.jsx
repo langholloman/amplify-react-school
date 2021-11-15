@@ -24,15 +24,10 @@ class UpdateStudent extends Component {
       studentLastName: "",
       studentUsername: "",
       currentClass: "",
-      moduleInfo: [
-        {
-          id: "",
-          module: {
-            id: "",
-            moduleName: "",
-          },
-        },
-      ],
+      /*       moduleInfo: "",
+      module: "", */
+      moduleName: "",
+      moduleShortName: "",
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -48,15 +43,10 @@ class UpdateStudent extends Component {
       studentLastName: this.props.student.studentLastName,
       studentUsername: this.props.student.studentUsername,
       currentClass: this.props.student.currentClass,
-      moduleInfo: [
-        {
-          id: this.props?.student?.moduleInfo?.id,
-          module: {
-            id: this.props?.student?.moduleInfo?.module?.id,
-            moduleName: this.props?.student?.moduleInfo?.module?.moduleName,
-          },
-        },
-      ],
+      // moduleInfo: this.props.student.moduleInfo,
+      // module: this.props.moduleInfo?.module,
+      moduleName: this.props.student.moduleInfo?.module?.moduleName,
+      moduleShortName: this.props.student.moduleInfo?.module?.moduleShortName,
     });
   };
 
@@ -69,7 +59,7 @@ class UpdateStudent extends Component {
     this.setState({
       [name]: event?.target?.value,
     });
-    console.log(
+    /*     console.log(
       "Name: " +
         this.state.studentFirstName +
         " " +
@@ -77,8 +67,9 @@ class UpdateStudent extends Component {
         " " +
         this.state.studentUsername +
         " " +
-        this.state.currentClass
-    );
+        this.state.currentClass +
+        this.state.moduleName
+    ); */
   };
 
   // Handle update of student
@@ -88,20 +79,14 @@ class UpdateStudent extends Component {
       graphqlOperation(mutations.updateStudent, {
         input: {
           id: this.props.student.id,
-          studentFirstName: this.props.student.studentFirstName,
-          studentLastName: this.props.student.studentLastName,
-          studentUsername: this.props.student.studentUsername,
-          currentClass: this.props.student.currentClass,
+          studentFirstName: this.state.studentFirstName,
+          studentLastName: this.state.studentLastName,
+          studentUsername: this.state.studentUsername,
+          currentClass: this.state.currentClass,
           // moduleInfo array of objects with id and module id of module
-          moduleInfo: [
-            {
-              id: this.props?.student?.moduleInfo?.id,
-              module: {
-                id: this.props?.student?.moduleInfo?.module?.id,
-                moduleName: this.props?.student?.moduleInfo?.module?.moduleName,
-              },
-            },
-          ],
+
+          moduleName: this.state.moduleName,
+          moduleShortName: this.state.moduleShortName,
         },
       })
     );
@@ -185,20 +170,17 @@ class UpdateStudent extends Component {
                 onChange={this.handleChange("currentClass")}
               />
             </Typography>
-            <Typography variant="h6">Modules: </Typography>
-            {this.props.student.moduleInfo?.map((moduleInfo) => (
+            {this.props.student.moduleInfo?.forEach((moduleInfo) => (
               <Typography variant="h6" key={moduleInfo.id}>
-                Module: {moduleInfo.module.moduleName}
-                <br />
+                Module:{" "}
                 <TextField
-                  key={moduleInfo.module.id}
                   margin="dense"
                   id="moduleName"
-                  placeholder={moduleInfo.module.moduleName}
-                  label={moduleInfo.module.moduleName}
+                  placeholder={this.props.moduleInfo?.module?.moduleName}
+                  label={this.props.moduleInfo?.module?.moduleName}
                   type="text"
                   fullwidth="true"
-                  // value={moduleInfo.module.moduleName}
+                  //value={this.state.moduleName}
                   onChange={this.handleChange("moduleName")}
                 />
               </Typography>
