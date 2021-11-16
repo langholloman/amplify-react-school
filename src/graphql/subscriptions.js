@@ -171,30 +171,12 @@ export const onCreateStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        id
-        module {
+        items {
           id
-          moduleName
-          moduleShortName
           createdAt
           updatedAt
         }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
       currentClass
       course
@@ -213,30 +195,12 @@ export const onUpdateStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        id
-        module {
+        items {
           id
-          moduleName
-          moduleShortName
           createdAt
           updatedAt
         }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
       currentClass
       course
@@ -255,30 +219,12 @@ export const onDeleteStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        id
-        module {
+        items {
           id
-          moduleName
-          moduleShortName
           createdAt
           updatedAt
         }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
       currentClass
       course
@@ -335,9 +281,7 @@ export const onCreateStudentModuleRegistration = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          id
-          createdAt
-          updatedAt
+          nextToken
         }
         currentClass
         course
@@ -403,9 +347,7 @@ export const onUpdateStudentModuleRegistration = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          id
-          createdAt
-          updatedAt
+          nextToken
         }
         currentClass
         course
@@ -471,9 +413,7 @@ export const onDeleteStudentModuleRegistration = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          id
-          createdAt
-          updatedAt
+          nextToken
         }
         currentClass
         course

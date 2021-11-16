@@ -219,30 +219,12 @@ export const createStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        id
-        module {
+        items {
           id
-          moduleName
-          moduleShortName
           createdAt
           updatedAt
         }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
       currentClass
       course
@@ -264,30 +246,12 @@ export const updateStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        id
-        module {
+        items {
           id
-          moduleName
-          moduleShortName
           createdAt
           updatedAt
         }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
       currentClass
       course
@@ -309,30 +273,12 @@ export const deleteStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        id
-        module {
+        items {
           id
-          moduleName
-          moduleShortName
           createdAt
           updatedAt
         }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
       currentClass
       course
@@ -401,9 +347,7 @@ export const createStudentModuleRegistration = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          id
-          createdAt
-          updatedAt
+          nextToken
         }
         currentClass
         course
@@ -472,9 +416,7 @@ export const updateStudentModuleRegistration = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          id
-          createdAt
-          updatedAt
+          nextToken
         }
         currentClass
         course
@@ -543,9 +485,7 @@ export const deleteStudentModuleRegistration = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          id
-          createdAt
-          updatedAt
+          nextToken
         }
         currentClass
         course
