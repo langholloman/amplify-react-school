@@ -171,12 +171,14 @@ export const onCreateStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -195,12 +197,14 @@ export const onUpdateStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -219,12 +223,14 @@ export const onDeleteStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -271,229 +277,15 @@ export const onDeleteInstructor = /* GraphQL */ `
     }
   }
 `;
-export const onCreateStudentModuleRegistration = /* GraphQL */ `
-  subscription OnCreateStudentModuleRegistration {
-    onCreateStudentModuleRegistration {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateStudentModuleRegistration = /* GraphQL */ `
-  subscription OnUpdateStudentModuleRegistration {
-    onUpdateStudentModuleRegistration {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteStudentModuleRegistration = /* GraphQL */ `
-  subscription OnDeleteStudentModuleRegistration {
-    onDeleteStudentModuleRegistration {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const onCreateModuleInfo = /* GraphQL */ `
   subscription OnCreateModuleInfo {
     onCreateModuleInfo {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }
@@ -503,27 +295,11 @@ export const onUpdateModuleInfo = /* GraphQL */ `
   subscription OnUpdateModuleInfo {
     onUpdateModuleInfo {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }
@@ -533,27 +309,11 @@ export const onDeleteModuleInfo = /* GraphQL */ `
   subscription OnDeleteModuleInfo {
     onDeleteModuleInfo {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }

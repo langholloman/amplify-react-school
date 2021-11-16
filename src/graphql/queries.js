@@ -152,12 +152,14 @@ export const getStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -181,7 +183,14 @@ export const listStudents = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          nextToken
+          id
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
         }
         currentClass
         course
@@ -225,171 +234,15 @@ export const listInstructors = /* GraphQL */ `
     }
   }
 `;
-export const getStudentModuleRegistration = /* GraphQL */ `
-  query GetStudentModuleRegistration($id: ID!) {
-    getStudentModuleRegistration(id: $id) {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listStudentModuleRegistrations = /* GraphQL */ `
-  query ListStudentModuleRegistrations(
-    $filter: ModelStudentModuleRegistrationFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listStudentModuleRegistrations(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        student {
-          id
-          studentUsername
-          studentFirstName
-          studentLastName
-          currentClass
-          course
-          school
-          organization
-          createdAt
-          updatedAt
-        }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        module {
-          id
-          moduleName
-          moduleShortName
-          createdAt
-          updatedAt
-        }
-        instructorLastName {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
-        course {
-          id
-          courseName
-          courseShortName
-          createdAt
-          updatedAt
-        }
-        school {
-          id
-          schoolName
-          schoolShortName
-          createdAt
-          updatedAt
-        }
-        organization {
-          id
-          organizationName
-          organizationShortName
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const getModuleInfo = /* GraphQL */ `
   query GetModuleInfo($id: ID!) {
     getModuleInfo(id: $id) {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }
@@ -404,27 +257,11 @@ export const listModuleInfos = /* GraphQL */ `
     listModuleInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        module {
-          id
-          moduleName
-          moduleShortName
-          createdAt
-          updatedAt
-        }
-        class {
-          id
-          className
-          createdAt
-          updatedAt
-        }
-        instructor {
-          id
-          instructorFirstName
-          instructorLastName
-          instructorUsername
-          createdAt
-          updatedAt
-        }
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
         createdAt
         updatedAt
       }

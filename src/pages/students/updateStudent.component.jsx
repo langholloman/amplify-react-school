@@ -28,7 +28,6 @@ class UpdateStudent extends Component {
       moduleName: "",
       moduleShortName: "",
       moduleInfo: [],
-      module: {},
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -46,7 +45,6 @@ class UpdateStudent extends Component {
       studentUsername: this.props.student.studentUsername,
       currentClass: this.props.student.currentClass,
       moduleInfo: this.props.student.moduleInfo,
-      module: this.props.student.moduleInfo?.module,
       moduleName: this.props.student.moduleInfo?.module?.moduleName,
       moduleShortName: this.props.student.moduleInfo?.module?.moduleShortName, */
     });
@@ -79,7 +77,7 @@ class UpdateStudent extends Component {
     console.log("Current Student: ", this.props.student);
     console.log("Current Student: ", this.state);
     const student = {
-      ...this.state.students,
+      ...this.state,
       /* studentFirstName: this.state.studentFirstName,
       studentLastName: this.state.studentLastName,
       studentUsername: this.state.studentUsername,
@@ -179,8 +177,8 @@ class UpdateStudent extends Component {
                 <TextField
                   margin="dense"
                   id="moduleName"
-                  placeholder={module.module.moduleName}
-                  label={module.module.moduleName}
+                  placeholder={module.moduleName}
+                  label={module.moduleName}
                   type="text"
                   fullwidth="true"
                   // value={this.state.moduleName}
@@ -189,8 +187,8 @@ class UpdateStudent extends Component {
                 <TextField
                   margin="dense"
                   id="moduleShortName"
-                  placeholder={module.module.moduleShortName}
-                  label={module.module.moduleShortName}
+                  placeholder={module.moduleShortName}
+                  label={module.moduleShortName}
                   type="text"
                   fullwidth="true"
                   // value={this.state.moduleShortName}

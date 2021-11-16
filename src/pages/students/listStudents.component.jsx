@@ -77,7 +77,7 @@ class ListStudents extends Component {
     this.setState({ isLoading: true });
     const students = await API.graphql(graphqlOperation(queries.listStudents));
     this.setState({ students: students.data.listStudents.items });
-    console.log(students.data.listStudents.items);
+    console.log(students);
     this.setState({ isLoading: false });
 
     this.subscription = API.graphql(
@@ -123,12 +123,6 @@ class ListStudents extends Component {
       },
     });
   }
-
-  getStudents = () => {
-    API.graphql(graphqlOperation(queries.listStudents)).then((response) => {
-      this.setState({ students: response.data.listStudents.items });
-    });
-  };
 
   filterStudents = (students) => {
     const { search } = this.state;
@@ -217,21 +211,6 @@ class ListStudents extends Component {
                   >
                     Current Class: {student.currentClass}
                   </Typography>
-                  {student?.moduleInfo?.map((moduleInfo) => (
-                    <Typography
-                      key={moduleInfo.id}
-                      className={classes.username}
-                      color="textSecondary"
-                      gutterBottom={true}
-                    >
-                      Module: {moduleInfo.module.moduleName}
-                      <br />
-                      Instructor: {moduleInfo.instructor.instructorLastName}
-                      <br />
-                      Class: {moduleInfo.class.className}
-                      <br />
-                    </Typography>
-                  ))}
                 </CardContent>
                 <CardActions
                   style={{

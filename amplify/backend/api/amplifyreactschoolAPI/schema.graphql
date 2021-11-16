@@ -32,7 +32,7 @@ type Student @model {
   studentUsername: String
   studentFirstName: String
   studentLastName: String
-  moduleInfo: [moduleInfo] @connection(keyName: "moduleInfo")
+  moduleInfo: [moduleInfo]
   currentClass: String
   course: String
   school: String
@@ -46,20 +46,11 @@ type Instructor @model {
   instructorUsername: String
 }
 
-type StudentModuleRegistration @model {
-  id: ID!
-  student: Student
-  class: Class
-  module: Module
-  instructorLastName: Instructor
-  course: Course
-  school: School
-  organization: Organization
-}
-
 type moduleInfo @model {
   id: ID!
-  module: Module
-  class: Class
-  instructor: Instructor
+  moduleShortName: String!
+  moduleName: String
+  className: String
+  instructorLastName: String
+  instructorFirstName: String
 }

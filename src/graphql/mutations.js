@@ -219,12 +219,14 @@ export const createStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -246,12 +248,14 @@ export const updateStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -273,12 +277,14 @@ export const deleteStudent = /* GraphQL */ `
       studentFirstName
       studentLastName
       moduleInfo {
-        items {
-          id
-          createdAt
-          updatedAt
-        }
-        nextToken
+        id
+        moduleShortName
+        moduleName
+        className
+        instructorLastName
+        instructorFirstName
+        createdAt
+        updatedAt
       }
       currentClass
       course
@@ -334,213 +340,6 @@ export const deleteInstructor = /* GraphQL */ `
     }
   }
 `;
-export const createStudentModuleRegistration = /* GraphQL */ `
-  mutation CreateStudentModuleRegistration(
-    $input: CreateStudentModuleRegistrationInput!
-    $condition: ModelStudentModuleRegistrationConditionInput
-  ) {
-    createStudentModuleRegistration(input: $input, condition: $condition) {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateStudentModuleRegistration = /* GraphQL */ `
-  mutation UpdateStudentModuleRegistration(
-    $input: UpdateStudentModuleRegistrationInput!
-    $condition: ModelStudentModuleRegistrationConditionInput
-  ) {
-    updateStudentModuleRegistration(input: $input, condition: $condition) {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteStudentModuleRegistration = /* GraphQL */ `
-  mutation DeleteStudentModuleRegistration(
-    $input: DeleteStudentModuleRegistrationInput!
-    $condition: ModelStudentModuleRegistrationConditionInput
-  ) {
-    deleteStudentModuleRegistration(input: $input, condition: $condition) {
-      id
-      student {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          nextToken
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      instructorLastName {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
-      course {
-        id
-        courseName
-        courseShortName
-        createdAt
-        updatedAt
-      }
-      school {
-        id
-        schoolName
-        schoolShortName
-        createdAt
-        updatedAt
-      }
-      organization {
-        id
-        organizationName
-        organizationShortName
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createModuleInfo = /* GraphQL */ `
   mutation CreateModuleInfo(
     $input: CreateModuleInfoInput!
@@ -548,27 +347,11 @@ export const createModuleInfo = /* GraphQL */ `
   ) {
     createModuleInfo(input: $input, condition: $condition) {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }
@@ -581,27 +364,11 @@ export const updateModuleInfo = /* GraphQL */ `
   ) {
     updateModuleInfo(input: $input, condition: $condition) {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }
@@ -614,27 +381,11 @@ export const deleteModuleInfo = /* GraphQL */ `
   ) {
     deleteModuleInfo(input: $input, condition: $condition) {
       id
-      module {
-        id
-        moduleName
-        moduleShortName
-        createdAt
-        updatedAt
-      }
-      class {
-        id
-        className
-        createdAt
-        updatedAt
-      }
-      instructor {
-        id
-        instructorFirstName
-        instructorLastName
-        instructorUsername
-        createdAt
-        updatedAt
-      }
+      moduleShortName
+      moduleName
+      className
+      instructorLastName
+      instructorFirstName
       createdAt
       updatedAt
     }

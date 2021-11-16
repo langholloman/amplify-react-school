@@ -24,9 +24,6 @@ import Classes from "./pages/classes/classes.component";
 // Modules component
 import Modules from "./pages/modules/modules.component";
 
-// Student Module Registration Component
-import ListStudentModuleRegistrations from "./pages/studentregistrations/liststudentregistrations.component";
-
 Amplify.configure(config);
 
 function App() {
@@ -41,10 +38,6 @@ function App() {
         <Route path="/manageStudents" component={ManageStudents} />
         <Route path="/modules" component={Modules} />
         <Route path="/classes" component={Classes} />
-        <Route
-          path="/studentregistrations"
-          component={ListStudentModuleRegistrations}
-        />
         <Route path="*" component={HomePage} />
       </Switch>
     </div>
