@@ -144,65 +144,6 @@ export const listClasss = /* GraphQL */ `
     }
   }
 `;
-export const getStudent = /* GraphQL */ `
-  query GetStudent($id: ID!) {
-    getStudent(id: $id) {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listStudents = /* GraphQL */ `
-  query ListStudents(
-    $filter: ModelStudentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listStudents(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        studentUsername
-        studentFirstName
-        studentLastName
-        moduleInfo {
-          id
-          moduleShortName
-          moduleName
-          className
-          instructorLastName
-          instructorFirstName
-          createdAt
-          updatedAt
-        }
-        currentClass
-        course
-        school
-        organization
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const getInstructor = /* GraphQL */ `
   query GetInstructor($id: ID!) {
     getInstructor(id: $id) {
@@ -234,10 +175,78 @@ export const listInstructors = /* GraphQL */ `
     }
   }
 `;
+export const getStudent = /* GraphQL */ `
+  query GetStudent($id: ID!) {
+    getStudent(id: $id) {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listStudents = /* GraphQL */ `
+  query ListStudents(
+    $filter: ModelStudentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listStudents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        studentUsername
+        studentFirstName
+        studentLastName
+        moduleInfo {
+          items {
+            id
+            studentId
+            moduleShortName
+            moduleName
+            className
+            instructorLastName
+            instructorFirstName
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        currentClass
+        course
+        school
+        organization
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getModuleInfo = /* GraphQL */ `
   query GetModuleInfo($id: ID!) {
     getModuleInfo(id: $id) {
       id
+      studentId
       moduleShortName
       moduleName
       className
@@ -257,6 +266,7 @@ export const listModuleInfos = /* GraphQL */ `
     listModuleInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        studentId
         moduleShortName
         moduleName
         className

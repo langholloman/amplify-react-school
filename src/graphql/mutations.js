@@ -208,93 +208,6 @@ export const deleteClass = /* GraphQL */ `
     }
   }
 `;
-export const createStudent = /* GraphQL */ `
-  mutation CreateStudent(
-    $input: CreateStudentInput!
-    $condition: ModelStudentConditionInput
-  ) {
-    createStudent(input: $input, condition: $condition) {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateStudent = /* GraphQL */ `
-  mutation UpdateStudent(
-    $input: UpdateStudentInput!
-    $condition: ModelStudentConditionInput
-  ) {
-    updateStudent(input: $input, condition: $condition) {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteStudent = /* GraphQL */ `
-  mutation DeleteStudent(
-    $input: DeleteStudentInput!
-    $condition: ModelStudentConditionInput
-  ) {
-    deleteStudent(input: $input, condition: $condition) {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createInstructor = /* GraphQL */ `
   mutation CreateInstructor(
     $input: CreateInstructorInput!
@@ -340,6 +253,105 @@ export const deleteInstructor = /* GraphQL */ `
     }
   }
 `;
+export const createStudent = /* GraphQL */ `
+  mutation CreateStudent(
+    $input: CreateStudentInput!
+    $condition: ModelStudentConditionInput
+  ) {
+    createStudent(input: $input, condition: $condition) {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateStudent = /* GraphQL */ `
+  mutation UpdateStudent(
+    $input: UpdateStudentInput!
+    $condition: ModelStudentConditionInput
+  ) {
+    updateStudent(input: $input, condition: $condition) {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteStudent = /* GraphQL */ `
+  mutation DeleteStudent(
+    $input: DeleteStudentInput!
+    $condition: ModelStudentConditionInput
+  ) {
+    deleteStudent(input: $input, condition: $condition) {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createModuleInfo = /* GraphQL */ `
   mutation CreateModuleInfo(
     $input: CreateModuleInfoInput!
@@ -347,6 +359,7 @@ export const createModuleInfo = /* GraphQL */ `
   ) {
     createModuleInfo(input: $input, condition: $condition) {
       id
+      studentId
       moduleShortName
       moduleName
       className
@@ -364,6 +377,7 @@ export const updateModuleInfo = /* GraphQL */ `
   ) {
     updateModuleInfo(input: $input, condition: $condition) {
       id
+      studentId
       moduleShortName
       moduleName
       className
@@ -381,6 +395,7 @@ export const deleteModuleInfo = /* GraphQL */ `
   ) {
     deleteModuleInfo(input: $input, condition: $condition) {
       id
+      studentId
       moduleShortName
       moduleName
       className

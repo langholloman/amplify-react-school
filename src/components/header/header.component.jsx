@@ -19,7 +19,7 @@ import "./header.styles.scss";
 const Header = () => {
   return (
     <Box sx={{ flexGrow: 2 }}>
-      <AppBar position="fixed" sx={{ padding: 1 }}>
+      <AppBar position="fixed" sx={{ padding: 1 }} color="primary">
         <Toolbar>
           <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
             JCAC

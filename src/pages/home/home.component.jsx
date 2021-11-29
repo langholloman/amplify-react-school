@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
+import "./networkwire.jpg";
+
 import "./home.styles.scss";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -48,7 +50,7 @@ const HomePage = () => {
           paddingLeft: "7rem",
         }}
       >
-        <Grid item xs={6} style={{ textAlign: "center" }}>
+        <Grid item xs={12} style={{ textAlign: "center" }}>
           <Item>
             <Link
               to="/listStudents"
@@ -69,7 +71,7 @@ const HomePage = () => {
             </Link>
           </Item>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Item>
             <Link
               to="/classes"

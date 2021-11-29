@@ -27,18 +27,6 @@ type Class @model {
   className: String!
 }
 
-type Student @model {
-  id: ID!
-  studentUsername: String
-  studentFirstName: String
-  studentLastName: String
-  moduleInfo: [moduleInfo]
-  currentClass: String
-  course: String
-  school: String
-  organization: String
-}
-
 type Instructor @model {
   id: ID!
   instructorFirstName: String!
@@ -46,8 +34,33 @@ type Instructor @model {
   instructorUsername: String
 }
 
-type moduleInfo @model {
+type Student @model {
   id: ID!
+  studentUsername: String
+  studentFirstName: String
+  studentLastName: String
+  moduleInfo: [moduleInfo] @connection(keyName: "byStudent", fields: ["id"])
+  currentClass: String
+  course: String
+  school: String
+  organization: String
+}
+
+type moduleInfo
+  @model
+  @key(
+    name: "byStudent"
+    fields: [
+      "studentId"
+      "moduleShortName"
+      "moduleName"
+      "className"
+      "instructorLastName"
+      "instructorFirstName"
+    ]
+  ) {
+  id: ID!
+  studentId: ID!
   moduleShortName: String!
   moduleName: String
   className: String

@@ -4,6 +4,9 @@ import React, { Component } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import * as mutations from "../../graphql/mutations";
 
+// UpdateModuleInfo component
+import UpdateModuleInfo from "./updateModuleInfo.component";
+
 // Material UI imports
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -21,18 +24,9 @@ class UpdateStudent extends Component {
     this.state = {
       open: false,
       students: [],
-      studentFirstName: "",
-      studentLastName: "",
-      studentUsername: "",
-      currentClass: "",
-      moduleName: "",
-      moduleShortName: "",
-      moduleInfo: [],
     };
     this.handleChange = this.handleChange.bind(this);
   }
-
-  // Handle change in state
 
   // Handle open and close of dialog
   handleClickOpen = () => {
@@ -40,13 +34,6 @@ class UpdateStudent extends Component {
     this.setState({
       open: true,
       ...this.props.student,
-      /* studentFirstName: this.props.student.studentFirstName,
-      studentLastName: this.props.student.studentLastName,
-      studentUsername: this.props.student.studentUsername,
-      currentClass: this.props.student.currentClass,
-      moduleInfo: this.props.student.moduleInfo,
-      moduleName: this.props.student.moduleInfo?.module?.moduleName,
-      moduleShortName: this.props.student.moduleInfo?.module?.moduleShortName, */
     });
   };
 
@@ -68,28 +55,25 @@ class UpdateStudent extends Component {
         this.state.studentUsername +
         " " +
         this.state.currentClass +
-        this.state.moduleName
     ); */
   };
 
   // handleSubmit function
   handleSubmit = async () => {
-    console.log("Current Student: ", this.props.student);
-    console.log("Current Student: ", this.state);
     const student = {
-      ...this.state,
-      /* studentFirstName: this.state.studentFirstName,
+      id: this.props.student.id,
+      studentFirstName: this.state.studentFirstName,
       studentLastName: this.state.studentLastName,
       studentUsername: this.state.studentUsername,
-      currentClass: this.state.currentClass, */
-      // moduleName: this.state.moduleName,
-      // moduleShortName: this.state.moduleShortName,
+      currentClass: this.state.currentClass,
+      course: this.state.course,
+      school: this.state.school,
+      organization: this.state.organization,
     };
-    console.log("Student: ", student);
     await API.graphql(
       graphqlOperation(mutations.updateStudent, {
         input: {
-          ...this.props.student,
+          ...student,
         },
       })
     );
@@ -170,32 +154,46 @@ class UpdateStudent extends Component {
                 onChange={this.handleChange("currentClass")}
               />
             </Typography>
-
-            {this.props.student.moduleInfo?.map((module) => (
-              <Typography variant="h6" key={module.id}>
-                Module Name:{" "}
-                <TextField
-                  margin="dense"
-                  id="moduleName"
-                  placeholder={module.moduleName}
-                  label={module.moduleName}
-                  type="text"
-                  fullwidth="true"
-                  // value={this.state.moduleName}
-                  onChange={this.handleChange("moduleName")}
-                />
-                <TextField
-                  margin="dense"
-                  id="moduleShortName"
-                  placeholder={module.moduleShortName}
-                  label={module.moduleShortName}
-                  type="text"
-                  fullwidth="true"
-                  // value={this.state.moduleShortName}
-                  onChange={this.handleChange("moduleShortName")}
-                />
-              </Typography>
-            ))}
+            <Typography variant="h6">
+              Course:{" "}
+              <TextField
+                margin="dense"
+                id="course"
+                placeholder={this.props.student.course}
+                label={this.props.student.course}
+                type="text"
+                fullwidth="true"
+                // value={this.state.course}
+                onChange={this.handleChange("course")}
+              />
+            </Typography>
+            <Typography variant="h6">
+              School:{" "}
+              <TextField
+                margin="dense"
+                id="school"
+                placeholder={this.props.student.school}
+                label={this.props.student.school}
+                type="text"
+                fullwidth="true"
+                // value={this.state.school}
+                onChange={this.handleChange("school")}
+              />
+            </Typography>
+            <Typography variant="h6">
+              Organization:{" "}
+              <TextField
+                margin="dense"
+                id="organization"
+                placeholder={this.props.student.organization}
+                label={this.props.student.organization}
+                type="text"
+                fullwidth="true"
+                // value={this.state.organization}
+                onChange={this.handleChange("organization")}
+              />
+            </Typography>
+            <UpdateModuleInfo student={this.props.student} />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

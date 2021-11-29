@@ -163,84 +163,6 @@ export const onDeleteClass = /* GraphQL */ `
     }
   }
 `;
-export const onCreateStudent = /* GraphQL */ `
-  subscription OnCreateStudent {
-    onCreateStudent {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateStudent = /* GraphQL */ `
-  subscription OnUpdateStudent {
-    onUpdateStudent {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteStudent = /* GraphQL */ `
-  subscription OnDeleteStudent {
-    onDeleteStudent {
-      id
-      studentUsername
-      studentFirstName
-      studentLastName
-      moduleInfo {
-        id
-        moduleShortName
-        moduleName
-        className
-        instructorLastName
-        instructorFirstName
-        createdAt
-        updatedAt
-      }
-      currentClass
-      course
-      school
-      organization
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const onCreateInstructor = /* GraphQL */ `
   subscription OnCreateInstructor {
     onCreateInstructor {
@@ -277,10 +199,101 @@ export const onDeleteInstructor = /* GraphQL */ `
     }
   }
 `;
+export const onCreateStudent = /* GraphQL */ `
+  subscription OnCreateStudent {
+    onCreateStudent {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateStudent = /* GraphQL */ `
+  subscription OnUpdateStudent {
+    onUpdateStudent {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteStudent = /* GraphQL */ `
+  subscription OnDeleteStudent {
+    onDeleteStudent {
+      id
+      studentUsername
+      studentFirstName
+      studentLastName
+      moduleInfo {
+        items {
+          id
+          studentId
+          moduleShortName
+          moduleName
+          className
+          instructorLastName
+          instructorFirstName
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      currentClass
+      course
+      school
+      organization
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateModuleInfo = /* GraphQL */ `
   subscription OnCreateModuleInfo {
     onCreateModuleInfo {
       id
+      studentId
       moduleShortName
       moduleName
       className
@@ -295,6 +308,7 @@ export const onUpdateModuleInfo = /* GraphQL */ `
   subscription OnUpdateModuleInfo {
     onUpdateModuleInfo {
       id
+      studentId
       moduleShortName
       moduleName
       className
@@ -309,6 +323,7 @@ export const onDeleteModuleInfo = /* GraphQL */ `
   subscription OnDeleteModuleInfo {
     onDeleteModuleInfo {
       id
+      studentId
       moduleShortName
       moduleName
       className
