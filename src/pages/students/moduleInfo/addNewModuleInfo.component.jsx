@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 // AWS Amplify imports for GraphQL and API calls to DynamoDB and mutations
 import { API, graphqlOperation } from "aws-amplify";
-import * as mutations from "../../graphql/mutations";
-import * as queries from "../../graphql/queries";
+import * as mutations from "../../../graphql/mutations";
+import * as queries from "../../../graphql/queries";
 
 // Material UI imports
 import TextField from "@mui/material/TextField";

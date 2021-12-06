@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 // AWS Amplify imports for GraphQL and API calls to DynamoDB and mutations
 import { API, graphqlOperation } from "aws-amplify";
-import * as mutations from "../../graphql/mutations";
-import * as queries from "../../graphql/queries";
+import * as mutations from "../../../graphql/mutations";
+import * as queries from "../../../graphql/queries";
 import {
   onCreateModuleInfo,
   onUpdateModuleInfo,
   onDeleteModuleInfo,
-} from "../../graphql/subscriptions";
+} from "../../../graphql/subscriptions";
 
 // AddNewModuleInfo component
 import AddNewModuleInfo from "./addNewModuleInfo.component";

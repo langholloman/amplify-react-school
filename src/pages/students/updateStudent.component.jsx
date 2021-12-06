@@ -5,7 +5,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import * as mutations from "../../graphql/mutations";
 
 // UpdateModuleInfo component
-import UpdateModuleInfo from "./updateModuleInfo.component";
+import UpdateModuleInfo from "./moduleInfo/updateModuleInfo.component";
 
 // Material UI imports
 import TextField from "@mui/material/TextField";

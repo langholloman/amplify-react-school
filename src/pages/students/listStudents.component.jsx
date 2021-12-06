@@ -16,7 +16,7 @@ import StudentsNavbar from "./studentsNavbar.component";
 // Update Student Component
 import UpdateStudent from "./updateStudent.component";
 // Update Module Info Component
-import UpdateModuleInfo from "./updateModuleInfo.component";
+import UpdateModuleInfo from "./moduleInfo/updateModuleInfo.component";
 // Delete Student Component
 import DeleteStudent from "./deleteStudent.component";
 
@@ -53,7 +53,7 @@ const styles = {
   },
   root: {
     flexGrow: 1,
-    marginTop: "4rem",
+    marginTop: "3rem",
     padding: "2rem",
     backgroundcolor: "white",
   },
@@ -71,7 +71,19 @@ class ListStudents extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true });
     const students = await API.graphql(graphqlOperation(queries.listStudents));
-    this.setState({ students: students.data.listStudents.items });
+    // sort students by currentClass
+
+    this.setState({
+      students: students.data.listStudents.items.sort((a, b) => {
+        if (a.currentClass < b.currentClass) {
+          return 1;
+        }
+        if (a.currentClass > b.currentClass) {
+          return -1;
+        }
+        return 0;
+      }),
+    });
     console.log("Students: ", students);
 
     this.setState({ isLoading: false });
@@ -130,28 +142,16 @@ class ListStudents extends Component {
   }
 
   // filterStudents that returns a list of students that match the search query for student moduleInfo currentClass
-  filterStudentsByClass(students, searchQuery) {
-    return students.filter((student) => {
-      return student.currentClass?.toLowerCase().includes(searchQuery);
-    });
-  }
-
-  filterStudentsByLastName(students, searchQuery) {
+  filterStudents(students, searchQuery) {
     return students.filter((student) => {
       return (
-        student.studentLastName?.toLowerCase().includes(searchQuery) ||
-        student.studentLastName?.includes(searchQuery)
+        student.currentClass?.toLowerCase().includes(searchQuery) ||
+        student.studentLastName?.toLowerCase().includes(searchQuery)
       );
     });
   }
 
   handleChangeClass(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  handleChangeStudentLastName(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -170,119 +170,61 @@ class ListStudents extends Component {
         <StudentsNavbar />
         <Grid container spacing={2}>
           <Grid
-            item
-            xs={6}
+            item={true}
+            xs={12}
             style={{
               marginTop: "2rem",
             }}
           >
             <TextField
               id="search-students"
-              label="Search by Current Class"
+              label="Search by Current Class or Last Name"
               type="search"
               name="searchQuery"
               variant="outlined"
               onChange={(event) => this.handleChangeClass(event)}
               style={{
-                width: "15rem",
+                width: "30rem",
                 marginBottom: "2rem",
               }}
             />
           </Grid>
-          <Grid
-            item
-            xs={6}
-            style={{
-              marginTop: "2rem",
-            }}
-          >
-            <TextField
-              id="search-students"
-              label="Search by Student Last Name"
-              type="search"
-              name="searchQuery"
-              variant="outlined"
-              onChange={(event) => this.handleChangeStudentLastName(event)}
-              style={{
-                width: "20rem",
-                marginBottom: "2rem",
-              }}
-            />
-          </Grid>
-          {this.filterStudentsByClass(
-            this.state.students,
-            this.state.searchQuery
-          ).map((student) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={student.id}>
-              <Card className={classes.card}>
-                <CardActions item xs={6}>
-                  <UpdateStudent student={student} />
-                </CardActions>
-                <CardContent>
-                  <Typography className={classes.studentName}>
-                    {student.studentFirstName} {student.studentLastName}
-                  </Typography>
-                  <Typography className={classes.username}>
-                    {student.studentUsername}
-                  </Typography>
-                  <Typography className={classes.username}>
-                    {student.currentClass}
-                  </Typography>
-                </CardContent>
-                <CardActions
-                  style={{
-                    justifyContent: "center",
-                  }}
-                >
-                  <UpdateModuleInfo student={student} />
-                </CardActions>
-                <CardActions
-                  style={{
-                    justifyContent: "right",
-                  }}
-                >
-                  <DeleteStudent student={student} />
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-          {this.filterStudentsByLastName(
-            this.state.students,
-            this.state.searchQuery
-          ).map((student) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={student.id}>
-              <Card className={classes.card}>
-                <CardActions item xs={6}>
-                  <UpdateStudent student={student} />
-                </CardActions>
-                <CardContent>
-                  <Typography className={classes.studentName}>
-                    {student.studentFirstName} {student.studentLastName}
-                  </Typography>
-                  <Typography className={classes.username}>
-                    {student.studentUsername}
-                  </Typography>
-                  <Typography className={classes.username}>
-                    {student.currentClass}
-                  </Typography>
-                </CardContent>
-                <CardActions
-                  style={{
-                    justifyContent: "center",
-                  }}
-                >
-                  <UpdateModuleInfo student={student} />
-                </CardActions>
-                <CardActions
-                  style={{
-                    justifyContent: "right",
-                  }}
-                >
-                  <DeleteStudent student={student} />
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
+          {this.filterStudents(this.state.students, this.state.searchQuery).map(
+            (student) => (
+              <Grid item={true} xs={12} sm={6} md={4} lg={3} key={student.id}>
+                <Card className={classes.card}>
+                  <CardActions>
+                    <UpdateStudent student={student} />
+                  </CardActions>
+                  <CardContent>
+                    <Typography className={classes.studentName}>
+                      {student.studentFirstName} {student.studentLastName}
+                    </Typography>
+                    <Typography className={classes.username}>
+                      {student.studentUsername}
+                    </Typography>
+                    <Typography className={classes.username}>
+                      {student.currentClass}
+                    </Typography>
+                  </CardContent>
+                  <CardActions
+                    style={{
+                      justifyContent: "center",
+                    }}
+                  >
+                    <UpdateModuleInfo student={student} />
+                  </CardActions>
+                  <CardActions
+                    style={{
+                      justifyContent: "right",
+                    }}
+                  >
+                    <DeleteStudent student={student} />
+                  </CardActions>
+                </Card>
+              </Grid>
+            )
+          )}
         </Grid>
       </div>
     );
