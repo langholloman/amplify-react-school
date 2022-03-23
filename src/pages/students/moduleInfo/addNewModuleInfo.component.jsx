@@ -79,7 +79,11 @@ class AddNewModuleInfo extends Component {
 
   async componentWillUnmount() {
     console.log("AddNewModuleInfo componentWillUnmount");
-    this.isCancelled = true;
+    this.setState({
+      open: false,
+      moduleInfos: [],
+    });
+    console.log("AddNewModuleInfo componentWillUnmount", this.state.moduleInfo);
   }
 
   render() {

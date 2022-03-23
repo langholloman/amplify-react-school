@@ -41,7 +41,10 @@ class UpdateModuleInfo extends Component {
 
   // Handle the click of the edit button
   handleClickOpen = () => {
-    console.log("Current Student in moduleInfo: ", this.props.student);
+    console.log(
+      "Click Open Current Student in moduleInfo: ",
+      this.props.student
+    );
     this.setState({
       open: true,
       ...this.props.moduleInfos,
@@ -60,7 +63,11 @@ class UpdateModuleInfo extends Component {
       (item) => item.studentId === this.props.student?.id
     );
     this.setState({
-      moduleInfos: filteredModuleInfo,
+      // sort moduleInfo array by moduleShortName
+      moduleInfos: filteredModuleInfo.sort((a, b) =>
+        a.moduleShortName > b.moduleShortName ? 1 : -1
+      ),
+      // moduleInfos: filteredModuleInfo,
     });
 
     this.subscription = API.graphql(
@@ -83,7 +90,16 @@ class UpdateModuleInfo extends Component {
     });
   };
 
-  // Handle the close of the dialog
+  // unmount component to unsubscribe from the subscription, clear the state, and close the dialog
+  componentWillUnmount() {
+    this.subscription.unsubscribe();
+    this.setState({
+      open: false,
+      moduleInfos: [],
+    });
+    console.log("unmount moduleInfos: ", this.state.moduleInfos);
+  }
+
   handleClose = () => {
     this.setState({ open: false });
   };

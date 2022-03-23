@@ -70,9 +70,16 @@ class ListStudents extends Component {
 
   async componentDidMount() {
     this.setState({ isLoading: true });
-    const students = await API.graphql(graphqlOperation(queries.listStudents));
-    // sort students by currentClass
+    // Get all students from the database with paging and sorting options (default) and store in state as students and set nextToken
+    const students = await API.graphql(
+      graphqlOperation(queries.listStudents, {
+        // limit: 10,
+        sortDirection: "ASC",
+        nextToken: this.state.nextToken,
+      })
+    );
 
+    // sort students by currentClass
     this.setState({
       students: students.data.listStudents.items.sort((a, b) => {
         if (a.currentClass < b.currentClass) {
@@ -83,6 +90,7 @@ class ListStudents extends Component {
         }
         return 0;
       }),
+      isLoading: false,
     });
     console.log("Students: ", students);
 
