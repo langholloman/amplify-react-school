@@ -95,7 +95,7 @@ const HomePage = () => {
         <Grid item xs={6}>
           <Item>
             <Link
-              to="/instructors"
+              to="/listInstructors"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div>

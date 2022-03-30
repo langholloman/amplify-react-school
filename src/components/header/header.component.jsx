@@ -22,7 +22,7 @@ const Header = () => {
       <AppBar position="fixed" sx={{ padding: 1 }} color="primary">
         <Toolbar>
           <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-            JCAC
+            Galaxy
           </Typography>
           <MenuItem
             component={Link}
@@ -50,6 +50,15 @@ const Header = () => {
           >
             <GroupIcon />
             Classes
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            to="/listInstructors"
+            sx={{ flexGrow: 0, mr: 2 }}
+            color="inherit"
+          >
+            <PersonIcon />
+            Instructors
           </MenuItem>
           <MenuItem
             component={Link}

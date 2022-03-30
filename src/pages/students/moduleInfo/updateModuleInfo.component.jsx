@@ -2,19 +2,19 @@ import React, { Component } from "react";
 
 // AWS Amplify imports for GraphQL and API calls to DynamoDB and mutations
 import { API, graphqlOperation } from "aws-amplify";
-import * as mutations from "../../../graphql/mutations";
+// import * as mutations from "../../../graphql/mutations";
 import * as queries from "../../../graphql/queries";
 import {
   onCreateModuleInfo,
-  onUpdateModuleInfo,
-  onDeleteModuleInfo,
+  // onUpdateModuleInfo,
+  // onDeleteModuleInfo,
 } from "../../../graphql/subscriptions";
 
 // AddNewModuleInfo component
 import AddNewModuleInfo from "./addNewModuleInfo.component";
 
 // Material UI imports
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";

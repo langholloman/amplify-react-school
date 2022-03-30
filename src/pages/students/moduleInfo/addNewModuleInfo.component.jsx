@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // AWS Amplify imports for GraphQL and API calls to DynamoDB and mutations
 import { API, graphqlOperation } from "aws-amplify";
 import * as mutations from "../../../graphql/mutations";
-import * as queries from "../../../graphql/queries";
+// import * as queries from "../../../graphql/queries";
 
 // Material UI imports
 import TextField from "@mui/material/TextField";
@@ -13,7 +13,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+// import { Typography } from "@mui/material";
 
 // Create AddNewModuleInfo class component
 class AddNewModuleInfo extends Component {
