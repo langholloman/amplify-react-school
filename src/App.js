@@ -22,7 +22,7 @@ import ListStudents from "./pages/students/listStudents.component";
 import Classes from "./pages/classes/classes.component";
 
 // Instructors component
-import ListInstructors from "./pages/instructors/getInstructors.component";
+import ListInstructors from "./pages/instructors/listInstructors.component";
 // <Route path="/listInstructors" component={ListInstructors} />;
 
 // Instructors component

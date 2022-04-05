@@ -29,9 +29,10 @@ type Class @model {
 
 type Instructor @model {
   id: ID!
-  instructorFirstName: String!
+  instructorFirstName: String
   instructorLastName: String
   instructorUsername: String
+  role: String
 }
 
 type Student @model {
@@ -44,6 +45,8 @@ type Student @model {
   course: String
   school: String
   organization: String
+  rateRank: String
+  newAssession: Boolean
 }
 
 type moduleInfo
@@ -57,6 +60,10 @@ type moduleInfo
       "className"
       "instructorLastName"
       "instructorFirstName"
+      "examGrade"
+      "examDate"
+      "examType"
+      "examEvent"
     ]
   ) {
   id: ID!
@@ -66,4 +73,8 @@ type moduleInfo
   className: String
   instructorLastName: String
   instructorFirstName: String
+  examGrade: Int
+  examDate: AWSDate
+  examType: String
+  examEvent: String
 }

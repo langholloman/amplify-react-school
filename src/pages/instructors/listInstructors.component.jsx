@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+// import PropTypes from "prop-types";
 
 // AWS Amplify and GraphQL API and Mutations
-import { a, API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 import * as queries from "../../graphql/queries";
 import * as mutations from "../../graphql/mutations";
 import {
@@ -11,132 +11,290 @@ import {
   onDeleteInstructor,
 } from "../../graphql/subscriptions";
 
-// Instructors Navbar Component
-import InstructorsNavbar from "./instructorsNavbar.component";
-// Update Instructor Component
-import UpdateInstructor from "./updateInstructor.component";
-// Delete Instructor Component
-import DeleteInstructor from "./deleteInstructor.component";
+import AddInstructor from "./addInstructor.component";
 
 // @mui Data Grid Pro and Material UI
-import { DataGridPro } from "@mui/x-data-grid-pro";
-import { useDemoData } from "@mui/x-data-grid-generator";
+import {
+  DataGridPro,
+  GridToolbar,
+  useGridApiRef,
+  // GridToolbarContainer,
+  GridActionsCellItem,
+} from "@mui/x-data-grid-pro";
+import Box from "@mui/material/Box";
+// import Button from "@mui/material/Button";
+// import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+// import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import SaveIcon from "@mui/icons-material/Save";
+import CancelIcon from "@mui/icons-material/Close";
 
-class ListInstructors extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      instructors: [],
-      isLoading: true,
-    };
-  }
+// Process DataGridPro row update for Instructor
+function ProcessInstructorUpdate(row) {
+  const { id, instructorFirstName, instructorLastName, instructorUsername } =
+    row;
+  const input = {
+    id,
+    instructorFirstName,
+    instructorLastName,
+    instructorUsername,
+  };
+  return (
+    API.graphql(graphqlOperation(mutations.updateInstructor, { input })) &&
+    row && { ...row, isNew: false }
+  );
+}
 
-  // Get all instructors from API
-  async componentDidMount() {
-    this.setState({ isLoading: true });
+// List of all instructors
+const ListInstructors = () => {
+  const [instructors, setInstructors] = useState([]);
+  const [nextToken, setNextToken] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [tableData, setTableData] = useState([]);
+  const [pageSize, setPageSize] = useState(20);
+
+  useEffect(() => {
     // Get all instructors from the database with paging and sorting options (default) and store in state as instructors and set nextToken
-    const instructors = await API.graphql(
-      graphqlOperation(queries.listInstructors, {
-        // limit: 10,
-        sortDirection: "ASC",
-        nextToken: this.state.nextToken,
-      })
-    );
-    const data = instructors;
-    this.setState({
-      instructors: instructors.data.listInstructors.items,
-      nextToken: instructors.data.listInstructors.nextToken,
-      data: instructors.data.listInstructors.items,
-      isLoading: false,
+
+    const fetchData = async () => {
+      const instructors = await API.graphql(
+        graphqlOperation(queries.listInstructors, {
+          // limit: 10,
+          // order by last name
+          sortDirection: "ASC",
+          sortField: "instructorLastName",
+          nextToken: nextToken,
+        })
+      );
+      setInstructors(instructors.data.listInstructors.items);
+      setNextToken(instructors.data.listInstructors.nextToken);
+      setTableData(instructors.data.listInstructors.items);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [nextToken, isLoading]);
+
+  console.log("instructors", instructors);
+  console.log("tableData", tableData);
+
+  // Update the tableData state when a new instructor is created
+  useEffect(() => {
+    const subscription = API.graphql(
+      graphqlOperation(onCreateInstructor)
+    ).subscribe({
+      next: (eventData) => {
+        const instructor = eventData.value.data.onCreateInstructor;
+        const updatedInstructors = [...instructors, instructor];
+        setInstructors(updatedInstructors);
+        setTableData(updatedInstructors);
+      },
+    });
+    return () => subscription.unsubscribe();
+  }, [instructors]);
+
+  // Update the tableData state when an instructor is updated
+  useEffect(() => {
+    const subscription = API.graphql(
+      graphqlOperation(onUpdateInstructor)
+    ).subscribe({
+      next: (eventData) => {
+        const instructor = eventData.value.data.onUpdateInstructor;
+        const updatedInstructors = instructors.map((i) =>
+          i.id === instructor.id ? instructor : i
+        );
+        setInstructors(updatedInstructors);
+        setTableData(updatedInstructors);
+      },
     });
 
-    // data equals useDemoData(instructors.data.listInstructors.items)
+    return () => subscription.unsubscribe();
+  }, [instructors]);
 
-    /* const data = useDemoData({
-      dataSet: "instructors",
-      rowLength: 10,
-      editable: true,
-      onRowUpdate: (rowData) => {
-        console.log("Row updated", rowData);
+  // Update the tableData state when an instructor is deleted
+  useEffect(() => {
+    const subscription = API.graphql(
+      graphqlOperation(onDeleteInstructor)
+    ).subscribe({
+      next: (eventData) => {
+        const instructor = eventData.value.data.onDeleteInstructor;
+        const updatedInstructors = instructors.filter(
+          (i) => i.id !== instructor.id
+        );
+        setInstructors(updatedInstructors);
+        setTableData(updatedInstructors);
       },
-    }); */
-    console.log("Instructors: ", instructors);
-    console.log("Data: ", data);
-  }
+    });
+    return () => subscription.unsubscribe();
+  }, [instructors]);
 
-  render() {
-    const { data, isLoading } = this.state;
-    return (
-      <div>
-        <InstructorsNavbar />
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">Instructors</h3>
-                </div>
-                <div className="card-body">
-                  {isLoading ? (
-                    <div className="text-center">
-                      <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div style={{ height: 520, width: 900, paddingLeft: 50 }}>
-                      <DataGridPro
-                        data={data}
-                        rows={10}
-                        columns={[
-                          {
-                            field: "id",
-                            header: "ID",
-                            sortable: true,
-                            width: 30,
-                          },
-                          {
-                            field: "instructorFirstName",
-                            header: "First Name",
-                            sortable: true,
-                            width: 200,
-                          },
-                          {
-                            field: "instructorLastName",
-                            header: "Last Name",
-                            sortable: true,
-                            width: 200,
-                          },
-                          {
-                            field: "instructorUsername",
-                            header: "Username",
-                            sortable: true,
-                            width: 200,
-                          },
-                          {
-                            field: "edit",
-                            header: "Edit",
-                            sortable: false,
-                            width: 30,
-                          },
-                          {
-                            field: "delete",
-                            header: "Delete",
-                            sortable: false,
-                            width: 50,
-                          },
-                        ]}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  const apiRef = useGridApiRef();
+
+  const handleRowEditStart = (params, event) => {
+    event.defaultMuiPrevented = true;
+  };
+
+  const handleRowEditStop = (params, event) => {
+    event.defaultMuiPrevented = true;
+  };
+
+  const handleEditClick = (id) => (event) => {
+    event.stopPropagation();
+    apiRef.current.startRowEditMode({ id });
+  };
+
+  const handleSaveClick = (id) => async (event) => {
+    event.stopPropagation();
+    await apiRef.current.stopRowEditMode({ id });
+  };
+
+  /*   const handleDeleteClick = (id) => (event) => {
+    event.stopPropagation();
+    apiRef.current.updateRows([{ id, _action: "delete" }]);
+  }; */
+
+  const handleCancelClick = (id) => async (event) => {
+    event.stopPropagation();
+    await apiRef.current.stopRowEditMode({ id, ignoreModifications: true });
+
+    const row = apiRef.current.getRow(id);
+    if (row.isNew) {
+      apiRef.current.updateRows([{ id, _action: "delete" }]);
+    }
+  };
+
+  const columns = [
+    //  { field: "id", headerName: "ID", width: 100 },
+    {
+      field: "id",
+      headerName: "ID",
+      width: 10,
+      editable: false,
+    },
+    {
+      field: "instructorFirstName",
+      headerName: "First Name",
+      width: 100,
+      editable: true,
+    },
+    {
+      field: "instructorLastName",
+      headerName: "Last Name",
+      width: 200,
+      editable: true,
+    },
+    {
+      field: "instructorUsername",
+      headerName: "Username",
+      width: 250,
+      editable: true,
+    },
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "Actions",
+      width: 100,
+      cellClassName: "actions",
+      getActions: ({ id }) => {
+        const isInEditMode = apiRef.current.getRowMode(id) === "edit";
+
+        if (isInEditMode) {
+          return [
+            <GridActionsCellItem
+              icon={<SaveIcon />}
+              label="Save"
+              onClick={handleSaveClick(id)}
+              color="primary"
+            />,
+            <GridActionsCellItem
+              icon={<CancelIcon />}
+              label="Cancel"
+              className="textPrimary"
+              onClick={handleCancelClick(id)}
+              color="inherit"
+            />,
+          ];
+        }
+
+        return [
+          <GridActionsCellItem
+            icon={<EditIcon />}
+            label="Edit"
+            className="textPrimary"
+            onClick={handleEditClick(id)}
+            color="inherit"
+          />,
+          /* <GridActionsCellItem
+            icon={<DeleteIcon />}
+            label="Delete"
+            onClick={handleDeleteClick(id)}
+            color="inherit"
+          />, */
+        ];
+      },
+    },
+  ];
+
+  return (
+    <div
+      style={{
+        height: 700,
+        width: "90%",
+        paddingTop: 150,
+        paddingBottom: 50,
+        margin: "auto",
+      }}
+    >
+      <div
+        style={{
+          marginBottom: 20,
+          position: "absolute",
+          right: 95,
+          top: 100,
+        }}
+      >
+        <AddInstructor />
       </div>
-    );
-  }
-}
+      <Box
+        sx={{
+          height: "90%",
+          width: "100%",
+          "& .actions": {
+            color: "text.secondary",
+          },
+          "& .textPrimary": {
+            color: "text.primary",
+          },
+        }}
+      >
+        <DataGridPro
+          rows={tableData}
+          getRowId={(row) => row.id}
+          columns={columns}
+          apiRef={apiRef}
+          editMode="row"
+          onRowEditStart={handleRowEditStart}
+          onRowEditStop={handleRowEditStop}
+          processRowUpdate={ProcessInstructorUpdate}
+          isLoading={isLoading}
+          onGridReady={(api) => {
+            api.sizeColumnsToFit();
+          }}
+          components={{
+            Toolbar: GridToolbar,
+          }}
+          pageSize={pageSize}
+          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+          rowsPerPageOptions={[5, 10, 20, 50, 100]}
+          pagination
+          experimentalFeatures={{
+            newEditingApi: true,
+            rowGrouping: true,
+            warnIfFocusStateIsNotSynced: true,
+          }}
+        />
+      </Box>
+    </div>
+  );
+};
 
 export default ListInstructors;
