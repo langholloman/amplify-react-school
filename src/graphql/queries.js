@@ -151,6 +151,7 @@ export const getInstructor = /* GraphQL */ `
       instructorFirstName
       instructorLastName
       instructorUsername
+      role
       createdAt
       updatedAt
     }
@@ -168,6 +169,7 @@ export const listInstructors = /* GraphQL */ `
         instructorFirstName
         instructorLastName
         instructorUsername
+        role
         createdAt
         updatedAt
       }
@@ -191,6 +193,10 @@ export const getStudent = /* GraphQL */ `
           className
           instructorLastName
           instructorFirstName
+          examGrade
+          examDate
+          examType
+          examEvent
           createdAt
           updatedAt
         }
@@ -200,6 +206,8 @@ export const getStudent = /* GraphQL */ `
       course
       school
       organization
+      rateRank
+      newAssession
       createdAt
       updatedAt
     }
@@ -218,23 +226,14 @@ export const listStudents = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
-          items {
-            id
-            studentId
-            moduleShortName
-            moduleName
-            className
-            instructorLastName
-            instructorFirstName
-            createdAt
-            updatedAt
-          }
           nextToken
         }
         currentClass
         course
         school
         organization
+        rateRank
+        newAssession
         createdAt
         updatedAt
       }
@@ -252,6 +251,10 @@ export const getModuleInfo = /* GraphQL */ `
       className
       instructorLastName
       instructorFirstName
+      examGrade
+      examDate
+      examType
+      examEvent
       createdAt
       updatedAt
     }
@@ -272,6 +275,10 @@ export const listModuleInfos = /* GraphQL */ `
         className
         instructorLastName
         instructorFirstName
+        examGrade
+        examDate
+        examType
+        examEvent
         createdAt
         updatedAt
       }

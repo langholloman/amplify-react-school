@@ -11,7 +11,8 @@ import {
   onDeleteInstructor,
 } from "../../graphql/subscriptions";
 
-import AddInstructor from "./addInstructor.component";
+// import AddInstructor from "./addInstructor.component";
+import InstructorsNavbar from "./instructorsNavbar.component";
 
 // @mui Data Grid Pro and Material UI
 import {
@@ -28,16 +29,23 @@ import EditIcon from "@mui/icons-material/Edit";
 // import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
+import LinearProgress from "@mui/material/LinearProgress";
 
 // Process DataGridPro row update for Instructor
 function ProcessInstructorUpdate(row) {
-  const { id, instructorFirstName, instructorLastName, instructorUsername } =
-    row;
+  const {
+    id,
+    instructorFirstName,
+    instructorLastName,
+    instructorUsername,
+    role,
+  } = row;
   const input = {
     id,
     instructorFirstName,
     instructorLastName,
     instructorUsername,
+    role,
   };
   return (
     API.graphql(graphqlOperation(mutations.updateInstructor, { input })) &&
@@ -189,6 +197,14 @@ const ListInstructors = () => {
       editable: true,
     },
     {
+      field: "role",
+      headerName: "Role",
+      type: "singleSelect",
+      valueOptions: ["ADMIN", "PMO", "SME", "INSTRUCTOR", "MO"],
+      width: 150,
+      editable: true,
+    },
+    {
       field: "actions",
       type: "actions",
       headerName: "Actions",
@@ -239,20 +255,17 @@ const ListInstructors = () => {
       style={{
         height: 700,
         width: "90%",
-        paddingTop: 150,
-        paddingBottom: 50,
+        paddingTop: 100,
+        paddingBottom: 100,
         margin: "auto",
       }}
     >
       <div
         style={{
-          marginBottom: 20,
-          position: "absolute",
-          right: 95,
-          top: 100,
+          paddingBottom: 20,
         }}
       >
-        <AddInstructor />
+        <InstructorsNavbar />
       </div>
       <Box
         sx={{
@@ -275,13 +288,14 @@ const ListInstructors = () => {
           onRowEditStart={handleRowEditStart}
           onRowEditStop={handleRowEditStop}
           processRowUpdate={ProcessInstructorUpdate}
-          isLoading={isLoading}
           onGridReady={(api) => {
             api.sizeColumnsToFit();
           }}
           components={{
             Toolbar: GridToolbar,
+            LoadingOverlay: LinearProgress,
           }}
+          loading={isLoading}
           pageSize={pageSize}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20, 50, 100]}

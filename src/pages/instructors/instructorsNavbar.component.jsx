@@ -18,7 +18,7 @@ const styles = (theme) => ({
   grow: {
     flexGrow: 1,
     justifyContent: "left",
-    color: "#555555",
+    color: "#767676",
   },
 });
 

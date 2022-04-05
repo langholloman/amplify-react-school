@@ -170,6 +170,7 @@ export const onCreateInstructor = /* GraphQL */ `
       instructorFirstName
       instructorLastName
       instructorUsername
+      role
       createdAt
       updatedAt
     }
@@ -182,6 +183,7 @@ export const onUpdateInstructor = /* GraphQL */ `
       instructorFirstName
       instructorLastName
       instructorUsername
+      role
       createdAt
       updatedAt
     }
@@ -194,6 +196,7 @@ export const onDeleteInstructor = /* GraphQL */ `
       instructorFirstName
       instructorLastName
       instructorUsername
+      role
       createdAt
       updatedAt
     }
@@ -215,6 +218,10 @@ export const onCreateStudent = /* GraphQL */ `
           className
           instructorLastName
           instructorFirstName
+          examGrade
+          examDate
+          examType
+          examEvent
           createdAt
           updatedAt
         }
@@ -224,6 +231,8 @@ export const onCreateStudent = /* GraphQL */ `
       course
       school
       organization
+      rateRank
+      newAssession
       createdAt
       updatedAt
     }
@@ -245,6 +254,10 @@ export const onUpdateStudent = /* GraphQL */ `
           className
           instructorLastName
           instructorFirstName
+          examGrade
+          examDate
+          examType
+          examEvent
           createdAt
           updatedAt
         }
@@ -254,6 +267,8 @@ export const onUpdateStudent = /* GraphQL */ `
       course
       school
       organization
+      rateRank
+      newAssession
       createdAt
       updatedAt
     }
@@ -275,6 +290,10 @@ export const onDeleteStudent = /* GraphQL */ `
           className
           instructorLastName
           instructorFirstName
+          examGrade
+          examDate
+          examType
+          examEvent
           createdAt
           updatedAt
         }
@@ -284,6 +303,8 @@ export const onDeleteStudent = /* GraphQL */ `
       course
       school
       organization
+      rateRank
+      newAssession
       createdAt
       updatedAt
     }
@@ -299,6 +320,10 @@ export const onCreateModuleInfo = /* GraphQL */ `
       className
       instructorLastName
       instructorFirstName
+      examGrade
+      examDate
+      examType
+      examEvent
       createdAt
       updatedAt
     }
@@ -314,6 +339,10 @@ export const onUpdateModuleInfo = /* GraphQL */ `
       className
       instructorLastName
       instructorFirstName
+      examGrade
+      examDate
+      examType
+      examEvent
       createdAt
       updatedAt
     }
@@ -329,6 +358,10 @@ export const onDeleteModuleInfo = /* GraphQL */ `
       className
       instructorLastName
       instructorFirstName
+      examGrade
+      examDate
+      examType
+      examEvent
       createdAt
       updatedAt
     }
