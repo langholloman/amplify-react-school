@@ -133,11 +133,66 @@ export const onDeleteModule = /* GraphQL */ `
     }
   }
 `;
+export const onCreateModuleTest = /* GraphQL */ `
+  subscription OnCreateModuleTest {
+    onCreateModuleTest {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateModuleTest = /* GraphQL */ `
+  subscription OnUpdateModuleTest {
+    onUpdateModuleTest {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteModuleTest = /* GraphQL */ `
+  subscription OnDeleteModuleTest {
+    onDeleteModuleTest {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateClass = /* GraphQL */ `
   subscription OnCreateClass {
     onCreateClass {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -148,6 +203,19 @@ export const onUpdateClass = /* GraphQL */ `
     onUpdateClass {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -158,6 +226,124 @@ export const onDeleteClass = /* GraphQL */ `
     onDeleteClass {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateClassInfo = /* GraphQL */ `
+  subscription OnCreateClassInfo {
+    onCreateClassInfo {
+      id
+      classID
+      instructorID
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        classes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateClassInfo = /* GraphQL */ `
+  subscription OnUpdateClassInfo {
+    onUpdateClassInfo {
+      id
+      classID
+      instructorID
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        classes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteClassInfo = /* GraphQL */ `
+  subscription OnDeleteClassInfo {
+    onDeleteClassInfo {
+      id
+      classID
+      instructorID
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        classes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -171,6 +357,16 @@ export const onCreateInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -184,6 +380,16 @@ export const onUpdateInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -197,6 +403,16 @@ export const onDeleteInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -228,6 +444,8 @@ export const onCreateStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization
@@ -264,6 +482,8 @@ export const onUpdateStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization
@@ -300,6 +520,8 @@ export const onDeleteStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization

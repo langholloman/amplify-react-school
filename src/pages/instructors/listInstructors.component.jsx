@@ -23,10 +23,8 @@ import {
   GridActionsCellItem,
 } from "@mui/x-data-grid-pro";
 import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
-// import AddIcon from "@mui/icons-material/Add";
+
 import EditIcon from "@mui/icons-material/Edit";
-// import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 import LinearProgress from "@mui/material/LinearProgress";
@@ -52,6 +50,8 @@ function ProcessInstructorUpdate(row) {
     row && { ...row, isNew: false }
   );
 }
+
+const INITIAL_GROUPING_COLUMN_MODEL = ["role"];
 
 // List of all instructors
 const ListInstructors = () => {
@@ -152,7 +152,7 @@ const ListInstructors = () => {
 
   const handleSaveClick = (id) => async (event) => {
     event.stopPropagation();
-    await apiRef.current.stopRowEditMode({ id });
+    apiRef.current.stopRowEditMode({ id });
   };
 
   /*   const handleDeleteClick = (id) => (event) => {
@@ -162,7 +162,7 @@ const ListInstructors = () => {
 
   const handleCancelClick = (id) => async (event) => {
     event.stopPropagation();
-    await apiRef.current.stopRowEditMode({ id, ignoreModifications: true });
+    apiRef.current.stopRowEditMode({ id, ignoreModifications: true });
 
     const row = apiRef.current.getRow(id);
     if (row.isNew) {
@@ -172,12 +172,12 @@ const ListInstructors = () => {
 
   const columns = [
     //  { field: "id", headerName: "ID", width: 100 },
-    {
+    /* {
       field: "id",
       headerName: "ID",
       width: 10,
       editable: false,
-    },
+    }, */
     {
       field: "instructorFirstName",
       headerName: "First Name",
@@ -284,6 +284,12 @@ const ListInstructors = () => {
           getRowId={(row) => row.id}
           columns={columns}
           apiRef={apiRef}
+          rowGroupingColumnMode="single"
+          initialState={{
+            rowGrouping: {
+              model: INITIAL_GROUPING_COLUMN_MODEL,
+            },
+          }}
           editMode="row"
           onRowEditStart={handleRowEditStart}
           onRowEditStop={handleRowEditStop}
@@ -303,7 +309,7 @@ const ListInstructors = () => {
           experimentalFeatures={{
             newEditingApi: true,
             rowGrouping: true,
-            warnIfFocusStateIsNotSynced: true,
+            // warnIfFocusStateIsNotSynced: true,
           }}
         />
       </Box>

@@ -1,40 +1,76 @@
+# Galaxy DB Schema
+
+# Organization Model
 type Organization @model {
   id: ID!
   organizationName: String!
   organizationShortName: String
 }
 
+# School Model
 type School @model {
   id: ID!
   schoolName: String!
   schoolShortName: String
 }
 
+# Course Model
 type Course @model {
   id: ID!
   courseName: String!
   courseShortName: String
 }
 
+# Module Model
 type Module @model {
   id: ID!
   moduleName: String!
   moduleShortName: String
 }
 
+# ModuleTest Model
+type ModuleTest @model {
+  id: ID!
+  moduleSubject: String!
+  testDate: AWSDate
+  testType: String
+  testEvent: String
+  testGrade: String
+}
+
+# Class model
 type Class @model {
   id: ID!
   className: String!
+  shiftPeriod: String
+  classConveneDate: AWSDate
+  classProjectedDate: AWSDate
+  instructors: [ClassInfo] @connection(keyName: "byClass", fields: ["id"])
 }
 
+# ClassInfo model that maps the many to many relationship between Class and Instructor
+type ClassInfo
+  @model(queries: null)
+  @key(name: "byClass", fields: ["classID", "instructorID"])
+  @key(name: "byInstructor", fields: ["instructorID", "classID"]) {
+  id: ID!
+  classID: ID!
+  instructorID: ID!
+  class: Class! @connection(fields: ["classID"])
+  instructor: Instructor! @connection(fields: ["instructorID"])
+}
+
+# Instructor model
 type Instructor @model {
   id: ID!
   instructorFirstName: String
   instructorLastName: String
   instructorUsername: String
   role: String
+  classes: [ClassInfo] @connection(keyName: "byInstructor", fields: ["id"])
 }
 
+# Student model
 type Student @model {
   id: ID!
   studentUsername: String
@@ -42,6 +78,8 @@ type Student @model {
   studentLastName: String
   moduleInfo: [moduleInfo] @connection(keyName: "byStudent", fields: ["id"])
   currentClass: String
+  mandotoryStudy: Boolean
+  status: String
   course: String
   school: String
   organization: String
@@ -49,6 +87,8 @@ type Student @model {
   newAssession: Boolean
 }
 
+# ModuleInfo model that maps the many to many relationship between Student and Module.
+# needs to updated to add additional connections for Student, Module, Class, and Instructor
 type moduleInfo
   @model
   @key(

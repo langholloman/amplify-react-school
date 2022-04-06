@@ -23,11 +23,6 @@ import Classes from "./pages/classes/classes.component";
 
 // Instructors component
 import ListInstructors from "./pages/instructors/listInstructors.component";
-// <Route path="/listInstructors" component={ListInstructors} />;
-
-// Instructors component
-// import ListInstructors from "./pages/instructors/listInstructors.component";
-// <Route path="/listInstructors" component={ListInstructors} />;
 
 // Modules component
 import Modules from "./pages/modules/modules.component";

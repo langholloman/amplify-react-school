@@ -117,11 +117,59 @@ export const listModules = /* GraphQL */ `
     }
   }
 `;
+export const getModuleTest = /* GraphQL */ `
+  query GetModuleTest($id: ID!) {
+    getModuleTest(id: $id) {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listModuleTests = /* GraphQL */ `
+  query ListModuleTests(
+    $filter: ModelModuleTestFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listModuleTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        moduleSubject
+        testDate
+        testType
+        testEvent
+        testGrade
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getClass = /* GraphQL */ `
   query GetClass($id: ID!) {
     getClass(id: $id) {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -137,6 +185,12 @@ export const listClasss = /* GraphQL */ `
       items {
         id
         className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -152,6 +206,16 @@ export const getInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -170,6 +234,9 @@ export const listInstructors = /* GraphQL */ `
         instructorLastName
         instructorUsername
         role
+        classes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -203,6 +270,8 @@ export const getStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization
@@ -229,6 +298,8 @@ export const listStudents = /* GraphQL */ `
           nextToken
         }
         currentClass
+        mandotoryStudy
+        status
         course
         school
         organization

@@ -169,6 +169,57 @@ export const deleteModule = /* GraphQL */ `
     }
   }
 `;
+export const createModuleTest = /* GraphQL */ `
+  mutation CreateModuleTest(
+    $input: CreateModuleTestInput!
+    $condition: ModelModuleTestConditionInput
+  ) {
+    createModuleTest(input: $input, condition: $condition) {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateModuleTest = /* GraphQL */ `
+  mutation UpdateModuleTest(
+    $input: UpdateModuleTestInput!
+    $condition: ModelModuleTestConditionInput
+  ) {
+    updateModuleTest(input: $input, condition: $condition) {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteModuleTest = /* GraphQL */ `
+  mutation DeleteModuleTest(
+    $input: DeleteModuleTestInput!
+    $condition: ModelModuleTestConditionInput
+  ) {
+    deleteModuleTest(input: $input, condition: $condition) {
+      id
+      moduleSubject
+      testDate
+      testType
+      testEvent
+      testGrade
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createClass = /* GraphQL */ `
   mutation CreateClass(
     $input: CreateClassInput!
@@ -177,6 +228,19 @@ export const createClass = /* GraphQL */ `
     createClass(input: $input, condition: $condition) {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -190,6 +254,19 @@ export const updateClass = /* GraphQL */ `
     updateClass(input: $input, condition: $condition) {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -203,6 +280,133 @@ export const deleteClass = /* GraphQL */ `
     deleteClass(input: $input, condition: $condition) {
       id
       className
+      shiftPeriod
+      classConveneDate
+      classProjectedDate
+      instructors {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createClassInfo = /* GraphQL */ `
+  mutation CreateClassInfo(
+    $input: CreateClassInfoInput!
+    $condition: ModelClassInfoConditionInput
+  ) {
+    createClassInfo(input: $input, condition: $condition) {
+      id
+      classID
+      instructorID
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        classes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateClassInfo = /* GraphQL */ `
+  mutation UpdateClassInfo(
+    $input: UpdateClassInfoInput!
+    $condition: ModelClassInfoConditionInput
+  ) {
+    updateClassInfo(input: $input, condition: $condition) {
+      id
+      classID
+      instructorID
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        classes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteClassInfo = /* GraphQL */ `
+  mutation DeleteClassInfo(
+    $input: DeleteClassInfoInput!
+    $condition: ModelClassInfoConditionInput
+  ) {
+    deleteClassInfo(input: $input, condition: $condition) {
+      id
+      classID
+      instructorID
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        instructors {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        classes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -219,6 +423,16 @@ export const createInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -235,6 +449,16 @@ export const updateInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -251,6 +475,16 @@ export const deleteInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      classes {
+        items {
+          id
+          classID
+          instructorID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -285,6 +519,8 @@ export const createStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization
@@ -324,6 +560,8 @@ export const updateStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization
@@ -363,6 +601,8 @@ export const deleteStudent = /* GraphQL */ `
         nextToken
       }
       currentClass
+      mandotoryStudy
+      status
       course
       school
       organization
