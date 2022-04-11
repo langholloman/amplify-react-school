@@ -165,6 +165,45 @@ export const getClass = /* GraphQL */ `
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -189,6 +228,38 @@ export const listClasss = /* GraphQL */ `
         classConveneDate
         classProjectedDate
         instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -206,11 +277,51 @@ export const getInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      status
       classes {
         items {
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -234,7 +345,40 @@ export const listInstructors = /* GraphQL */ `
         instructorLastName
         instructorUsername
         role
+        status
         classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -295,6 +439,21 @@ export const listStudents = /* GraphQL */ `
         studentFirstName
         studentLastName
         moduleInfo {
+          items {
+            id
+            studentId
+            moduleShortName
+            moduleName
+            className
+            instructorLastName
+            instructorFirstName
+            examGrade
+            examDate
+            examType
+            examEvent
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         currentClass

@@ -188,6 +188,45 @@ export const onCreateClass = /* GraphQL */ `
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -211,6 +250,45 @@ export const onUpdateClass = /* GraphQL */ `
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -234,6 +312,45 @@ export const onDeleteClass = /* GraphQL */ `
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -257,6 +374,38 @@ export const onCreateClassInfo = /* GraphQL */ `
         classConveneDate
         classProjectedDate
         instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -268,7 +417,40 @@ export const onCreateClassInfo = /* GraphQL */ `
         instructorLastName
         instructorUsername
         role
+        status
         classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -292,6 +474,38 @@ export const onUpdateClassInfo = /* GraphQL */ `
         classConveneDate
         classProjectedDate
         instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -303,7 +517,40 @@ export const onUpdateClassInfo = /* GraphQL */ `
         instructorLastName
         instructorUsername
         role
+        status
         classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -327,6 +574,38 @@ export const onDeleteClassInfo = /* GraphQL */ `
         classConveneDate
         classProjectedDate
         instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -338,7 +617,40 @@ export const onDeleteClassInfo = /* GraphQL */ `
         instructorLastName
         instructorUsername
         role
+        status
         classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              instructors {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -357,11 +669,51 @@ export const onCreateInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      status
       classes {
         items {
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -380,11 +732,51 @@ export const onUpdateInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      status
       classes {
         items {
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -403,11 +795,51 @@ export const onDeleteInstructor = /* GraphQL */ `
       instructorLastName
       instructorUsername
       role
+      status
       classes {
         items {
           id
           classID
           instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }

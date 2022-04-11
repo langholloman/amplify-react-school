@@ -67,6 +67,7 @@ type Instructor @model {
   instructorLastName: String
   instructorUsername: String
   role: String
+  status: String
   classes: [ClassInfo] @connection(keyName: "byInstructor", fields: ["id"])
 }
 

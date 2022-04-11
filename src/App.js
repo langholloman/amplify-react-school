@@ -24,6 +24,9 @@ import Classes from "./pages/classes/classes.component";
 // Instructors component
 import ListInstructors from "./pages/instructors/listInstructors.component";
 
+// Instructor Classes component
+import ListInstructorsClasses from "./pages/instructors/classInfo/instructorsClassInfo.component";
+
 // Modules component
 import Modules from "./pages/modules/modules.component";
 
@@ -45,6 +48,10 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/listStudents" component={ListStudents} />
         <Route path="/listInstructors" component={ListInstructors} />
+        <Route
+          path="/listInstructorsClasses"
+          component={ListInstructorsClasses}
+        />
         <Route path="/modules" component={Modules} />
         <Route path="/classes" component={Classes} />
 
