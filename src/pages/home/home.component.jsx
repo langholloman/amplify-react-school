@@ -50,7 +50,28 @@ const HomePage = () => {
           paddingLeft: "7rem",
         }}
       >
-        <Grid item xs={12} style={{ textAlign: "center" }}>
+        <Grid item xs={6} style={{ textAlign: "center" }}>
+          <Item>
+            <Link
+              to="/listStudents"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <div>
+                <p>
+                  <img
+                    src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-transcript-university-flaticons-lineal-color-flat-icons.png"
+                    alt="Manage Grades"
+                  />
+                </p>
+                <span>Manage Grades</span>
+              </div>
+            </Link>
+          </Item>
+        </Grid>
+        <Grid item xs={6} style={{ textAlign: "center" }}>
           <Item>
             <Link
               to="/listStudents"

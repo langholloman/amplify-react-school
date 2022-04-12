@@ -35,8 +35,7 @@ import Paper from "@mui/material/Paper";
 // ListInstructorsClasses component for Instructor page to display all Instructor classes
 const ListInstructorsClasses = () => {
   const [instructors, setInstructors] = useState([]);
-  const [instructor, setInstructor] = useState(null);
-  const [classs, setClasss] = useState([]);
+  const [instructor, setInstructor] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [nextToken, setNextToken] = useState(null);
 
@@ -64,71 +63,31 @@ const ListInstructorsClasses = () => {
     fetchInstructors();
   }, [nextToken, isLoading]);
 
-  // get classes from API
-  useEffect(() => {
-    async function fetchClasses() {
-      try {
-        const classs = await API.graphql(
-          graphqlOperation(listClasss, {
-            sortDirection: ["ASC"],
-            sortField: "className",
-            nextToken: nextToken,
-          })
-        );
-        setClasss(classs.data.listClasss.items);
-        setNextToken(classs.data.listClasss.nextToken);
-        setIsLoading(false);
-        console.log("Classes: ", classs);
-      } catch (err) {
-        console.log("error fetching classes", err);
-      }
-    }
-    fetchClasses();
-  }, [nextToken, isLoading]);
-
-  // get instructor from API
-  useEffect(() => {
-    async function fetchInstructor() {
-      try {
-        const instructor = await API.graphql(
-          graphqlOperation(getInstructor, { id: "04" })
-        );
-        setInstructor(instructor.data.getInstructor);
-        setIsLoading(false);
-        console.log("Instructor: ", instructor);
-      } catch (err) {
-        console.log("error fetching instructor", err);
-      }
-    }
-    fetchInstructor();
-  }, [isLoading]);
-
   // Use AutoComplete to search for instructor and assign to state
   const handleInstructorChange = (event, value) => {
     if (value !== null) {
       setInstructor(value);
+      async function fetchInstructor() {
+        try {
+          const instructor = await API.graphql(
+            graphqlOperation(getInstructor, {
+              id: value.id,
+            })
+          );
+          setInstructor(instructor.data.getInstructor);
+          setIsLoading(false);
+          console.log("Instructor async: ", instructor);
+        } catch (err) {
+          console.log("error fetching instructor", err);
+        }
+      }
+      fetchInstructor();
     } else {
       // setInstructor to a non null value to clear the input field
       setInstructor({
         id: "",
       });
     }
-  };
-
-  // filter Instructor classes by instructor
-  const filterInstructorClasses = (instructor) => {
-    const instructorClasses = classs.filter((classs) => {
-      if (classs.instructors.items.length > 0) {
-        return classs.instructors.items.some(
-          (instructorClass) => instructorClass.instructorID === instructor.id
-        );
-      } else {
-        // if instructor has no classes, return false
-        return false;
-      }
-    });
-    console.log("instructorClasses: ", instructorClasses);
-    return instructorClasses;
   };
 
   // Based on instructor selected, display classes for that instructor in table below
@@ -163,12 +122,9 @@ const ListInstructorsClasses = () => {
         )}
         onChange={(event, value) => {
           setInstructor(value);
-          // filterInstructorClasses(value);
           handleInstructorChange(event, value);
           if (value === null) {
-            // setInstructorClasses([]);
             setInstructor([{ id: "" }]);
-            // filterInstructorClasses([{ id: "" }]);
             console.log("value: ", value);
           } else {
             console.log("value: ", value);
@@ -181,13 +137,44 @@ const ListInstructorsClasses = () => {
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>className</TableCell>
-                <TableCell align="right">shiftPeriod</TableCell>
-                <TableCell align="right">classConveneDate</TableCell>
-                <TableCell align="right">classProjectedDate</TableCell>
+                <TableCell>Class Name</TableCell>
+                <TableCell align="right">Shift Period</TableCell>
+                <TableCell align="right">Class Convene Date</TableCell>
+                <TableCell align="right">
+                  Class Projected Graduation Date
+                </TableCell>
               </TableRow>
             </TableHead>
-            <TableBody></TableBody>
+            <TableBody>
+              {
+                // if instructor is defined, display classes for that instructor
+                // else display text directing user to select instructor
+                instructor.classes !== undefined ? (
+                  instructor.classes.items.map((item) => (
+                    <TableRow key={item.id}>
+                      <TableCell component="th" scope="row">
+                        {item.class.className}
+                      </TableCell>
+                      <TableCell align="right">
+                        {item.class.shiftPeriod}
+                      </TableCell>
+                      <TableCell align="right">
+                        {item.class.classConveneDate}
+                      </TableCell>
+                      <TableCell align="right">
+                        {item.class.classProjectedDate}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell>
+                      Select an Instructor to view Assigned Classes
+                    </TableCell>
+                  </TableRow>
+                )
+              }
+            </TableBody>
           </Table>
         </TableContainer>
       </Box>
