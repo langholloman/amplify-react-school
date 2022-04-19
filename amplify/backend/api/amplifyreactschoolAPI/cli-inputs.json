@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authamplifyreactschool07773328"
+    },
+    "conflictResolution": {},
+    "apiName": "amplifyreactschoolAPI",
+    "gqlSchemaPath": "D:\\dev\\aws\\amplify-react-school\\amplify\\backend\\api\\amplifyreactschoolAPI\\schema.graphql",
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 360,
+        "apiKeyExpirationDate": "2023-04-09T20:00:22.995Z",
+        "keyDescription": "amplifyreachschool"
+      }
+    ]
+  }
+}

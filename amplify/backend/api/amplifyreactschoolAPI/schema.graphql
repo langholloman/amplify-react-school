@@ -1,121 +1,129 @@
-# Galaxy DB Schema
+# Amplify GraphQL Transformer v1
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/auth
+# input AMPLIFY {
+#  globalAuthRule: AuthRule = { allow: public }
+#}
 
-# Organization Model
-type Organization @model {
+type Organization @model @auth(rules: [{ allow: private }]) {
   id: ID!
   organizationName: String!
   organizationShortName: String
 }
 
-# School Model
-type School @model {
+type School @model @auth(rules: [{ allow: private }]) {
   id: ID!
   schoolName: String!
   schoolShortName: String
 }
 
-# Course Model
-type Course @model {
+type Course @model @auth(rules: [{ allow: private }]) {
   id: ID!
   courseName: String!
   courseShortName: String
 }
 
-# Module Model
-type Module @model {
+type Module @model @auth(rules: [{ allow: private }]) {
   id: ID!
   moduleName: String!
-  moduleShortName: String
+  moduleShortName: String!
+  moduleTest: [ModuleTest] @hasMany
 }
 
-# ModuleTest Model
-type ModuleTest @model {
+type ModuleTest @model @auth(rules: [{ allow: private }]) {
   id: ID!
-  moduleSubject: String!
+  studentID: ID!
+  moduleID: ID!
+  module: Module! @belongsTo(fields: ["id"])
+  instructorID: ID! @index(name: "byInstructor")
+  instructor: Instructor! @belongsTo(fields: ["id"])
+  testGrade: Int
   testDate: AWSDate
   testType: String
-  testEvent: String
-  testGrade: String
+  retestRaw: Int
+  useForGPA: Boolean
+  status: String
 }
 
-# Class model
-type Class @model {
+type Class @model @auth(rules: [{ allow: private }]) {
   id: ID!
   className: String!
   shiftPeriod: String
   classConveneDate: AWSDate
   classProjectedDate: AWSDate
-  instructors: [ClassInfo] @connection(keyName: "byClass", fields: ["id"])
+  building: String
+  room: String
+  location: String
+  status: String
+  graduated: Boolean
+  offsiteClass: Boolean
+  classAdvisor: String
+  instructors: [ClassInfo] @hasMany(indexName: "byClass", fields: ["id"])
+  students: [Student] @hasMany(fields: ["id"])
 }
 
-# ClassInfo model that maps the many to many relationship between Class and Instructor
-type ClassInfo
-  @model(queries: null)
-  @key(name: "byClass", fields: ["classID", "instructorID"])
-  @key(name: "byInstructor", fields: ["instructorID", "classID"]) {
+type ClassInfo @model @auth(rules: [{ allow: private }]) {
   id: ID!
-  classID: ID!
-  instructorID: ID!
-  class: Class! @connection(fields: ["classID"])
-  instructor: Instructor! @connection(fields: ["instructorID"])
+  classID: ID! @index(name: "byClass", sortKeyFields: ["instructorID"])
+  instructorID: ID! @index(name: "byInstructor", sortKeyFields: ["classID"])
+  class: Class! @belongsTo(fields: ["classID"])
+  instructor: Instructor! @belongsTo(fields: ["instructorID"])
 }
 
-# Instructor model
-type Instructor @model {
+type Instructor @model @auth(rules: [{ allow: private }]) {
   id: ID!
   instructorFirstName: String
   instructorLastName: String
   instructorUsername: String
   role: String
   status: String
-  classes: [ClassInfo] @connection(keyName: "byInstructor", fields: ["id"])
+  classes: [ClassInfo] @hasMany(indexName: "byInstructor", fields: ["id"])
+  moduleTest: [ModuleTest] @hasMany(indexName: "byInstructor", fields: ["id"])
 }
 
-# Student model
-type Student @model {
+type Student @model @auth(rules: [{ allow: private }]) {
   id: ID!
   studentUsername: String
   studentFirstName: String
   studentLastName: String
-  moduleInfo: [moduleInfo] @connection(keyName: "byStudent", fields: ["id"])
-  currentClass: String
-  mandotoryStudy: Boolean
   status: String
   course: String
   school: String
   organization: String
   rateRank: String
   newAssession: Boolean
+  mandotoryStudy: Boolean
+  gpaw: Int
+  arbPending: Boolean
+  currentClass: Class! @belongsTo(fields: ["id"])
+  setbackHistory: [SetbackHistory]
+    @hasMany(indexName: "byStudent", fields: ["id"])
+  comments: [Comments] @hasMany(indexName: "byStudent", fields: ["id"])
+  moduleInfo: [moduleInfo] @hasMany(indexName: "byStudent", fields: ["id"])
 }
 
-# ModuleInfo model that maps the many to many relationship between Student and Module.
-# needs to updated to add additional connections for Student, Module, Class, and Instructor
-type moduleInfo
-  @model
-  @key(
-    name: "byStudent"
-    fields: [
-      "studentId"
-      "moduleShortName"
-      "moduleName"
-      "className"
-      "instructorLastName"
-      "instructorFirstName"
-      "examGrade"
-      "examDate"
-      "examType"
-      "examEvent"
-    ]
-  ) {
+type moduleInfo @model @auth(rules: [{ allow: private }]) {
   id: ID!
-  studentId: ID!
+  studentId: ID! @index(name: "byStudent", sortKeyFields: ["moduleName"])
   moduleShortName: String!
   moduleName: String
   className: String
   instructorLastName: String
   instructorFirstName: String
-  examGrade: Int
-  examDate: AWSDate
-  examType: String
-  examEvent: String
+}
+
+type SetbackHistory @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  studentID: ID! @index(name: "byStudent", sortKeyFields: ["setbackDate"])
+  setbackDate: AWSDate
+  setbackFromClass: String
+  placedIntoClass: String
+  setbackReason: String
+}
+
+type Comments @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  studentID: ID! @index(name: "byStudent", sortKeyFields: ["commentDate"])
+  comment: String
+  commentDate: AWSDate
 }

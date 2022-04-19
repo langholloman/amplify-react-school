@@ -153,7 +153,7 @@ class ListStudents extends Component {
   filterStudents(students, searchQuery) {
     return students.filter((student) => {
       return (
-        student.currentClass?.toLowerCase().includes(searchQuery) ||
+        // student.currentClass?.toLowerCase().includes(searchQuery) ||
         student.studentLastName?.toLowerCase().includes(searchQuery)
       );
     });
@@ -210,9 +210,6 @@ class ListStudents extends Component {
                     </Typography>
                     <Typography className={classes.username}>
                       {student.studentUsername}
-                    </Typography>
-                    <Typography className={classes.username}>
-                      {student.currentClass}
                     </Typography>
                   </CardContent>
                   <CardActions

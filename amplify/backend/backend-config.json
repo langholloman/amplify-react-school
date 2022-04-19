@@ -38,7 +38,16 @@
               "userPoolId": "authamplifyreactschool07773328"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 360,
+                "apiKeyExpirationDate": "2023-04-09T20:00:22.995Z",
+                "description": "amplifyreachschool"
+              }
+            }
+          ]
         }
       }
     }
