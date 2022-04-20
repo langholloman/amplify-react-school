@@ -136,31 +136,55 @@ export const createModule = /* GraphQL */ `
       id
       moduleName
       moduleShortName
-      moduleTest {
+      moduleInfo {
         items {
           id
           studentID
-          moduleID
+          status
           module {
             id
             moduleName
             moduleShortName
-            moduleTest {
+            moduleInfo {
               items {
                 id
                 studentID
-                moduleID
+                status
                 module {
                   id
                   moduleName
                   moduleShortName
-                  moduleTest {
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
                   updatedAt
                 }
-                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
                 instructor {
                   id
                   instructorFirstName
@@ -174,25 +198,278 @@ export const createModule = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
             createdAt
             updatedAt
           }
-          instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           instructor {
             id
             instructorFirstName
@@ -221,7 +498,10 @@ export const createModule = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -238,6 +518,9 @@ export const createModule = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -252,17 +535,6 @@ export const createModule = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -277,6 +549,9 @@ export const createModule = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -286,24 +561,234 @@ export const createModule = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
             createdAt
             updatedAt
           }
-          testGrade
-          testDate
-          testType
-          retestRaw
-          useForGPA
-          status
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
-          moduleModuleTestId
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -321,31 +806,55 @@ export const updateModule = /* GraphQL */ `
       id
       moduleName
       moduleShortName
-      moduleTest {
+      moduleInfo {
         items {
           id
           studentID
-          moduleID
+          status
           module {
             id
             moduleName
             moduleShortName
-            moduleTest {
+            moduleInfo {
               items {
                 id
                 studentID
-                moduleID
+                status
                 module {
                   id
                   moduleName
                   moduleShortName
-                  moduleTest {
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
                   updatedAt
                 }
-                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
                 instructor {
                   id
                   instructorFirstName
@@ -359,25 +868,278 @@ export const updateModule = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
             createdAt
             updatedAt
           }
-          instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           instructor {
             id
             instructorFirstName
@@ -406,7 +1168,10 @@ export const updateModule = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -423,6 +1188,9 @@ export const updateModule = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -437,17 +1205,6 @@ export const updateModule = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -462,6 +1219,9 @@ export const updateModule = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -471,24 +1231,234 @@ export const updateModule = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
             createdAt
             updatedAt
           }
-          testGrade
-          testDate
-          testType
-          retestRaw
-          useForGPA
-          status
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
-          moduleModuleTestId
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -506,31 +1476,55 @@ export const deleteModule = /* GraphQL */ `
       id
       moduleName
       moduleShortName
-      moduleTest {
+      moduleInfo {
         items {
           id
           studentID
-          moduleID
+          status
           module {
             id
             moduleName
             moduleShortName
-            moduleTest {
+            moduleInfo {
               items {
                 id
                 studentID
-                moduleID
+                status
                 module {
                   id
                   moduleName
                   moduleShortName
-                  moduleTest {
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
                   updatedAt
                 }
-                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
                 instructor {
                   id
                   instructorFirstName
@@ -544,25 +1538,278 @@ export const deleteModule = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
             createdAt
             updatedAt
           }
-          instructorID
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           instructor {
             id
             instructorFirstName
@@ -591,7 +1838,10 @@ export const deleteModule = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -608,6 +1858,9 @@ export const deleteModule = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -622,17 +1875,6 @@ export const deleteModule = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -647,6 +1889,9 @@ export const deleteModule = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -656,24 +1901,234 @@ export const deleteModule = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
             createdAt
             updatedAt
           }
-          testGrade
-          testDate
-          testType
-          retestRaw
-          useForGPA
-          status
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
-          moduleModuleTestId
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -690,155 +2145,6 @@ export const createModuleTest = /* GraphQL */ `
     createModuleTest(input: $input, condition: $condition) {
       id
       studentID
-      moduleID
-      module {
-        id
-        moduleName
-        moduleShortName
-        moduleTest {
-          items {
-            id
-            studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            instructorID
-            instructor {
-              id
-              instructorFirstName
-              instructorLastName
-              instructorUsername
-              role
-              status
-              classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            testGrade
-            testDate
-            testType
-            retestRaw
-            useForGPA
-            status
-            createdAt
-            updatedAt
-            moduleModuleTestId
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       instructorID
       instructor {
         id
@@ -901,7 +2207,7 @@ export const createModuleTest = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -943,6 +2249,57 @@ export const createModuleTest = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -996,14 +2353,6 @@ export const createModuleTest = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -1021,9 +2370,61 @@ export const createModuleTest = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -1039,49 +2440,6 @@ export const createModuleTest = /* GraphQL */ `
           items {
             id
             studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
             instructorID
             instructor {
               id
@@ -1130,14 +2488,6 @@ export const createModuleTest = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -1155,9 +2505,61 @@ export const createModuleTest = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -1170,9 +2572,485 @@ export const createModuleTest = /* GraphQL */ `
             retestRaw
             useForGPA
             status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
             createdAt
             updatedAt
-            moduleModuleTestId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -1185,9 +3063,664 @@ export const createModuleTest = /* GraphQL */ `
       retestRaw
       useForGPA
       status
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      moduleModuleTestId
     }
   }
 `;
@@ -1199,155 +3732,6 @@ export const updateModuleTest = /* GraphQL */ `
     updateModuleTest(input: $input, condition: $condition) {
       id
       studentID
-      moduleID
-      module {
-        id
-        moduleName
-        moduleShortName
-        moduleTest {
-          items {
-            id
-            studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            instructorID
-            instructor {
-              id
-              instructorFirstName
-              instructorLastName
-              instructorUsername
-              role
-              status
-              classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            testGrade
-            testDate
-            testType
-            retestRaw
-            useForGPA
-            status
-            createdAt
-            updatedAt
-            moduleModuleTestId
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       instructorID
       instructor {
         id
@@ -1410,7 +3794,7 @@ export const updateModuleTest = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -1452,6 +3836,57 @@ export const updateModuleTest = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -1505,14 +3940,6 @@ export const updateModuleTest = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -1530,9 +3957,61 @@ export const updateModuleTest = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -1548,49 +4027,6 @@ export const updateModuleTest = /* GraphQL */ `
           items {
             id
             studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
             instructorID
             instructor {
               id
@@ -1639,14 +4075,6 @@ export const updateModuleTest = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -1664,9 +4092,61 @@ export const updateModuleTest = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -1679,9 +4159,485 @@ export const updateModuleTest = /* GraphQL */ `
             retestRaw
             useForGPA
             status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
             createdAt
             updatedAt
-            moduleModuleTestId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -1694,9 +4650,664 @@ export const updateModuleTest = /* GraphQL */ `
       retestRaw
       useForGPA
       status
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      moduleModuleTestId
     }
   }
 `;
@@ -1708,155 +5319,6 @@ export const deleteModuleTest = /* GraphQL */ `
     deleteModuleTest(input: $input, condition: $condition) {
       id
       studentID
-      moduleID
-      module {
-        id
-        moduleName
-        moduleShortName
-        moduleTest {
-          items {
-            id
-            studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            instructorID
-            instructor {
-              id
-              instructorFirstName
-              instructorLastName
-              instructorUsername
-              role
-              status
-              classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            testGrade
-            testDate
-            testType
-            retestRaw
-            useForGPA
-            status
-            createdAt
-            updatedAt
-            moduleModuleTestId
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       instructorID
       instructor {
         id
@@ -1919,7 +5381,7 @@ export const deleteModuleTest = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -1961,6 +5423,57 @@ export const deleteModuleTest = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -2014,14 +5527,6 @@ export const deleteModuleTest = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -2039,9 +5544,61 @@ export const deleteModuleTest = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -2057,49 +5614,6 @@ export const deleteModuleTest = /* GraphQL */ `
           items {
             id
             studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
             instructorID
             instructor {
               id
@@ -2148,14 +5662,6 @@ export const deleteModuleTest = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -2173,9 +5679,61 @@ export const deleteModuleTest = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -2188,9 +5746,485 @@ export const deleteModuleTest = /* GraphQL */ `
             retestRaw
             useForGPA
             status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
             createdAt
             updatedAt
-            moduleModuleTestId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -2203,9 +6237,664 @@ export const deleteModuleTest = /* GraphQL */ `
       retestRaw
       useForGPA
       status
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      moduleModuleTestId
     }
   }
 `;
@@ -2266,7 +6955,10 @@ export const createClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2285,6 +6977,9 @@ export const createClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -2293,7 +6988,7 @@ export const createClass = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -2324,7 +7019,10 @@ export const createClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2357,12 +7055,93 @@ export const createClass = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -2370,6 +7149,10 @@ export const createClass = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -2404,7 +7187,10 @@ export const createClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2421,6 +7207,9 @@ export const createClass = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2435,17 +7224,6 @@ export const createClass = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -2460,6 +7238,9 @@ export const createClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -2469,9 +7250,106 @@ export const createClass = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -2483,7 +7361,7 @@ export const createClass = /* GraphQL */ `
         }
         nextToken
       }
-      students {
+      student {
         items {
           id
           studentUsername
@@ -2532,7 +7410,10 @@ export const createClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2551,6 +7432,9 @@ export const createClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -2559,7 +7443,7 @@ export const createClass = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -2590,7 +7474,10 @@ export const createClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2623,12 +7510,93 @@ export const createClass = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -2636,6 +7604,10 @@ export const createClass = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -2669,12 +7641,826 @@ export const createClass = /* GraphQL */ `
           moduleInfo {
             items {
               id
-              studentId
-              moduleShortName
-              moduleName
-              className
-              instructorLastName
-              instructorFirstName
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          classStudentId
+        }
+        nextToken
+      }
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
               createdAt
               updatedAt
             }
@@ -2682,6 +8468,10 @@ export const createClass = /* GraphQL */ `
           }
           createdAt
           updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -2747,7 +8537,10 @@ export const updateClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2766,6 +8559,9 @@ export const updateClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -2774,7 +8570,7 @@ export const updateClass = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -2805,7 +8601,10 @@ export const updateClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2838,12 +8637,93 @@ export const updateClass = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -2851,6 +8731,10 @@ export const updateClass = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -2885,7 +8769,10 @@ export const updateClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2902,6 +8789,9 @@ export const updateClass = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -2916,17 +8806,6 @@ export const updateClass = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -2941,6 +8820,9 @@ export const updateClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -2950,9 +8832,106 @@ export const updateClass = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -2964,7 +8943,7 @@ export const updateClass = /* GraphQL */ `
         }
         nextToken
       }
-      students {
+      student {
         items {
           id
           studentUsername
@@ -3013,7 +8992,10 @@ export const updateClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3032,6 +9014,9 @@ export const updateClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -3040,7 +9025,7 @@ export const updateClass = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -3071,7 +9056,10 @@ export const updateClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3104,12 +9092,93 @@ export const updateClass = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -3117,6 +9186,10 @@ export const updateClass = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -3150,12 +9223,826 @@ export const updateClass = /* GraphQL */ `
           moduleInfo {
             items {
               id
-              studentId
-              moduleShortName
-              moduleName
-              className
-              instructorLastName
-              instructorFirstName
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          classStudentId
+        }
+        nextToken
+      }
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
               createdAt
               updatedAt
             }
@@ -3163,6 +10050,10 @@ export const updateClass = /* GraphQL */ `
           }
           createdAt
           updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -3228,7 +10119,10 @@ export const deleteClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3247,6 +10141,9 @@ export const deleteClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -3255,7 +10152,7 @@ export const deleteClass = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -3286,7 +10183,10 @@ export const deleteClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3319,12 +10219,93 @@ export const deleteClass = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -3332,6 +10313,10 @@ export const deleteClass = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -3366,7 +10351,10 @@ export const deleteClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3383,6 +10371,9 @@ export const deleteClass = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3397,17 +10388,6 @@ export const deleteClass = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -3422,6 +10402,9 @@ export const deleteClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -3431,9 +10414,106 @@ export const deleteClass = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -3445,7 +10525,7 @@ export const deleteClass = /* GraphQL */ `
         }
         nextToken
       }
-      students {
+      student {
         items {
           id
           studentUsername
@@ -3494,7 +10574,10 @@ export const deleteClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3513,6 +10596,9 @@ export const deleteClass = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -3521,7 +10607,7 @@ export const deleteClass = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -3552,7 +10638,10 @@ export const deleteClass = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -3585,12 +10674,93 @@ export const deleteClass = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -3598,6 +10768,10 @@ export const deleteClass = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -3631,12 +10805,826 @@ export const deleteClass = /* GraphQL */ `
           moduleInfo {
             items {
               id
-              studentId
-              moduleShortName
-              moduleName
-              className
-              instructorLastName
-              instructorFirstName
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          classStudentId
+        }
+        nextToken
+      }
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
               createdAt
               updatedAt
             }
@@ -3644,6 +11632,10 @@ export const deleteClass = /* GraphQL */ `
           }
           createdAt
           updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -3728,7 +11720,7 @@ export const createClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -3770,6 +11762,57 @@ export const createClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -3823,14 +11866,6 @@ export const createClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -3848,9 +11883,61 @@ export const createClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -3862,7 +11949,7 @@ export const createClassInfo = /* GraphQL */ `
           }
           nextToken
         }
-        students {
+        student {
           items {
             id
             studentUsername
@@ -3926,7 +12013,7 @@ export const createClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -3968,6 +12055,57 @@ export const createClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4001,12 +12139,472 @@ export const createClassInfo = /* GraphQL */ `
             moduleInfo {
               items {
                 id
-                studentId
-                moduleShortName
-                moduleName
-                className
-                instructorLastName
-                instructorFirstName
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
               }
@@ -4014,6 +12612,10 @@ export const createClassInfo = /* GraphQL */ `
             }
             createdAt
             updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -4081,7 +12683,7 @@ export const createClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -4123,6 +12725,57 @@ export const createClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4176,14 +12829,6 @@ export const createClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -4201,9 +12846,61 @@ export const createClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4219,49 +12916,6 @@ export const createClassInfo = /* GraphQL */ `
           items {
             id
             studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
             instructorID
             instructor {
               id
@@ -4310,14 +12964,6 @@ export const createClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -4335,9 +12981,61 @@ export const createClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4350,9 +13048,485 @@ export const createClassInfo = /* GraphQL */ `
             retestRaw
             useForGPA
             status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
             createdAt
             updatedAt
-            moduleModuleTestId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -4440,7 +13614,7 @@ export const updateClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -4482,6 +13656,57 @@ export const updateClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4535,14 +13760,6 @@ export const updateClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -4560,9 +13777,61 @@ export const updateClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4574,7 +13843,7 @@ export const updateClassInfo = /* GraphQL */ `
           }
           nextToken
         }
-        students {
+        student {
           items {
             id
             studentUsername
@@ -4638,7 +13907,7 @@ export const updateClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -4680,6 +13949,57 @@ export const updateClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4713,12 +14033,472 @@ export const updateClassInfo = /* GraphQL */ `
             moduleInfo {
               items {
                 id
-                studentId
-                moduleShortName
-                moduleName
-                className
-                instructorLastName
-                instructorFirstName
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
               }
@@ -4726,6 +14506,10 @@ export const updateClassInfo = /* GraphQL */ `
             }
             createdAt
             updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -4793,7 +14577,7 @@ export const updateClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -4835,6 +14619,57 @@ export const updateClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4888,14 +14723,6 @@ export const updateClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -4913,9 +14740,61 @@ export const updateClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -4931,49 +14810,6 @@ export const updateClassInfo = /* GraphQL */ `
           items {
             id
             studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
             instructorID
             instructor {
               id
@@ -5022,14 +14858,6 @@ export const updateClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -5047,9 +14875,61 @@ export const updateClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5062,9 +14942,485 @@ export const updateClassInfo = /* GraphQL */ `
             retestRaw
             useForGPA
             status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
             createdAt
             updatedAt
-            moduleModuleTestId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -5152,7 +15508,7 @@ export const deleteClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -5194,6 +15550,57 @@ export const deleteClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5247,14 +15654,6 @@ export const deleteClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -5272,9 +15671,61 @@ export const deleteClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5286,7 +15737,7 @@ export const deleteClassInfo = /* GraphQL */ `
           }
           nextToken
         }
-        students {
+        student {
           items {
             id
             studentUsername
@@ -5350,7 +15801,7 @@ export const deleteClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -5392,6 +15843,57 @@ export const deleteClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5425,12 +15927,472 @@ export const deleteClassInfo = /* GraphQL */ `
             moduleInfo {
               items {
                 id
-                studentId
-                moduleShortName
-                moduleName
-                className
-                instructorLastName
-                instructorFirstName
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
               }
@@ -5438,6 +16400,10 @@ export const deleteClassInfo = /* GraphQL */ `
             }
             createdAt
             updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -5505,7 +16471,7 @@ export const deleteClassInfo = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -5547,6 +16513,57 @@ export const deleteClassInfo = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5600,14 +16617,6 @@ export const deleteClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -5625,9 +16634,61 @@ export const deleteClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5643,49 +16704,6 @@ export const deleteClassInfo = /* GraphQL */ `
           items {
             id
             studentID
-            moduleID
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  createdAt
-                  updatedAt
-                  moduleModuleTestId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
             instructorID
             instructor {
               id
@@ -5734,14 +16752,6 @@ export const deleteClassInfo = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -5759,9 +16769,61 @@ export const deleteClassInfo = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -5774,9 +16836,485 @@ export const deleteClassInfo = /* GraphQL */ `
             retestRaw
             useForGPA
             status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
             createdAt
             updatedAt
-            moduleModuleTestId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -5839,7 +17377,10 @@ export const createInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -5858,6 +17399,9 @@ export const createInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -5866,7 +17410,7 @@ export const createInstructor = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -5897,7 +17441,10 @@ export const createInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -5930,12 +17477,93 @@ export const createInstructor = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -5943,6 +17571,10 @@ export const createInstructor = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -5977,7 +17609,10 @@ export const createInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -5994,6 +17629,9 @@ export const createInstructor = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6008,17 +17646,6 @@ export const createInstructor = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -6033,6 +17660,9 @@ export const createInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6042,9 +17672,106 @@ export const createInstructor = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6060,58 +17787,6 @@ export const createInstructor = /* GraphQL */ `
         items {
           id
           studentID
-          moduleID
-          module {
-            id
-            moduleName
-            moduleShortName
-            moduleTest {
-              items {
-                id
-                studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
-                createdAt
-                updatedAt
-                moduleModuleTestId
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           instructorID
           instructor {
             id
@@ -6141,7 +17816,10 @@ export const createInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6158,6 +17836,9 @@ export const createInstructor = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6172,17 +17853,6 @@ export const createInstructor = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -6197,6 +17867,9 @@ export const createInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6206,9 +17879,106 @@ export const createInstructor = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6221,9 +17991,839 @@ export const createInstructor = /* GraphQL */ `
           retestRaw
           useForGPA
           status
+          moduleInfo {
+            items {
+              id
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
           createdAt
           updatedAt
-          moduleModuleTestId
+        }
+        nextToken
+      }
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -6283,7 +18883,10 @@ export const updateInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6302,6 +18905,9 @@ export const updateInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6310,7 +18916,7 @@ export const updateInstructor = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -6341,7 +18947,10 @@ export const updateInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6374,12 +18983,93 @@ export const updateInstructor = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -6387,6 +19077,10 @@ export const updateInstructor = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6421,7 +19115,10 @@ export const updateInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6438,6 +19135,9 @@ export const updateInstructor = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6452,17 +19152,6 @@ export const updateInstructor = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -6477,6 +19166,9 @@ export const updateInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6486,9 +19178,106 @@ export const updateInstructor = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6504,58 +19293,6 @@ export const updateInstructor = /* GraphQL */ `
         items {
           id
           studentID
-          moduleID
-          module {
-            id
-            moduleName
-            moduleShortName
-            moduleTest {
-              items {
-                id
-                studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
-                createdAt
-                updatedAt
-                moduleModuleTestId
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           instructorID
           instructor {
             id
@@ -6585,7 +19322,10 @@ export const updateInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6602,6 +19342,9 @@ export const updateInstructor = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6616,17 +19359,6 @@ export const updateInstructor = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -6641,6 +19373,9 @@ export const updateInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6650,9 +19385,106 @@ export const updateInstructor = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6665,9 +19497,839 @@ export const updateInstructor = /* GraphQL */ `
           retestRaw
           useForGPA
           status
+          moduleInfo {
+            items {
+              id
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
           createdAt
           updatedAt
-          moduleModuleTestId
+        }
+        nextToken
+      }
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -6727,7 +20389,10 @@ export const deleteInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6746,6 +20411,9 @@ export const deleteInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6754,7 +20422,7 @@ export const deleteInstructor = /* GraphQL */ `
               }
               nextToken
             }
-            students {
+            student {
               items {
                 id
                 studentUsername
@@ -6785,7 +20453,10 @@ export const deleteInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6818,12 +20489,93 @@ export const deleteInstructor = /* GraphQL */ `
                 moduleInfo {
                   items {
                     id
-                    studentId
-                    moduleShortName
-                    moduleName
-                    className
-                    instructorLastName
-                    instructorFirstName
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
                     createdAt
                     updatedAt
                   }
@@ -6831,6 +20583,10 @@ export const deleteInstructor = /* GraphQL */ `
                 }
                 createdAt
                 updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6865,7 +20621,10 @@ export const deleteInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6882,6 +20641,9 @@ export const deleteInstructor = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -6896,17 +20658,6 @@ export const deleteInstructor = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -6921,6 +20672,9 @@ export const deleteInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -6930,9 +20684,106 @@ export const deleteInstructor = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -6948,58 +20799,6 @@ export const deleteInstructor = /* GraphQL */ `
         items {
           id
           studentID
-          moduleID
-          module {
-            id
-            moduleName
-            moduleShortName
-            moduleTest {
-              items {
-                id
-                studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
-                createdAt
-                updatedAt
-                moduleModuleTestId
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           instructorID
           instructor {
             id
@@ -7029,7 +20828,10 @@ export const deleteInstructor = /* GraphQL */ `
                   instructors {
                     nextToken
                   }
-                  students {
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -7046,6 +20848,9 @@ export const deleteInstructor = /* GraphQL */ `
                     nextToken
                   }
                   moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
                     nextToken
                   }
                   createdAt
@@ -7060,17 +20865,6 @@ export const deleteInstructor = /* GraphQL */ `
               items {
                 id
                 studentID
-                moduleID
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 instructorID
                 instructor {
                   id
@@ -7085,6 +20879,9 @@ export const deleteInstructor = /* GraphQL */ `
                   moduleTest {
                     nextToken
                   }
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
                 }
@@ -7094,9 +20891,106 @@ export const deleteInstructor = /* GraphQL */ `
                 retestRaw
                 useForGPA
                 status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
-                moduleModuleTestId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
               }
               nextToken
             }
@@ -7109,9 +21003,839 @@ export const deleteInstructor = /* GraphQL */ `
           retestRaw
           useForGPA
           status
+          moduleInfo {
+            items {
+              id
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
           createdAt
           updatedAt
-          moduleModuleTestId
+        }
+        nextToken
+      }
+      moduleInfo {
+        items {
+          id
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
@@ -7206,7 +21930,7 @@ export const createStudent = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -7248,6 +21972,57 @@ export const createStudent = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -7301,14 +22076,6 @@ export const createStudent = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -7326,9 +22093,61 @@ export const createStudent = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -7340,7 +22159,7 @@ export const createStudent = /* GraphQL */ `
           }
           nextToken
         }
-        students {
+        student {
           items {
             id
             studentUsername
@@ -7404,7 +22223,7 @@ export const createStudent = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -7446,6 +22265,57 @@ export const createStudent = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -7479,12 +22349,472 @@ export const createStudent = /* GraphQL */ `
             moduleInfo {
               items {
                 id
-                studentId
-                moduleShortName
-                moduleName
-                className
-                instructorLastName
-                instructorFirstName
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
               }
@@ -7492,6 +22822,10 @@ export const createStudent = /* GraphQL */ `
             }
             createdAt
             updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -7525,19 +22859,662 @@ export const createStudent = /* GraphQL */ `
       moduleInfo {
         items {
           id
-          studentId
-          moduleShortName
-          moduleName
-          className
-          instructorLastName
-          instructorFirstName
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
       createdAt
       updatedAt
+      classStudentId
     }
   }
 `;
@@ -7627,7 +23604,7 @@ export const updateStudent = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -7669,6 +23646,57 @@ export const updateStudent = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -7722,14 +23750,6 @@ export const updateStudent = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -7747,9 +23767,61 @@ export const updateStudent = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -7761,7 +23833,7 @@ export const updateStudent = /* GraphQL */ `
           }
           nextToken
         }
-        students {
+        student {
           items {
             id
             studentUsername
@@ -7825,7 +23897,7 @@ export const updateStudent = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -7867,6 +23939,57 @@ export const updateStudent = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -7900,12 +24023,472 @@ export const updateStudent = /* GraphQL */ `
             moduleInfo {
               items {
                 id
-                studentId
-                moduleShortName
-                moduleName
-                className
-                instructorLastName
-                instructorFirstName
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
               }
@@ -7913,6 +24496,10 @@ export const updateStudent = /* GraphQL */ `
             }
             createdAt
             updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -7946,19 +24533,662 @@ export const updateStudent = /* GraphQL */ `
       moduleInfo {
         items {
           id
-          studentId
-          moduleShortName
-          moduleName
-          className
-          instructorLastName
-          instructorFirstName
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
       createdAt
       updatedAt
+      classStudentId
     }
   }
 `;
@@ -8048,7 +25278,7 @@ export const deleteStudent = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -8090,6 +25320,57 @@ export const deleteStudent = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -8143,14 +25424,6 @@ export const deleteStudent = /* GraphQL */ `
                 items {
                   id
                   studentID
-                  moduleID
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
                   instructorID
                   instructor {
                     id
@@ -8168,9 +25441,61 @@ export const deleteStudent = /* GraphQL */ `
                   retestRaw
                   useForGPA
                   status
+                  moduleInfo {
+                    nextToken
+                  }
                   createdAt
                   updatedAt
-                  moduleModuleTestId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -8182,7 +25507,7 @@ export const deleteStudent = /* GraphQL */ `
           }
           nextToken
         }
-        students {
+        student {
           items {
             id
             studentUsername
@@ -8246,7 +25571,7 @@ export const deleteStudent = /* GraphQL */ `
                 }
                 nextToken
               }
-              students {
+              student {
                 items {
                   id
                   studentUsername
@@ -8288,6 +25613,57 @@ export const deleteStudent = /* GraphQL */ `
                   }
                   createdAt
                   updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
                 }
                 nextToken
               }
@@ -8321,12 +25697,472 @@ export const deleteStudent = /* GraphQL */ `
             moduleInfo {
               items {
                 id
-                studentId
-                moduleShortName
-                moduleName
-                className
-                instructorLastName
-                instructorFirstName
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
               }
@@ -8334,6 +26170,10 @@ export const deleteStudent = /* GraphQL */ `
             }
             createdAt
             updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
           }
           nextToken
         }
@@ -8367,19 +26207,662 @@ export const deleteStudent = /* GraphQL */ `
       moduleInfo {
         items {
           id
-          studentId
-          moduleShortName
-          moduleName
-          className
-          instructorLastName
-          instructorFirstName
+          studentID
+          status
+          module {
+            id
+            moduleName
+            moduleShortName
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          class {
+            id
+            className
+            shiftPeriod
+            classConveneDate
+            classProjectedDate
+            building
+            room
+            location
+            status
+            graduated
+            offsiteClass
+            classAdvisor
+            instructors {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            student {
+              items {
+                id
+                studentUsername
+                studentFirstName
+                studentLastName
+                status
+                course
+                school
+                organization
+                rateRank
+                newAssession
+                mandotoryStudy
+                gpaw
+                arbPending
+                currentClass {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                setbackHistory {
+                  items {
+                    id
+                    studentID
+                    setbackDate
+                    setbackFromClass
+                    placedIntoClass
+                    setbackReason
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                comments {
+                  items {
+                    id
+                    studentID
+                    comment
+                    commentDate
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                classStudentId
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          moduleTest {
+            items {
+              id
+              studentID
+              instructorID
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              testGrade
+              testDate
+              testType
+              retestRaw
+              useForGPA
+              status
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
+          moduleModuleInfoId
+          moduleTestModuleInfoId
+          classModuleInfoId
+          instructorModuleInfoId
         }
         nextToken
       }
       createdAt
       updatedAt
+      classStudentId
     }
   }
 `;
@@ -8390,14 +26873,2682 @@ export const createModuleInfo = /* GraphQL */ `
   ) {
     createModuleInfo(input: $input, condition: $condition) {
       id
-      studentId
-      moduleShortName
-      moduleName
-      className
-      instructorLastName
-      instructorFirstName
+      studentID
+      status
+      module {
+        id
+        moduleName
+        moduleShortName
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        building
+        room
+        location
+        status
+        graduated
+        offsiteClass
+        classAdvisor
+        instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        student {
+          items {
+            id
+            studentUsername
+            studentFirstName
+            studentLastName
+            status
+            course
+            school
+            organization
+            rateRank
+            newAssession
+            mandotoryStudy
+            gpaw
+            arbPending
+            currentClass {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            setbackHistory {
+              items {
+                id
+                studentID
+                setbackDate
+                setbackFromClass
+                placedIntoClass
+                setbackReason
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comments {
+              items {
+                id
+                studentID
+                comment
+                commentDate
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        status
+        classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        moduleTest {
+          items {
+            id
+            studentID
+            instructorID
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            testGrade
+            testDate
+            testType
+            retestRaw
+            useForGPA
+            status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      moduleTest {
+        items {
+          id
+          studentID
+          instructorID
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          testGrade
+          testDate
+          testType
+          retestRaw
+          useForGPA
+          status
+          moduleInfo {
+            items {
+              id
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      moduleModuleInfoId
+      moduleTestModuleInfoId
+      classModuleInfoId
+      instructorModuleInfoId
     }
   }
 `;
@@ -8408,14 +29559,2682 @@ export const updateModuleInfo = /* GraphQL */ `
   ) {
     updateModuleInfo(input: $input, condition: $condition) {
       id
-      studentId
-      moduleShortName
-      moduleName
-      className
-      instructorLastName
-      instructorFirstName
+      studentID
+      status
+      module {
+        id
+        moduleName
+        moduleShortName
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        building
+        room
+        location
+        status
+        graduated
+        offsiteClass
+        classAdvisor
+        instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        student {
+          items {
+            id
+            studentUsername
+            studentFirstName
+            studentLastName
+            status
+            course
+            school
+            organization
+            rateRank
+            newAssession
+            mandotoryStudy
+            gpaw
+            arbPending
+            currentClass {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            setbackHistory {
+              items {
+                id
+                studentID
+                setbackDate
+                setbackFromClass
+                placedIntoClass
+                setbackReason
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comments {
+              items {
+                id
+                studentID
+                comment
+                commentDate
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        status
+        classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        moduleTest {
+          items {
+            id
+            studentID
+            instructorID
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            testGrade
+            testDate
+            testType
+            retestRaw
+            useForGPA
+            status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      moduleTest {
+        items {
+          id
+          studentID
+          instructorID
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          testGrade
+          testDate
+          testType
+          retestRaw
+          useForGPA
+          status
+          moduleInfo {
+            items {
+              id
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      moduleModuleInfoId
+      moduleTestModuleInfoId
+      classModuleInfoId
+      instructorModuleInfoId
     }
   }
 `;
@@ -8426,14 +32245,2682 @@ export const deleteModuleInfo = /* GraphQL */ `
   ) {
     deleteModuleInfo(input: $input, condition: $condition) {
       id
-      studentId
-      moduleShortName
-      moduleName
-      className
-      instructorLastName
-      instructorFirstName
+      studentID
+      status
+      module {
+        id
+        moduleName
+        moduleShortName
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      class {
+        id
+        className
+        shiftPeriod
+        classConveneDate
+        classProjectedDate
+        building
+        room
+        location
+        status
+        graduated
+        offsiteClass
+        classAdvisor
+        instructors {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        student {
+          items {
+            id
+            studentUsername
+            studentFirstName
+            studentLastName
+            status
+            course
+            school
+            organization
+            rateRank
+            newAssession
+            mandotoryStudy
+            gpaw
+            arbPending
+            currentClass {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            setbackHistory {
+              items {
+                id
+                studentID
+                setbackDate
+                setbackFromClass
+                placedIntoClass
+                setbackReason
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comments {
+              items {
+                id
+                studentID
+                comment
+                commentDate
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            classStudentId
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      instructor {
+        id
+        instructorFirstName
+        instructorLastName
+        instructorUsername
+        role
+        status
+        classes {
+          items {
+            id
+            classID
+            instructorID
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        moduleTest {
+          items {
+            id
+            studentID
+            instructorID
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            testGrade
+            testDate
+            testType
+            retestRaw
+            useForGPA
+            status
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        moduleInfo {
+          items {
+            id
+            studentID
+            status
+            module {
+              id
+              moduleName
+              moduleShortName
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            class {
+              id
+              className
+              shiftPeriod
+              classConveneDate
+              classProjectedDate
+              building
+              room
+              location
+              status
+              graduated
+              offsiteClass
+              classAdvisor
+              instructors {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              student {
+                items {
+                  id
+                  studentUsername
+                  studentFirstName
+                  studentLastName
+                  status
+                  course
+                  school
+                  organization
+                  rateRank
+                  newAssession
+                  mandotoryStudy
+                  gpaw
+                  arbPending
+                  currentClass {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  setbackHistory {
+                    nextToken
+                  }
+                  comments {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  classStudentId
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            instructor {
+              id
+              instructorFirstName
+              instructorLastName
+              instructorUsername
+              role
+              status
+              classes {
+                items {
+                  id
+                  classID
+                  instructorID
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              moduleInfo {
+                items {
+                  id
+                  studentID
+                  status
+                  module {
+                    id
+                    moduleName
+                    moduleShortName
+                    createdAt
+                    updatedAt
+                  }
+                  class {
+                    id
+                    className
+                    shiftPeriod
+                    classConveneDate
+                    classProjectedDate
+                    building
+                    room
+                    location
+                    status
+                    graduated
+                    offsiteClass
+                    classAdvisor
+                    createdAt
+                    updatedAt
+                  }
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  moduleModuleInfoId
+                  moduleTestModuleInfoId
+                  classModuleInfoId
+                  instructorModuleInfoId
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            moduleModuleInfoId
+            moduleTestModuleInfoId
+            classModuleInfoId
+            instructorModuleInfoId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      moduleTest {
+        items {
+          id
+          studentID
+          instructorID
+          instructor {
+            id
+            instructorFirstName
+            instructorLastName
+            instructorUsername
+            role
+            status
+            classes {
+              items {
+                id
+                classID
+                instructorID
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleTest {
+              items {
+                id
+                studentID
+                instructorID
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                testGrade
+                testDate
+                testType
+                retestRaw
+                useForGPA
+                status
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            moduleInfo {
+              items {
+                id
+                studentID
+                status
+                module {
+                  id
+                  moduleName
+                  moduleShortName
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                class {
+                  id
+                  className
+                  shiftPeriod
+                  classConveneDate
+                  classProjectedDate
+                  building
+                  room
+                  location
+                  status
+                  graduated
+                  offsiteClass
+                  classAdvisor
+                  instructors {
+                    nextToken
+                  }
+                  student {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                instructor {
+                  id
+                  instructorFirstName
+                  instructorLastName
+                  instructorUsername
+                  role
+                  status
+                  classes {
+                    nextToken
+                  }
+                  moduleTest {
+                    nextToken
+                  }
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+                moduleModuleInfoId
+                moduleTestModuleInfoId
+                classModuleInfoId
+                instructorModuleInfoId
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          testGrade
+          testDate
+          testType
+          retestRaw
+          useForGPA
+          status
+          moduleInfo {
+            items {
+              id
+              studentID
+              status
+              module {
+                id
+                moduleName
+                moduleShortName
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              class {
+                id
+                className
+                shiftPeriod
+                classConveneDate
+                classProjectedDate
+                building
+                room
+                location
+                status
+                graduated
+                offsiteClass
+                classAdvisor
+                instructors {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                student {
+                  items {
+                    id
+                    studentUsername
+                    studentFirstName
+                    studentLastName
+                    status
+                    course
+                    school
+                    organization
+                    rateRank
+                    newAssession
+                    mandotoryStudy
+                    gpaw
+                    arbPending
+                    createdAt
+                    updatedAt
+                    classStudentId
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              instructor {
+                id
+                instructorFirstName
+                instructorLastName
+                instructorUsername
+                role
+                status
+                classes {
+                  items {
+                    id
+                    classID
+                    instructorID
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleTest {
+                  items {
+                    id
+                    studentID
+                    instructorID
+                    testGrade
+                    testDate
+                    testType
+                    retestRaw
+                    useForGPA
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  nextToken
+                }
+                moduleInfo {
+                  items {
+                    id
+                    studentID
+                    status
+                    createdAt
+                    updatedAt
+                    moduleModuleInfoId
+                    moduleTestModuleInfoId
+                    classModuleInfoId
+                    instructorModuleInfoId
+                  }
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              moduleTest {
+                items {
+                  id
+                  studentID
+                  instructorID
+                  instructor {
+                    id
+                    instructorFirstName
+                    instructorLastName
+                    instructorUsername
+                    role
+                    status
+                    createdAt
+                    updatedAt
+                  }
+                  testGrade
+                  testDate
+                  testType
+                  retestRaw
+                  useForGPA
+                  status
+                  moduleInfo {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+              moduleModuleInfoId
+              moduleTestModuleInfoId
+              classModuleInfoId
+              instructorModuleInfoId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      moduleModuleInfoId
+      moduleTestModuleInfoId
+      classModuleInfoId
+      instructorModuleInfoId
     }
   }
 `;

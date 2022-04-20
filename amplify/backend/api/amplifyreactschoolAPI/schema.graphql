@@ -27,14 +27,12 @@ type Module @model @auth(rules: [{ allow: private }]) {
   id: ID!
   moduleName: String!
   moduleShortName: String!
-  moduleTest: [ModuleTest] @hasMany
+  moduleInfo: [moduleInfo] @hasMany
 }
 
 type ModuleTest @model @auth(rules: [{ allow: private }]) {
   id: ID!
-  studentID: ID!
-  moduleID: ID!
-  module: Module! @belongsTo(fields: ["id"])
+  studentID: ID! @index(name: "byStudent")
   instructorID: ID! @index(name: "byInstructor")
   instructor: Instructor! @belongsTo(fields: ["id"])
   testGrade: Int
@@ -43,6 +41,7 @@ type ModuleTest @model @auth(rules: [{ allow: private }]) {
   retestRaw: Int
   useForGPA: Boolean
   status: String
+  moduleInfo: [moduleInfo] @hasMany
 }
 
 type Class @model @auth(rules: [{ allow: private }]) {
@@ -59,7 +58,8 @@ type Class @model @auth(rules: [{ allow: private }]) {
   offsiteClass: Boolean
   classAdvisor: String
   instructors: [ClassInfo] @hasMany(indexName: "byClass", fields: ["id"])
-  students: [Student] @hasMany(fields: ["id"])
+  student: [Student] @hasMany
+  moduleInfo: [moduleInfo] @hasMany
 }
 
 type ClassInfo @model @auth(rules: [{ allow: private }]) {
@@ -79,6 +79,7 @@ type Instructor @model @auth(rules: [{ allow: private }]) {
   status: String
   classes: [ClassInfo] @hasMany(indexName: "byInstructor", fields: ["id"])
   moduleTest: [ModuleTest] @hasMany(indexName: "byInstructor", fields: ["id"])
+  moduleInfo: [moduleInfo] @hasMany
 }
 
 type Student @model @auth(rules: [{ allow: private }]) {
@@ -104,12 +105,12 @@ type Student @model @auth(rules: [{ allow: private }]) {
 
 type moduleInfo @model @auth(rules: [{ allow: private }]) {
   id: ID!
-  studentId: ID! @index(name: "byStudent", sortKeyFields: ["moduleName"])
-  moduleShortName: String!
-  moduleName: String
-  className: String
-  instructorLastName: String
-  instructorFirstName: String
+  studentID: ID! @index(name: "byStudent")
+  status: String
+  module: Module! @belongsTo
+  class: Class! @belongsTo(fields: ["id"])
+  instructor: Instructor! @belongsTo(fields: ["id"])
+  moduleTest: [ModuleTest] @hasMany(indexName: "byStudent", fields: ["id"])
 }
 
 type SetbackHistory @model @auth(rules: [{ allow: private }]) {
