@@ -36,6 +36,7 @@ export const getSchool = /* GraphQL */ `
       id
       schoolName
       schoolShortName
+      location
       createdAt
       updatedAt
     }
@@ -52,6 +53,7 @@ export const listSchools = /* GraphQL */ `
         id
         schoolName
         schoolShortName
+        location
         createdAt
         updatedAt
       }
@@ -65,6 +67,7 @@ export const getCourse = /* GraphQL */ `
       id
       courseName
       courseShortName
+      location
       createdAt
       updatedAt
     }
@@ -81,6 +84,7 @@ export const listCourses = /* GraphQL */ `
         id
         courseName
         courseShortName
+        location
         createdAt
         updatedAt
       }
@@ -108,80 +112,9 @@ export const getModule = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -208,50 +141,6 @@ export const getModule = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -272,69 +161,6 @@ export const getModule = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -346,80 +172,9 @@ export const getModule = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -440,50 +195,6 @@ export const getModule = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -494,45 +205,14 @@ export const getModule = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -543,80 +223,9 @@ export const getModule = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -637,105 +246,17 @@ export const getModule = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -744,7 +265,6 @@ export const getModule = /* GraphQL */ `
           createdAt
           updatedAt
           moduleModuleInfoId
-          moduleTestModuleInfoId
           classModuleInfoId
           instructorModuleInfoId
         }
@@ -776,53 +296,6 @@ export const listModules = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -842,135 +315,12 @@ export const listModules = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -984,118 +334,12 @@ export const listModules = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -1106,45 +350,14 @@ export const listModules = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -1153,7 +366,6 @@ export const listModules = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -1198,135 +410,12 @@ export const getModuleTest = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -1340,118 +429,12 @@ export const getModuleTest = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -1475,213 +458,25 @@ export const getModuleTest = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
               updatedAt
             }
+            moduleInfoID
             testGrade
             testDate
             testType
+            testEvent
             retestRaw
             useForGPA
             status
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
             createdAt
             updatedAt
           }
@@ -1697,53 +492,6 @@ export const getModuleTest = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -1763,135 +511,12 @@ export const getModuleTest = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -1905,118 +530,12 @@ export const getModuleTest = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -2027,45 +546,14 @@ export const getModuleTest = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -2074,7 +562,6 @@ export const getModuleTest = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -2083,668 +570,14 @@ export const getModuleTest = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      moduleInfoID
       testGrade
       testDate
       testType
+      testEvent
       retestRaw
       useForGPA
       status
-      moduleInfo {
-        items {
-          id
-          studentID
-          status
-          module {
-            id
-            moduleName
-            moduleShortName
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          class {
-            id
-            className
-            shiftPeriod
-            classConveneDate
-            classProjectedDate
-            building
-            room
-            location
-            status
-            graduated
-            offsiteClass
-            classAdvisor
-            instructors {
-              items {
-                id
-                classID
-                instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            student {
-              items {
-                id
-                studentUsername
-                studentFirstName
-                studentLastName
-                status
-                course
-                school
-                organization
-                rateRank
-                newAssession
-                mandotoryStudy
-                gpaw
-                arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                classStudentId
-              }
-              nextToken
-            }
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          instructor {
-            id
-            instructorFirstName
-            instructorLastName
-            instructorUsername
-            role
-            status
-            classes {
-              items {
-                id
-                classID
-                instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            moduleTest {
-              items {
-                id
-                studentID
-                instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          moduleTest {
-            items {
-              id
-              studentID
-              instructorID
-              instructor {
-                id
-                instructorFirstName
-                instructorLastName
-                instructorUsername
-                role
-                status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              testGrade
-              testDate
-              testType
-              retestRaw
-              useForGPA
-              status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          createdAt
-          updatedAt
-          moduleModuleInfoId
-          moduleTestModuleInfoId
-          classModuleInfoId
-          instructorModuleInfoId
-        }
-        nextToken
-      }
       createdAt
       updatedAt
     }
@@ -2786,51 +619,6 @@ export const listModuleTests = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -2841,46 +629,6 @@ export const listModuleTests = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -2901,105 +649,17 @@ export const listModuleTests = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -3014,20 +674,6 @@ export const listModuleTests = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -3044,51 +690,6 @@ export const listModuleTests = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -3099,82 +700,15 @@ export const listModuleTests = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -3183,405 +717,14 @@ export const listModuleTests = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        moduleInfoID
         testGrade
         testDate
         testType
+        testEvent
         retestRaw
         useForGPA
         status
-        moduleInfo {
-          items {
-            id
-            studentID
-            status
-            module {
-              id
-              moduleName
-              moduleShortName
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            class {
-              id
-              className
-              shiftPeriod
-              classConveneDate
-              classProjectedDate
-              building
-              room
-              location
-              status
-              graduated
-              offsiteClass
-              classAdvisor
-              instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
-                nextToken
-              }
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            instructor {
-              id
-              instructorFirstName
-              instructorLastName
-              instructorUsername
-              role
-              status
-              classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            moduleTest {
-              items {
-                id
-                studentID
-                instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                testGrade
-                testDate
-                testType
-                retestRaw
-                useForGPA
-                status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-            moduleModuleInfoId
-            moduleTestModuleInfoId
-            classModuleInfoId
-            instructorModuleInfoId
-          }
-          nextToken
-        }
         createdAt
         updatedAt
       }
@@ -3627,50 +770,6 @@ export const getClass = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -3691,69 +790,6 @@ export const getClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -3765,80 +801,9 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -3859,50 +824,6 @@ export const getClass = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -3913,45 +834,14 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -3962,80 +852,9 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -4082,50 +901,6 @@ export const getClass = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -4146,69 +921,6 @@ export const getClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -4220,80 +932,9 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -4335,20 +976,6 @@ export const getClass = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -4365,51 +992,6 @@ export const getClass = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -4420,82 +1002,15 @@ export const getClass = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -4521,80 +1036,9 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -4621,50 +1065,6 @@ export const getClass = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -4685,69 +1085,6 @@ export const getClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -4759,80 +1096,9 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -4853,50 +1119,6 @@ export const getClass = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -4907,45 +1129,14 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -4956,80 +1147,9 @@ export const getClass = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -5050,105 +1170,17 @@ export const getClass = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -5157,7 +1189,6 @@ export const getClass = /* GraphQL */ `
           createdAt
           updatedAt
           moduleModuleInfoId
-          moduleTestModuleInfoId
           classModuleInfoId
           instructorModuleInfoId
         }
@@ -5207,135 +1238,12 @@ export const listClasses = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -5349,118 +1257,12 @@ export const listClasses = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -5500,135 +1302,12 @@ export const listClasses = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -5663,80 +1342,9 @@ export const listClasses = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -5758,53 +1366,6 @@ export const listClasses = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -5824,135 +1385,12 @@ export const listClasses = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -5966,118 +1404,12 @@ export const listClasses = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -6088,45 +1420,14 @@ export const listClasses = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -6135,7 +1436,6 @@ export const listClasses = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -6186,135 +1486,12 @@ export const getClassInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -6328,118 +1505,12 @@ export const getClassInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -6479,135 +1550,12 @@ export const getClassInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -6642,80 +1590,9 @@ export const getClassInfo = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -6737,53 +1614,6 @@ export const getClassInfo = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -6803,135 +1633,12 @@ export const getClassInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -6945,118 +1652,12 @@ export const getClassInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -7067,45 +1668,14 @@ export const getClassInfo = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -7114,7 +1684,6 @@ export const getClassInfo = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -7149,135 +1718,12 @@ export const getClassInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -7291,118 +1737,12 @@ export const getClassInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -7426,213 +1766,25 @@ export const getClassInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
               updatedAt
             }
+            moduleInfoID
             testGrade
             testDate
             testType
+            testEvent
             retestRaw
             useForGPA
             status
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
             createdAt
             updatedAt
           }
@@ -7648,53 +1800,6 @@ export const getClassInfo = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -7714,135 +1819,12 @@ export const getClassInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -7856,118 +1838,12 @@ export const getClassInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -7978,45 +1854,14 @@ export const getClassInfo = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8025,7 +1870,6 @@ export const getClassInfo = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -8081,51 +1925,6 @@ export const listClassInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8136,46 +1935,6 @@ export const listClassInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8212,126 +1971,16 @@ export const listClassInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               setbackHistory {
-                items {
-                  id
-                  studentID
-                  setbackDate
-                  setbackFromClass
-                  placedIntoClass
-                  setbackReason
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               comments {
-                items {
-                  id
-                  studentID
-                  comment
-                  commentDate
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -8349,20 +1998,6 @@ export const listClassInfos = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8379,51 +2014,6 @@ export const listClassInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8434,82 +2024,15 @@ export const listClassInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -8543,51 +2066,6 @@ export const listClassInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8598,46 +2076,6 @@ export const listClassInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8658,105 +2096,17 @@ export const listClassInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -8771,20 +2121,6 @@ export const listClassInfos = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8801,51 +2137,6 @@ export const listClassInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -8856,82 +2147,15 @@ export const listClassInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -8979,50 +2203,6 @@ export const getInstructor = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -9043,69 +2223,6 @@ export const getInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -9117,80 +2234,9 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -9211,50 +2257,6 @@ export const getInstructor = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -9265,45 +2267,14 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -9314,80 +2285,9 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -9418,50 +2318,6 @@ export const getInstructor = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -9472,45 +2328,14 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -9521,80 +2346,9 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -9603,187 +2357,14 @@ export const getInstructor = /* GraphQL */ `
             createdAt
             updatedAt
           }
+          moduleInfoID
           testGrade
           testDate
           testType
+          testEvent
           retestRaw
           useForGPA
           status
-          moduleInfo {
-            items {
-              id
-              studentID
-              status
-              module {
-                id
-                moduleName
-                moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              class {
-                id
-                className
-                shiftPeriod
-                classConveneDate
-                classProjectedDate
-                building
-                room
-                location
-                status
-                graduated
-                offsiteClass
-                classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              instructor {
-                id
-                instructorFirstName
-                instructorLastName
-                instructorUsername
-                role
-                status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-              moduleModuleInfoId
-              moduleTestModuleInfoId
-              classModuleInfoId
-              instructorModuleInfoId
-            }
-            nextToken
-          }
           createdAt
           updatedAt
         }
@@ -9803,80 +2384,9 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -9903,50 +2413,6 @@ export const getInstructor = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -9967,69 +2433,6 @@ export const getInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -10041,80 +2444,9 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -10135,50 +2467,6 @@ export const getInstructor = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -10189,45 +2477,14 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -10238,80 +2495,9 @@ export const getInstructor = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -10332,105 +2518,17 @@ export const getInstructor = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -10439,7 +2537,6 @@ export const getInstructor = /* GraphQL */ `
           createdAt
           updatedAt
           moduleModuleInfoId
-          moduleTestModuleInfoId
           classModuleInfoId
           instructorModuleInfoId
         }
@@ -10483,135 +2580,12 @@ export const listInstructors = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -10625,118 +2599,12 @@ export const listInstructors = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -10760,213 +2628,25 @@ export const listInstructors = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
               updatedAt
             }
+            moduleInfoID
             testGrade
             testDate
             testType
+            testEvent
             retestRaw
             useForGPA
             status
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
             createdAt
             updatedAt
           }
@@ -10982,53 +2662,6 @@ export const listInstructors = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -11048,135 +2681,12 @@ export const listInstructors = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -11190,118 +2700,12 @@ export const listInstructors = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -11312,45 +2716,14 @@ export const listInstructors = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -11359,7 +2732,6 @@ export const listInstructors = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -11420,135 +2792,12 @@ export const getStudent = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -11562,118 +2811,12 @@ export const getStudent = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -11713,135 +2856,12 @@ export const getStudent = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -11876,80 +2896,9 @@ export const getStudent = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -11971,53 +2920,6 @@ export const getStudent = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -12037,135 +2939,12 @@ export const getStudent = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -12179,118 +2958,12 @@ export const getStudent = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -12301,45 +2974,14 @@ export const getStudent = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -12348,7 +2990,6 @@ export const getStudent = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -12395,80 +3036,9 @@ export const getStudent = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -12495,50 +3065,6 @@ export const getStudent = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -12559,69 +3085,6 @@ export const getStudent = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
-                currentClass {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                setbackHistory {
-                  items {
-                    id
-                    studentID
-                    setbackDate
-                    setbackFromClass
-                    placedIntoClass
-                    setbackReason
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                comments {
-                  items {
-                    id
-                    studentID
-                    comment
-                    commentDate
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 classStudentId
@@ -12633,80 +3096,9 @@ export const getStudent = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -12727,50 +3119,6 @@ export const getStudent = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -12781,45 +3129,14 @@ export const getStudent = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -12830,80 +3147,9 @@ export const getStudent = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -12924,105 +3170,17 @@ export const getStudent = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -13031,7 +3189,6 @@ export const getStudent = /* GraphQL */ `
           createdAt
           updatedAt
           moduleModuleInfoId
-          moduleTestModuleInfoId
           classModuleInfoId
           instructorModuleInfoId
         }
@@ -13095,51 +3252,6 @@ export const listStudents = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -13150,46 +3262,6 @@ export const listStudents = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -13226,126 +3298,16 @@ export const listStudents = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               setbackHistory {
-                items {
-                  id
-                  studentID
-                  setbackDate
-                  setbackFromClass
-                  placedIntoClass
-                  setbackReason
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               comments {
-                items {
-                  id
-                  studentID
-                  comment
-                  commentDate
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -13363,20 +3325,6 @@ export const listStudents = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -13393,51 +3341,6 @@ export const listStudents = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -13448,82 +3351,15 @@ export const listStudents = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -13566,53 +3402,6 @@ export const listStudents = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -13632,135 +3421,12 @@ export const listStudents = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -13774,118 +3440,12 @@ export const listStudents = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -13896,45 +3456,14 @@ export const listStudents = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -13943,7 +3472,6 @@ export const listStudents = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -13977,53 +3505,6 @@ export const getModuleInfo = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -14043,135 +3524,12 @@ export const getModuleInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -14185,118 +3543,12 @@ export const getModuleInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -14307,45 +3559,14 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -14354,7 +3575,6 @@ export const getModuleInfo = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -14395,135 +3615,12 @@ export const getModuleInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -14537,118 +3634,12 @@ export const getModuleInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -14688,135 +3679,12 @@ export const getModuleInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -14851,80 +3719,9 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -14946,53 +3743,6 @@ export const getModuleInfo = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -15012,135 +3762,12 @@ export const getModuleInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -15154,118 +3781,12 @@ export const getModuleInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -15276,45 +3797,14 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -15323,7 +3813,6 @@ export const getModuleInfo = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -15358,135 +3847,12 @@ export const getModuleInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -15500,118 +3866,12 @@ export const getModuleInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -15635,213 +3895,25 @@ export const getModuleInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
               updatedAt
             }
+            moduleInfoID
             testGrade
             testDate
             testType
+            testEvent
             retestRaw
             useForGPA
             status
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
             createdAt
             updatedAt
           }
@@ -15857,53 +3929,6 @@ export const getModuleInfo = /* GraphQL */ `
               moduleName
               moduleShortName
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -15923,135 +3948,12 @@ export const getModuleInfo = /* GraphQL */ `
               offsiteClass
               classAdvisor
               instructors {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               student {
-                items {
-                  id
-                  studentUsername
-                  studentFirstName
-                  studentLastName
-                  status
-                  course
-                  school
-                  organization
-                  rateRank
-                  newAssession
-                  mandotoryStudy
-                  gpaw
-                  arbPending
-                  currentClass {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  setbackHistory {
-                    nextToken
-                  }
-                  comments {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  classStudentId
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -16065,118 +3967,12 @@ export const getModuleInfo = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -16187,45 +3983,14 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -16234,7 +3999,6 @@ export const getModuleInfo = /* GraphQL */ `
             createdAt
             updatedAt
             moduleModuleInfoId
-            moduleTestModuleInfoId
             classModuleInfoId
             instructorModuleInfoId
           }
@@ -16260,50 +4024,6 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 classID
                 instructorID
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 createdAt
                 updatedAt
               }
@@ -16314,45 +4034,14 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 studentID
                 instructorID
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
+                moduleInfoID
                 testGrade
                 testDate
                 testType
+                testEvent
                 retestRaw
                 useForGPA
                 status
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -16363,80 +4052,9 @@ export const getModuleInfo = /* GraphQL */ `
                 id
                 studentID
                 status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
                 moduleModuleInfoId
-                moduleTestModuleInfoId
                 classModuleInfoId
                 instructorModuleInfoId
               }
@@ -16445,187 +4063,14 @@ export const getModuleInfo = /* GraphQL */ `
             createdAt
             updatedAt
           }
+          moduleInfoID
           testGrade
           testDate
           testType
+          testEvent
           retestRaw
           useForGPA
           status
-          moduleInfo {
-            items {
-              id
-              studentID
-              status
-              module {
-                id
-                moduleName
-                moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              class {
-                id
-                className
-                shiftPeriod
-                classConveneDate
-                classProjectedDate
-                building
-                room
-                location
-                status
-                graduated
-                offsiteClass
-                classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              instructor {
-                id
-                instructorFirstName
-                instructorLastName
-                instructorUsername
-                role
-                status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-              moduleModuleInfoId
-              moduleTestModuleInfoId
-              classModuleInfoId
-              instructorModuleInfoId
-            }
-            nextToken
-          }
           createdAt
           updatedAt
         }
@@ -16634,7 +4079,6 @@ export const getModuleInfo = /* GraphQL */ `
       createdAt
       updatedAt
       moduleModuleInfoId
-      moduleTestModuleInfoId
       classModuleInfoId
       instructorModuleInfoId
     }
@@ -16664,20 +4108,6 @@ export const listModuleInfos = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -16694,51 +4124,6 @@ export const listModuleInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -16749,82 +4134,15 @@ export const listModuleInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -16864,51 +4182,6 @@ export const listModuleInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -16919,46 +4192,6 @@ export const listModuleInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -16995,126 +4228,16 @@ export const listModuleInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               setbackHistory {
-                items {
-                  id
-                  studentID
-                  setbackDate
-                  setbackFromClass
-                  placedIntoClass
-                  setbackReason
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               comments {
-                items {
-                  id
-                  studentID
-                  comment
-                  commentDate
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
@@ -17132,20 +4255,6 @@ export const listModuleInfos = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -17162,51 +4271,6 @@ export const listModuleInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -17217,82 +4281,15 @@ export const listModuleInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -17326,51 +4323,6 @@ export const listModuleInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -17381,46 +4333,6 @@ export const listModuleInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -17441,105 +4353,17 @@ export const listModuleInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
+              moduleInfoID
               testGrade
               testDate
               testType
+              testEvent
               retestRaw
               useForGPA
               status
-              moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
-                nextToken
-              }
               createdAt
               updatedAt
             }
@@ -17554,20 +4378,6 @@ export const listModuleInfos = /* GraphQL */ `
                 id
                 moduleName
                 moduleShortName
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -17584,51 +4394,6 @@ export const listModuleInfos = /* GraphQL */ `
                 graduated
                 offsiteClass
                 classAdvisor
-                instructors {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                student {
-                  items {
-                    id
-                    studentUsername
-                    studentFirstName
-                    studentLastName
-                    status
-                    course
-                    school
-                    organization
-                    rateRank
-                    newAssession
-                    mandotoryStudy
-                    gpaw
-                    arbPending
-                    createdAt
-                    updatedAt
-                    classStudentId
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
@@ -17639,82 +4404,15 @@ export const listModuleInfos = /* GraphQL */ `
                 instructorUsername
                 role
                 status
-                classes {
-                  items {
-                    id
-                    classID
-                    instructorID
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                moduleInfo {
-                  items {
-                    id
-                    studentID
-                    status
-                    createdAt
-                    updatedAt
-                    moduleModuleInfoId
-                    moduleTestModuleInfoId
-                    classModuleInfoId
-                    instructorModuleInfoId
-                  }
-                  nextToken
-                }
                 createdAt
                 updatedAt
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               createdAt
               updatedAt
               moduleModuleInfoId
-              moduleTestModuleInfoId
               classModuleInfoId
               instructorModuleInfoId
             }
@@ -17736,213 +4434,25 @@ export const listModuleInfos = /* GraphQL */ `
               role
               status
               classes {
-                items {
-                  id
-                  classID
-                  instructorID
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleTest {
-                items {
-                  id
-                  studentID
-                  instructorID
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  testGrade
-                  testDate
-                  testType
-                  retestRaw
-                  useForGPA
-                  status
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
                 nextToken
               }
               moduleInfo {
-                items {
-                  id
-                  studentID
-                  status
-                  module {
-                    id
-                    moduleName
-                    moduleShortName
-                    createdAt
-                    updatedAt
-                  }
-                  class {
-                    id
-                    className
-                    shiftPeriod
-                    classConveneDate
-                    classProjectedDate
-                    building
-                    room
-                    location
-                    status
-                    graduated
-                    offsiteClass
-                    classAdvisor
-                    createdAt
-                    updatedAt
-                  }
-                  instructor {
-                    id
-                    instructorFirstName
-                    instructorLastName
-                    instructorUsername
-                    role
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                  moduleModuleInfoId
-                  moduleTestModuleInfoId
-                  classModuleInfoId
-                  instructorModuleInfoId
-                }
                 nextToken
               }
               createdAt
               updatedAt
             }
+            moduleInfoID
             testGrade
             testDate
             testType
+            testEvent
             retestRaw
             useForGPA
             status
-            moduleInfo {
-              items {
-                id
-                studentID
-                status
-                module {
-                  id
-                  moduleName
-                  moduleShortName
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                class {
-                  id
-                  className
-                  shiftPeriod
-                  classConveneDate
-                  classProjectedDate
-                  building
-                  room
-                  location
-                  status
-                  graduated
-                  offsiteClass
-                  classAdvisor
-                  instructors {
-                    nextToken
-                  }
-                  student {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                instructor {
-                  id
-                  instructorFirstName
-                  instructorLastName
-                  instructorUsername
-                  role
-                  status
-                  classes {
-                    nextToken
-                  }
-                  moduleTest {
-                    nextToken
-                  }
-                  moduleInfo {
-                    nextToken
-                  }
-                  createdAt
-                  updatedAt
-                }
-                moduleTest {
-                  items {
-                    id
-                    studentID
-                    instructorID
-                    testGrade
-                    testDate
-                    testType
-                    retestRaw
-                    useForGPA
-                    status
-                    createdAt
-                    updatedAt
-                  }
-                  nextToken
-                }
-                createdAt
-                updatedAt
-                moduleModuleInfoId
-                moduleTestModuleInfoId
-                classModuleInfoId
-                instructorModuleInfoId
-              }
-              nextToken
-            }
             createdAt
             updatedAt
           }
@@ -17951,7 +4461,6 @@ export const listModuleInfos = /* GraphQL */ `
         createdAt
         updatedAt
         moduleModuleInfoId
-        moduleTestModuleInfoId
         classModuleInfoId
         instructorModuleInfoId
       }

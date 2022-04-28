@@ -15,12 +15,14 @@ type School @model @auth(rules: [{ allow: private }]) {
   id: ID!
   schoolName: String!
   schoolShortName: String
+  location: String
 }
 
 type Course @model @auth(rules: [{ allow: private }]) {
   id: ID!
   courseName: String!
   courseShortName: String
+  location: String
 }
 
 type Module @model @auth(rules: [{ allow: private }]) {
@@ -35,13 +37,15 @@ type ModuleTest @model @auth(rules: [{ allow: private }]) {
   studentID: ID! @index(name: "byStudent")
   instructorID: ID! @index(name: "byInstructor")
   instructor: Instructor! @belongsTo(fields: ["id"])
+  moduleInfoID: ID! @index(name: "byModuleInfo")
+  # moduleInfo: moduleInfo! @belongsTo(fields: ["id"])
   testGrade: Int
   testDate: AWSDate
   testType: String
+  testEvent: String
   retestRaw: Int
   useForGPA: Boolean
   status: String
-  moduleInfo: [moduleInfo] @hasMany
 }
 
 type Class @model @auth(rules: [{ allow: private }]) {
@@ -108,9 +112,9 @@ type moduleInfo @model @auth(rules: [{ allow: private }]) {
   studentID: ID! @index(name: "byStudent")
   status: String
   module: Module! @belongsTo
-  class: Class! @belongsTo(fields: ["id"])
-  instructor: Instructor! @belongsTo(fields: ["id"])
-  moduleTest: [ModuleTest] @hasMany(indexName: "byStudent", fields: ["id"])
+  class: Class! @belongsTo #(fields: ["id"])
+  instructor: Instructor! @belongsTo #(fields: ["id"])
+  moduleTest: [ModuleTest] @hasMany(indexName: "byModuleInfo", fields: ["id"])
 }
 
 type SetbackHistory @model @auth(rules: [{ allow: private }]) {
