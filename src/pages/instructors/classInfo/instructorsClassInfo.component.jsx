@@ -3,12 +3,7 @@ import React, { useEffect, useState } from "react";
 // AWS Amplify and GraphQL API and Mutations
 import { API, graphqlOperation } from "aws-amplify";
 // queries for Instructor and Class many-to-many relationship
-import {
-  getInstructor,
-  listInstructors,
-  getClass,
-  listClasss,
-} from "../../../graphql/queries";
+import { getInstructor, listInstructors } from "../../../graphql/queries";
 
 /* // MUI Data Grid Pro and MUI Components
 import {
@@ -22,7 +17,7 @@ import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -31,6 +26,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 // ListInstructorsClasses component for Instructor page to display all Instructor classes
 const ListInstructorsClasses = () => {
@@ -98,7 +95,7 @@ const ListInstructorsClasses = () => {
         paddingTop: "100px",
         paddingBottom: "200px",
         paddingLeft: "20px",
-        width: "85%",
+        width: "95%",
       }}
     >
       <Typography
@@ -138,11 +135,16 @@ const ListInstructorsClasses = () => {
             <TableHead>
               <TableRow>
                 <TableCell>Class Name</TableCell>
-                <TableCell align="right">Shift Period</TableCell>
-                <TableCell align="right">Class Convene Date</TableCell>
-                <TableCell align="right">
-                  Class Projected Graduation Date
-                </TableCell>
+                <TableCell align="center">Shift Period</TableCell>
+
+                <TableCell align="center">Building</TableCell>
+                <TableCell align="center">Room</TableCell>
+                <TableCell align="center">Location</TableCell>
+                <TableCell align="center">Status</TableCell>
+                <TableCell align="center">Class Advisor</TableCell>
+                <TableCell align="center">Graduated</TableCell>
+                <TableCell align="center">Convene Date</TableCell>
+                <TableCell align="center">Projected Graduation</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -155,13 +157,37 @@ const ListInstructorsClasses = () => {
                       <TableCell component="th" scope="row">
                         {item.class.className}
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="center">
                         {item.class.shiftPeriod}
                       </TableCell>
-                      <TableCell align="right">
+
+                      <TableCell align="center">
+                        {item.class.building}
+                      </TableCell>
+                      <TableCell align="center">{item.class.room}</TableCell>
+                      <TableCell align="center">
+                        {item.class.location}
+                      </TableCell>
+                      <TableCell align="center">{item.class.status}</TableCell>
+                      <TableCell align="center">
+                        {item.class.classAdvisor}
+                      </TableCell>
+                      <TableCell align="center">
+                        {item.class.graduated ? (
+                          <CheckCircleOutlineIcon
+                            style={{ color: "green", fontSize: "large" }}
+                          />
+                        ) : (
+                          // else display X
+                          <RadioButtonUncheckedIcon
+                            sx={{ color: "lightblue", fontSize: "large" }}
+                          />
+                        )}
+                      </TableCell>
+                      <TableCell align="center">
                         {item.class.classConveneDate}
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="center">
                         {item.class.classProjectedDate}
                       </TableCell>
                     </TableRow>

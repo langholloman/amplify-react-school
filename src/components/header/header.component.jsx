@@ -14,8 +14,6 @@ import GroupIcon from "@mui/icons-material/Group";
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
 import HomeMax from "@mui/icons-material/HomeMax";
 
-import "./header.styles.scss";
-
 const Header = () => {
   return (
     <Box sx={{ flexGrow: 2 }}>

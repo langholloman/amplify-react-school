@@ -19,7 +19,7 @@ import HomePage from "./pages/home/home.component";
 import ListStudents from "./pages/students/listStudents.component";
 
 // Classes component
-import Classes from "./pages/classes/classes.component";
+import ListClasses from "./pages/classes/listClasses.component";
 
 // Instructors component
 import ListInstructors from "./pages/instructors/listInstructors.component";
@@ -28,7 +28,7 @@ import ListInstructors from "./pages/instructors/listInstructors.component";
 import ListInstructorsClasses from "./pages/instructors/classInfo/instructorsClassInfo.component";
 
 // Modules component
-import Modules from "./pages/modules/modules.component";
+import ListModules from "./pages/modules/listModules.component";
 
 // configure Amplify
 Amplify.configure(awsConfig);
@@ -52,8 +52,8 @@ function App() {
           path="/listInstructorsClasses"
           component={ListInstructorsClasses}
         />
-        <Route path="/modules" component={Modules} />
-        <Route path="/classes" component={Classes} />
+        <Route path="/modules" component={ListModules} />
+        <Route path="/classes" component={ListClasses} />
 
         <Route path="*" component={HomePage} />
       </Switch>

@@ -14,6 +14,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import AddIcon from "@mui/icons-material/Add";
 import Button from "@mui/material/Button";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 class AddInstructor extends Component {
   state = {
@@ -21,6 +25,8 @@ class AddInstructor extends Component {
     instructorFirstName: "",
     instructorLastName: "",
     instructorUsername: "",
+    role: "",
+    status: "",
   };
 
   handleClickOpen = () => {
@@ -35,23 +41,22 @@ class AddInstructor extends Component {
 
   handleChange = (name) => (event) => {
     this.setState({ [name]: event.target.value });
-    /*     console.log(
-      "Name: " +
-        this.state.instructorFirstName +
-        " " +
-        this.state.instructorLastName +
-        "Username: " +
-        this.state.instructorUsername
-    ); */
   };
 
   handleSubmit = async () => {
-    const { instructorFirstName, instructorLastName, instructorUsername } =
-      this.state;
+    const {
+      instructorFirstName,
+      instructorLastName,
+      instructorUsername,
+      role,
+      status,
+    } = this.state;
     const newInstructor = {
       instructorFirstName,
       instructorLastName,
       instructorUsername,
+      role,
+      status,
     };
     await API.graphql(
       graphqlOperation(mutations.createInstructor, { input: newInstructor })
@@ -60,6 +65,8 @@ class AddInstructor extends Component {
       instructorFirstName: "",
       instructorLastName: "",
       instructorUsername: "",
+      role: "",
+      status: "",
     });
     console.log(this.state.instructorLastName + " added to the database");
     this.handleClose();
@@ -70,6 +77,8 @@ class AddInstructor extends Component {
       instructorFirstName: "",
       instructorLastName: "",
       instructorUsername: "",
+      role: "",
+      status: "",
     });
   }
 
@@ -120,6 +129,43 @@ class AddInstructor extends Component {
               fullWidth
               onChange={this.handleChange("instructorUsername")}
             />
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="role-select-lable">Role</InputLabel>
+              <Select
+                style={{ width: "250px", paddingLeft: "10px" }}
+                margin="dense"
+                // labelId="shiftPeriod"
+                id="role"
+                // value={shiftPeriod}
+                label="role"
+                onChange={this.handleChange("role")}
+                defaultValue=""
+              >
+                <MenuItem value={"INSTRUCTOR"}>INSTRUCTOR</MenuItem>
+                <MenuItem value={"MO"}>MO</MenuItem>
+                <MenuItem value={"SME"}>SME</MenuItem>
+                <MenuItem value={"PMO"}>PMO</MenuItem>
+                <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="status-select-lable">Status</InputLabel>
+              <Select
+                style={{ width: "250px", paddingLeft: "10px" }}
+                margin="dense"
+                // labelId="shiftPeriod"
+                id="status"
+                // value={shiftPeriod}
+                label="status"
+                onChange={this.handleChange("status")}
+                defaultValue=""
+              >
+                <MenuItem value={"ACTIVE"}>ACTIVE</MenuItem>
+                <MenuItem value={"ON-LEAVE"}>ON-LEAVE</MenuItem>
+                <MenuItem value={"QUALIFYING"}>QUALIFYING</MenuItem>
+                <MenuItem value={"DEPARTED"}>DEPARTED</MenuItem>
+              </Select>
+            </FormControl>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

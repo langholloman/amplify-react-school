@@ -40,7 +40,7 @@ type ModuleTest @model @auth(rules: [{ allow: private }]) {
   moduleInfoID: ID! @index(name: "byModuleInfo")
   # moduleInfo: moduleInfo! @belongsTo(fields: ["id"])
   testGrade: Int
-  testDate: AWSDate
+  testDate: AWSDateTime
   testType: String
   testEvent: String
   retestRaw: Int
@@ -52,8 +52,8 @@ type Class @model @auth(rules: [{ allow: private }]) {
   id: ID!
   className: String!
   shiftPeriod: String
-  classConveneDate: AWSDate
-  classProjectedDate: AWSDate
+  classConveneDate: AWSDateTime
+  classProjectedDate: AWSDateTime
   building: String
   room: String
   location: String
@@ -120,7 +120,7 @@ type moduleInfo @model @auth(rules: [{ allow: private }]) {
 type SetbackHistory @model @auth(rules: [{ allow: private }]) {
   id: ID!
   studentID: ID! @index(name: "byStudent", sortKeyFields: ["setbackDate"])
-  setbackDate: AWSDate
+  setbackDate: AWSDateTime
   setbackFromClass: String
   placedIntoClass: String
   setbackReason: String
@@ -130,5 +130,5 @@ type Comments @model @auth(rules: [{ allow: private }]) {
   id: ID!
   studentID: ID! @index(name: "byStudent", sortKeyFields: ["commentDate"])
   comment: String
-  commentDate: AWSDate
+  commentDate: AWSDateTime
 }

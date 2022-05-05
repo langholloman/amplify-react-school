@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-// import PropTypes from "prop-types";
 
 // AWS Amplify and GraphQL API and Mutations
 import { API, graphqlOperation } from "aws-amplify";
 import * as queries from "../../graphql/queries";
 import * as mutations from "../../graphql/mutations";
 import {
-  onCreateInstructor,
-  onUpdateInstructor,
-  onDeleteInstructor,
+  onCreateClass,
+  onUpdateClass,
+  onDeleteClass,
 } from "../../graphql/subscriptions";
 
-// import AddInstructor from "./addInstructor.component";
-import InstructorsNavbar from "./instructorsNavbar.component";
+// import ClassesNavbar from "./classesNavbar.component";
+import ClassesNavbar from "./classesNavbar.component";
 
 // @mui Data Grid Pro and Material UI
 import {
   DataGridPro,
   GridToolbar,
   useGridApiRef,
-  // GridToolbarContainer,
   GridActionsCellItem,
 } from "@mui/x-data-grid-pro";
 
@@ -29,113 +27,116 @@ import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 import LinearProgress from "@mui/material/LinearProgress";
 
-// Process DataGridPro row update for Instructor
-function ProcessInstructorUpdate(row) {
+function ProcessClassUpdate(row) {
   const {
     id,
-    instructorFirstName,
-    instructorLastName,
-    instructorUsername,
-    role,
+    className,
+    shiftPeriod,
+    classConveneDate,
+    classProjectedDate,
+    building,
+    room,
+    location,
     status,
+    graduated,
+    offsiteClass,
+    classAdvisor,
   } = row;
   const input = {
     id,
-    instructorFirstName,
-    instructorLastName,
-    instructorUsername,
-    role,
+    className,
+    shiftPeriod,
+    classConveneDate,
+    classProjectedDate,
+    building,
+    room,
+    location,
     status,
+    graduated,
+    offsiteClass,
+    classAdvisor,
   };
   return (
-    API.graphql(graphqlOperation(mutations.updateInstructor, { input })) &&
+    API.graphql(graphqlOperation(mutations.updateClass, { input })) &&
     row && { ...row, isNew: false }
   );
 }
 
-const INITIAL_GROUPING_COLUMN_MODEL = ["role"];
-
-// List of all instructors
-const ListInstructors = () => {
-  const [instructors, setInstructors] = useState([]);
+const ListClasses = () => {
+  const [classes, setClasses] = useState([]);
   const [nextToken, setNextToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [tableData, setTableData] = useState([]);
   const [pageSize, setPageSize] = useState(20);
 
   useEffect(() => {
-    // Get all instructors from the database with paging and sorting options (default) and store in state as instructors and set nextToken
-
+    // Get all classes
     const fetchData = async () => {
-      const instructors = await API.graphql(
-        graphqlOperation(queries.listInstructors, {
+      const classes = await API.graphql(
+        graphqlOperation(queries.listClasses, {
           // limit: 10,
-          // order by last name
-          sortDirection: "ASC",
-          sortField: "instructorLastName",
+          // order by className
+          sortDirection: "DESC",
+          sortField: "className",
           nextToken: nextToken,
         })
       );
-      setInstructors(instructors.data.listInstructors.items);
-      setNextToken(instructors.data.listInstructors.nextToken);
-      setTableData(instructors.data.listInstructors.items);
+      setClasses(classes.data.listClasses.items);
+      setNextToken(classes.data.listClasses.nextToken);
+      setTableData(classes.data.listClasses.items);
       setIsLoading(false);
     };
     fetchData();
   }, [nextToken, isLoading]);
 
-  //console.log("instructors", instructors);
-  console.log("tableData", tableData);
+  console.log("classes", classes);
 
-  // Update the tableData state when a new instructor is created
+  // Update the tableData state when a new class is created
   useEffect(() => {
-    const subscription = API.graphql(
-      graphqlOperation(onCreateInstructor)
-    ).subscribe({
-      next: (eventData) => {
-        const instructor = eventData.value.data.onCreateInstructor;
-        const updatedInstructors = [...instructors, instructor];
-        setInstructors(updatedInstructors);
-        setTableData(updatedInstructors);
-      },
-    });
+    const subscription = API.graphql(graphqlOperation(onCreateClass)).subscribe(
+      {
+        next: (eventData) => {
+          const clas = eventData.value.data.onCreateClass;
+          const updatedClasses = [...classes, clas];
+          setClasses(updatedClasses);
+          setTableData(updatedClasses);
+        },
+      }
+    );
     return () => subscription.unsubscribe();
-  }, [instructors]);
+  }, [classes]);
 
-  // Update the tableData state when an instructor is updated
+  // Update the tableData state when a class is updated
   useEffect(() => {
-    const subscription = API.graphql(
-      graphqlOperation(onUpdateInstructor)
-    ).subscribe({
-      next: (eventData) => {
-        const instructor = eventData.value.data.onUpdateInstructor;
-        const updatedInstructors = instructors.map((i) =>
-          i.id === instructor.id ? instructor : i
-        );
-        setInstructors(updatedInstructors);
-        setTableData(updatedInstructors);
-      },
-    });
-
+    const subscription = API.graphql(graphqlOperation(onUpdateClass)).subscribe(
+      {
+        next: (eventData) => {
+          const clas = eventData.value.data.onUpdateClass;
+          const updatedClasses = classes.map((i) =>
+            i.id === clas.id ? clas : i
+          );
+          setClasses(updatedClasses);
+          setTableData(updatedClasses);
+        },
+      }
+    );
     return () => subscription.unsubscribe();
-  }, [instructors]);
+  }, [classes]);
 
-  // Update the tableData state when an instructor is deleted
+  // Update the tableData state when a class is deleted
   useEffect(() => {
-    const subscription = API.graphql(
-      graphqlOperation(onDeleteInstructor)
-    ).subscribe({
-      next: (eventData) => {
-        const instructor = eventData.value.data.onDeleteInstructor;
-        const updatedInstructors = instructors.filter(
-          (i) => i.id !== instructor.id
-        );
-        setInstructors(updatedInstructors);
-        setTableData(updatedInstructors);
-      },
-    });
+    const subscription = API.graphql(graphqlOperation(onDeleteClass)).subscribe(
+      {
+        next: (eventData) => {
+          const clas = eventData.value.data.onDeleteClass;
+          const updatedClasses = classes.filter((i) => i.id !== clas.id);
+          setClasses(updatedClasses);
+          setTableData(updatedClasses);
+        },
+      }
+    );
     return () => subscription.unsubscribe();
-  }, [instructors]);
+  }, [classes]);
 
   const apiRef = useGridApiRef();
 
@@ -181,38 +182,88 @@ const ListInstructors = () => {
       editable: false,
     }, */
     {
-      field: "instructorFirstName",
-      headerName: "First Name",
-      width: 100,
+      field: "className",
+      headerName: "Class",
+      hideable: false,
+      width: 75,
       editable: true,
     },
     {
-      field: "instructorLastName",
-      headerName: "Last Name",
-      width: 200,
-      editable: true,
-    },
-    {
-      field: "instructorUsername",
-      headerName: "Username",
-      width: 250,
-      editable: true,
-    },
-    {
-      field: "role",
-      headerName: "Role",
+      field: "shiftPeriod",
+      headerName: "Shift",
       type: "singleSelect",
-      valueOptions: ["INSTRUCTOR", "MO", "SME", "ADMIN", "PMO"],
-      width: 150,
+      valueOptions: ["DAY", "EVE"],
+      width: 75,
+      editable: true,
+    },
+    {
+      field: "classConveneDate",
+      headerName: "Convene Date",
+      //type: "dateTime",
+      type: "date",
+      valueGetter: ({ value }) => value && new Date(value),
+      width: 125,
+      editable: true,
+    },
+    {
+      field: "classProjectedDate",
+      headerName: "Projected Date",
+      //type: "dateTime",
+      type: "date",
+      valueGetter: ({ value }) => value && new Date(value),
+      width: 125,
+      editable: true,
+    },
+    {
+      field: "building",
+      headerName: "Building",
+      width: 75,
+      editable: true,
+    },
+    {
+      field: "room",
+      headerName: "Room",
+      width: 75,
       editable: true,
     },
     {
       field: "status",
       headerName: "Status",
       type: "singleSelect",
-      valueOptions: ["ACTIVE", "ON-LEAVE", "QUALIFYING", "DEPARTED"],
-      multiple: true,
-      width: 150,
+      valueOptions: [
+        "NOT-STARTED",
+        "CURRENT",
+        "COMPLETED",
+        "ON-HOLD",
+        "CANCELLED",
+      ],
+      width: 125,
+      editable: true,
+    },
+    {
+      field: "graduated",
+      headerName: "Graduated",
+      type: "boolean",
+      width: 100,
+      editable: true,
+    },
+    {
+      field: "classAdvisor",
+      headerName: "Class Advisor",
+      width: 200,
+      editable: true,
+    },
+    {
+      field: "location",
+      headerName: "Location",
+      width: 100,
+      editable: true,
+    },
+    {
+      field: "offsiteClass",
+      headerName: "Offsite",
+      type: "boolean",
+      width: 100,
       editable: true,
     },
     {
@@ -271,13 +322,12 @@ const ListInstructors = () => {
         margin: "auto",
       }}
     >
+      <ClassesNavbar />
       <div
         style={{
           paddingBottom: 20,
         }}
-      >
-        <InstructorsNavbar />
-      </div>
+      ></div>
       <Box
         sx={{
           height: "90%",
@@ -296,15 +346,15 @@ const ListInstructors = () => {
           columns={columns}
           apiRef={apiRef}
           rowGroupingColumnMode="single"
-          initialState={{
+          /* initialState={{
             rowGrouping: {
               model: INITIAL_GROUPING_COLUMN_MODEL,
             },
-          }}
+          }} */
           editMode="row"
           onRowEditStart={handleRowEditStart}
           onRowEditStop={handleRowEditStop}
-          processRowUpdate={ProcessInstructorUpdate}
+          processRowUpdate={ProcessClassUpdate}
           onGridReady={(api) => {
             api.sizeColumnsToFit();
           }}
@@ -319,8 +369,14 @@ const ListInstructors = () => {
           pagination
           experimentalFeatures={{
             newEditingApi: true,
-            rowGrouping: true,
+            // rowGrouping: true,
             // warnIfFocusStateIsNotSynced: true,
+          }}
+          initialState={{
+            pinnedColumns: { left: ["className"], right: ["actions"] },
+            sorting: {
+              sortModel: [{ field: "className", sort: "desc" }],
+            },
           }}
         />
       </Box>
@@ -328,4 +384,4 @@ const ListInstructors = () => {
   );
 };
 
-export default ListInstructors;
+export default ListClasses;

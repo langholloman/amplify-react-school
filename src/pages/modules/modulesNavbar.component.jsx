@@ -4,8 +4,7 @@ import { withStyles } from "@mui/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import AddInstructor from "./addInstructor.component";
-import PersonIcon from "@mui/icons-material/Person";
+import AddModule from "./addModule.component";
 
 const styles = (theme) => ({
   button: {
@@ -23,7 +22,7 @@ const styles = (theme) => ({
   },
 });
 
-class InstructorsNavbar extends Component {
+class ModulesNavbar extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -37,11 +36,10 @@ class InstructorsNavbar extends Component {
           }}
         >
           <Toolbar>
-            <PersonIcon fontSize="large" />
             <Typography variant="h4" color="inherit" className={classes.grow}>
-              Instructors
+              Modules
             </Typography>
-            <AddInstructor />
+            <AddModule />
           </Toolbar>
         </AppBar>
       </div>
@@ -49,8 +47,8 @@ class InstructorsNavbar extends Component {
   }
 }
 
-InstructorsNavbar.propTypes = {
+ModulesNavbar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(InstructorsNavbar);
+export default withStyles(styles)(ModulesNavbar);
