@@ -14,11 +14,12 @@ const styles = (theme) => ({
   root: {
     flexGrow: 1,
     borderRadius: "5px",
+    paddingLeft: "2%",
   },
   grow: {
     flexGrow: 1,
-    justifyContent: "left",
-    color: "#767676",
+    // justifyContent: "left",
+    // color: "#767676",
   },
 });
 
@@ -31,12 +32,13 @@ class ClassesNavbar extends Component {
           position="static"
           color="default"
           style={{
+            width: "98%",
             borderRadius: "5px",
             textAlign: "left",
           }}
         >
           <Toolbar>
-            <Typography variant="h4" color="inherit" className={classes.grow}>
+            <Typography variant="h4" color="#ffffff" className={classes.grow}>
               Classes
             </Typography>
             <AddClass />

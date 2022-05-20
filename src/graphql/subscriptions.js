@@ -175,6 +175,7 @@ export const onCreateModule = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -358,6 +359,7 @@ export const onUpdateModule = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -541,6 +543,7 @@ export const onDeleteModule = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1328,6 +1331,7 @@ export const onCreateClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1421,6 +1425,7 @@ export const onCreateClass = /* GraphQL */ `
           mandotoryStudy
           gpaw
           arbPending
+          currentClassID
           currentClass {
             id
             className
@@ -1459,6 +1464,7 @@ export const onCreateClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1623,6 +1629,7 @@ export const onCreateClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1795,6 +1802,7 @@ export const onUpdateClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1888,6 +1896,7 @@ export const onUpdateClass = /* GraphQL */ `
           mandotoryStudy
           gpaw
           arbPending
+          currentClassID
           currentClass {
             id
             className
@@ -1926,6 +1935,7 @@ export const onUpdateClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2090,6 +2100,7 @@ export const onUpdateClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2262,6 +2273,7 @@ export const onDeleteClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2355,6 +2367,7 @@ export const onDeleteClass = /* GraphQL */ `
           mandotoryStudy
           gpaw
           arbPending
+          currentClassID
           currentClass {
             id
             className
@@ -2393,6 +2406,7 @@ export const onDeleteClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2557,6 +2571,7 @@ export const onDeleteClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2759,6 +2774,7 @@ export const onCreateClassInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -3194,6 +3210,7 @@ export const onUpdateClassInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -3629,6 +3646,7 @@ export const onDeleteClassInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -4028,6 +4046,7 @@ export const onCreateInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -4238,6 +4257,7 @@ export const onCreateInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -4404,6 +4424,7 @@ export const onUpdateInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -4614,6 +4635,7 @@ export const onUpdateInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -4780,6 +4802,7 @@ export const onDeleteInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -4990,6 +5013,7 @@ export const onDeleteInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -5120,6 +5144,7 @@ export const onCreateStudent = /* GraphQL */ `
       mandotoryStudy
       gpaw
       arbPending
+      currentClassID
       currentClass {
         id
         className
@@ -5202,6 +5227,7 @@ export const onCreateStudent = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -5445,6 +5471,7 @@ export const onCreateStudent = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -5576,6 +5603,7 @@ export const onUpdateStudent = /* GraphQL */ `
       mandotoryStudy
       gpaw
       arbPending
+      currentClassID
       currentClass {
         id
         className
@@ -5658,6 +5686,7 @@ export const onUpdateStudent = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -5901,6 +5930,7 @@ export const onUpdateStudent = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -6032,6 +6062,7 @@ export const onDeleteStudent = /* GraphQL */ `
       mandotoryStudy
       gpaw
       arbPending
+      currentClassID
       currentClass {
         id
         className
@@ -6114,6 +6145,7 @@ export const onDeleteStudent = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -6357,6 +6389,7 @@ export const onDeleteStudent = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -6652,6 +6685,7 @@ export const onCreateModuleInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -7251,6 +7285,7 @@ export const onUpdateModuleInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -7850,6 +7885,7 @@ export const onDeleteModuleInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className

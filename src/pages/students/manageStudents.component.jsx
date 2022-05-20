@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
+// import PropTypes from "prop-types";
 
 // AWS Amplify and GraphQL API and Mutations
 import { API, graphqlOperation } from "aws-amplify";
 import * as queries from "../../graphql/queries";
 import * as mutations from "../../graphql/mutations";
 import {
-  onCreateClass,
-  onUpdateClass,
-  onDeleteClass,
+  onCreateStudent,
+  onUpdateStudent,
+  onDeleteStudent,
 } from "../../graphql/subscriptions";
 
-// import ClassesNavbar from "./classesNavbar.component";
-import ClassesNavbar from "./classesNavbar.component";
+// import AddInstructor from "./addInstructor.component";
+import StudentsNavbar from "./studentsNavbar.component";
 
 // @mui Data Grid Pro and Material UI
 import {
   DataGridPro,
   GridToolbar,
   useGridApiRef,
+  // GridToolbarContainer,
   GridActionsCellItem,
 } from "@mui/x-data-grid-pro";
 
@@ -26,117 +28,129 @@ import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 import LinearProgress from "@mui/material/LinearProgress";
+import DeleteIcon from "@mui/icons-material/Delete";
+//import MenuItem from "@mui/material";
 
-function ProcessClassUpdate(row) {
+// Process DataGridPro row update for Student
+function ProcessStudentUpdate(row) {
   const {
     id,
-    className,
-    shiftPeriod,
-    classConveneDate,
-    classProjectedDate,
-    building,
-    room,
-    location,
+    studentFirstName,
+    studentLastName,
+    studentUsername,
     status,
-    graduated,
-    offsiteClass,
-    classAdvisor,
+    course,
+    school,
+    organization,
+    rateRank,
+    newAssession,
+    mandotoryStudy,
+    gpaw,
+    arbPending,
+    currentClass,
   } = row;
   const input = {
     id,
-    className,
-    shiftPeriod,
-    classConveneDate,
-    classProjectedDate,
-    building,
-    room,
-    location,
+    studentFirstName,
+    studentLastName,
+    studentUsername,
     status,
-    graduated,
-    offsiteClass,
-    classAdvisor,
+    course,
+    school,
+    organization,
+    rateRank,
+    newAssession,
+    mandotoryStudy,
+    gpaw,
+    arbPending,
+    ...currentClass,
   };
   return (
-    API.graphql(graphqlOperation(mutations.updateClass, { input })) &&
+    API.graphql(graphqlOperation(mutations.updateStudent, { input })) &&
     row && { ...row, isNew: false }
   );
 }
 
-const ListClasses = () => {
-  const [classes, setClasses] = useState([]);
+//const INITIAL_GROUPING_COLUMN_MODEL = ["className"];
+
+// List of all students
+const ManageStudents = () => {
+  const [students, setStudents] = useState([]);
   const [nextToken, setNextToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [tableData, setTableData] = useState([]);
   const [pageSize, setPageSize] = useState(20);
 
+  // Get all students
   useEffect(() => {
-    // Get all classes
     const fetchData = async () => {
-      const classes = await API.graphql(
-        graphqlOperation(queries.listClasses, {
+      const students = await API.graphql(
+        graphqlOperation(queries.listStudents, {
           // limit: 10,
-          // order by className
-          sortDirection: "DESC",
-          sortField: "className",
+          // order by last name
+          sortDirection: "ASC",
+          sortField: "studentLastName",
           nextToken: nextToken,
         })
       );
-      setClasses(classes.data.listClasses.items);
-      setNextToken(classes.data.listClasses.nextToken);
-      setTableData(classes.data.listClasses.items);
+      setStudents(students.data.listStudents.items);
+      setNextToken(students.data.listStudents.nextToken);
+      setTableData(students.data.listStudents.items);
       setIsLoading(false);
     };
     fetchData();
   }, [nextToken, isLoading]);
 
-  console.log("classes", classes);
+  // console.log("students", students);
+  // console.log("tableData", tableData);
+  console.log("students", students);
 
-  // Update the tableData state when a new class is created
+  // Update the tableData state when a new student is created
   useEffect(() => {
-    const subscription = API.graphql(graphqlOperation(onCreateClass)).subscribe(
-      {
-        next: (eventData) => {
-          const clas = eventData.value.data.onCreateClass;
-          const updatedClasses = [...classes, clas];
-          setClasses(updatedClasses);
-          setTableData(updatedClasses);
-        },
-      }
-    );
+    const subscription = API.graphql(
+      graphqlOperation(onCreateStudent)
+    ).subscribe({
+      next: (eventData) => {
+        const student = eventData.value.data.onCreateStudent;
+        const updatedStudents = [...students, student];
+        setStudents(updatedStudents);
+        setTableData(updatedStudents);
+      },
+    });
     return () => subscription.unsubscribe();
-  }, [classes]);
+  }, [students]);
 
-  // Update the tableData state when a class is updated
+  // Update the tableData state when a student is updated
   useEffect(() => {
-    const subscription = API.graphql(graphqlOperation(onUpdateClass)).subscribe(
-      {
-        next: (eventData) => {
-          const clas = eventData.value.data.onUpdateClass;
-          const updatedClasses = classes.map((i) =>
-            i.id === clas.id ? clas : i
-          );
-          setClasses(updatedClasses);
-          setTableData(updatedClasses);
-        },
-      }
-    );
+    const subscription = API.graphql(
+      graphqlOperation(onUpdateStudent)
+    ).subscribe({
+      next: (eventData) => {
+        const student = eventData.value.data.onUpdateStudent;
+        const updatedStudents = students.map((s) =>
+          s.id === student.id ? student : s
+        );
+        setStudents(updatedStudents);
+        setTableData(updatedStudents);
+      },
+    });
     return () => subscription.unsubscribe();
-  }, [classes]);
+  }, [students]);
 
-  // Update the tableData state when a class is deleted
+  // Update the tableData state when a student is deleted
   useEffect(() => {
-    const subscription = API.graphql(graphqlOperation(onDeleteClass)).subscribe(
-      {
-        next: (eventData) => {
-          const clas = eventData.value.data.onDeleteClass;
-          const updatedClasses = classes.filter((i) => i.id !== clas.id);
-          setClasses(updatedClasses);
-          setTableData(updatedClasses);
-        },
-      }
-    );
+    const subscription = API.graphql(
+      graphqlOperation(onDeleteStudent)
+    ).subscribe({
+      next: (eventData) => {
+        const student = eventData.value.data.onDeleteStudent;
+        const updatedStudents = students.filter((s) => s.id !== student.id);
+        setStudents(updatedStudents);
+        setTableData(updatedStudents);
+      },
+    });
     return () => subscription.unsubscribe();
-  }, [classes]);
+  }, [students]);
 
   const apiRef = useGridApiRef();
 
@@ -158,10 +172,10 @@ const ListClasses = () => {
     apiRef.current.stopRowEditMode({ id });
   };
 
-  /*   const handleDeleteClick = (id) => (event) => {
+  const handleDeleteClick = (id) => (event) => {
     event.stopPropagation();
     apiRef.current.updateRows([{ id, _action: "delete" }]);
-  }; */
+  };
 
   const handleCancelClick = (id) => async (event) => {
     event.stopPropagation();
@@ -182,88 +196,97 @@ const ListClasses = () => {
       editable: false,
     }, */
     {
-      field: "className",
-      headerName: "Class",
-      hideable: false,
-      width: 75,
+      field: "studentFirstName",
+      headerName: "First Name",
+      width: 100,
       editable: true,
     },
     {
-      field: "shiftPeriod",
-      headerName: "Shift",
-      type: "singleSelect",
-      valueOptions: ["DAY", "EVE"],
-      width: 75,
+      field: "studentLastName",
+      headerName: "Last Name",
+      width: 120,
       editable: true,
     },
     {
-      field: "classConveneDate",
-      headerName: "Convene Date",
-      //type: "dateTime",
-      type: "date",
-      valueGetter: ({ value }) => value && new Date(value),
-      width: 125,
+      field: "studentUsername",
+      headerName: "Username",
+      width: 120,
       editable: true,
     },
     {
-      field: "classProjectedDate",
-      headerName: "Projected Date",
-      //type: "dateTime",
-      type: "date",
-      valueGetter: ({ value }) => value && new Date(value),
-      width: 125,
+      field: "currentClass.className",
+      headerName: "Current Class",
+      width: 120,
       editable: true,
+      valueGetter: (params) => params.row.currentClass?.className,
     },
     {
-      field: "building",
-      headerName: "Building",
-      width: 75,
-      editable: true,
-    },
-    {
-      field: "room",
-      headerName: "Room",
-      width: 75,
+      field: "gpaw",
+      headerName: "GPA-W",
+      align: "center",
+      type: "number",
+      width: 70,
       editable: true,
     },
     {
       field: "status",
       headerName: "Status",
       type: "singleSelect",
-      valueOptions: [
-        "NOT-STARTED",
-        "CURRENT",
-        "COMPLETED",
-        "ON-HOLD",
-        "CANCELLED",
-      ],
-      width: 125,
+      valueOptions: ["ACTIVE", "GRADUATED", "ON-HOLD", "SUSPENDED"],
+      multiple: true,
+      width: 100,
       editable: true,
     },
     {
-      field: "graduated",
-      headerName: "Graduated",
+      field: "rateRank",
+      headerName: "Rate/Rank",
+      width: 100,
+      editable: true,
+    },
+    {
+      field: "newAssession",
+      headerName: "New Assession",
       type: "boolean",
-      width: 100,
+      width: 70,
       editable: true,
     },
     {
-      field: "classAdvisor",
-      headerName: "Class Advisor",
-      width: 200,
-      editable: true,
-    },
-    {
-      field: "location",
-      headerName: "Location",
-      width: 100,
-      editable: true,
-    },
-    {
-      field: "offsiteClass",
-      headerName: "Offsite",
+      field: "mandotoryStudy",
+      headerName: "Mandotory Study",
       type: "boolean",
-      width: 100,
+      width: 70,
+      editable: true,
+    },
+    {
+      field: "arbPending",
+      headerName: "ARB Pending",
+      type: "boolean",
+      width: 70,
+      editable: true,
+    },
+
+    {
+      field: "course",
+      headerName: "Course",
+      type: "singleSelect",
+      valueOptions: ["JCAC", "OTHER"],
+      width: 80,
+      editable: true,
+    },
+    {
+      field: "school",
+      headerName: "School",
+      type: "singleSelect",
+      valueOptions: ["CSU", "OTHER"],
+      width: 80,
+      editable: true,
+    },
+    {
+      field: "organization",
+      headerName: "Organization",
+      type: "singleSelect",
+      valueOptions: ["USARMY", "USAF", "USMC", "USCG", "USN", "OTHER"],
+      width: 120,
       editable: true,
     },
     {
@@ -301,12 +324,12 @@ const ListClasses = () => {
             onClick={handleEditClick(id)}
             color="inherit"
           />,
-          /* <GridActionsCellItem
+          <GridActionsCellItem
             icon={<DeleteIcon />}
             label="Delete"
             onClick={handleDeleteClick(id)}
             color="inherit"
-          />, */
+          />,
         ];
       },
     },
@@ -323,12 +346,13 @@ const ListClasses = () => {
         backgroundColor: "#272727",
       }}
     >
-      <ClassesNavbar />
       <div
         style={{
           paddingBottom: 20,
         }}
-      ></div>
+      >
+        <StudentsNavbar />
+      </div>
       <Box
         sx={{
           height: "90%",
@@ -345,6 +369,7 @@ const ListClasses = () => {
           <DataGridPro
             rows={tableData}
             getRowId={(row) => row.id}
+            width={"90%"}
             columns={columns}
             apiRef={apiRef}
             rowGroupingColumnMode="single"
@@ -356,7 +381,7 @@ const ListClasses = () => {
             editMode="row"
             onRowEditStart={handleRowEditStart}
             onRowEditStop={handleRowEditStop}
-            processRowUpdate={ProcessClassUpdate}
+            processRowUpdate={ProcessStudentUpdate}
             onGridReady={(api) => {
               api.sizeColumnsToFit();
             }}
@@ -372,13 +397,6 @@ const ListClasses = () => {
             experimentalFeatures={{
               newEditingApi: true,
               // rowGrouping: true,
-              // warnIfFocusStateIsNotSynced: true,
-            }}
-            initialState={{
-              pinnedColumns: { left: ["className"], right: ["actions"] },
-              sorting: {
-                sortModel: [{ field: "className", sort: "desc" }],
-              },
             }}
           />
         </div>
@@ -387,4 +405,4 @@ const ListClasses = () => {
   );
 };
 
-export default ListClasses;
+export default ManageStudents;

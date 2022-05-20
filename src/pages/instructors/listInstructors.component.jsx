@@ -265,10 +265,11 @@ const ListInstructors = () => {
     <div
       style={{
         height: 700,
-        width: "90%",
+        width: "100%",
         paddingTop: 100,
         paddingBottom: 100,
         margin: "auto",
+        backgroundColor: "#272727",
       }}
     >
       <div
@@ -290,39 +291,41 @@ const ListInstructors = () => {
           },
         }}
       >
-        <DataGridPro
-          rows={tableData}
-          getRowId={(row) => row.id}
-          columns={columns}
-          apiRef={apiRef}
-          rowGroupingColumnMode="single"
-          initialState={{
-            rowGrouping: {
-              model: INITIAL_GROUPING_COLUMN_MODEL,
-            },
-          }}
-          editMode="row"
-          onRowEditStart={handleRowEditStart}
-          onRowEditStop={handleRowEditStop}
-          processRowUpdate={ProcessInstructorUpdate}
-          onGridReady={(api) => {
-            api.sizeColumnsToFit();
-          }}
-          components={{
-            Toolbar: GridToolbar,
-            LoadingOverlay: LinearProgress,
-          }}
-          loading={isLoading}
-          pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          rowsPerPageOptions={[5, 10, 20, 50, 100]}
-          pagination
-          experimentalFeatures={{
-            newEditingApi: true,
-            rowGrouping: true,
-            // warnIfFocusStateIsNotSynced: true,
-          }}
-        />
+        <div style={{ width: "96%", height: "100%", paddingLeft: "2%" }}>
+          <DataGridPro
+            rows={tableData}
+            getRowId={(row) => row.id}
+            columns={columns}
+            apiRef={apiRef}
+            rowGroupingColumnMode="single"
+            initialState={{
+              rowGrouping: {
+                model: INITIAL_GROUPING_COLUMN_MODEL,
+              },
+            }}
+            editMode="row"
+            onRowEditStart={handleRowEditStart}
+            onRowEditStop={handleRowEditStop}
+            processRowUpdate={ProcessInstructorUpdate}
+            onGridReady={(api) => {
+              api.sizeColumnsToFit();
+            }}
+            components={{
+              Toolbar: GridToolbar,
+              LoadingOverlay: LinearProgress,
+            }}
+            loading={isLoading}
+            pageSize={pageSize}
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            rowsPerPageOptions={[5, 10, 20, 50, 100]}
+            pagination
+            experimentalFeatures={{
+              newEditingApi: true,
+              rowGrouping: true,
+              // warnIfFocusStateIsNotSynced: true,
+            }}
+          />
+        </div>
       </Box>
     </div>
   );

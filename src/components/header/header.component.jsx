@@ -33,7 +33,7 @@ const Header = () => {
           </MenuItem>
           <MenuItem
             component={Link}
-            to="/listStudents"
+            to="/manageStudents"
             sx={{ flexGrow: 0, mr: 2 }}
             color="inherit"
           >

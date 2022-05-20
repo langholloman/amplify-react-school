@@ -153,7 +153,7 @@ class ListStudents extends Component {
   filterStudents(students, searchQuery) {
     return students.filter((student) => {
       return (
-        // student.currentClass?.toLowerCase().includes(searchQuery) ||
+        student.currentClass?.className.toLowerCase().includes(searchQuery) ||
         student.studentLastName?.toLowerCase().includes(searchQuery)
       );
     });
@@ -195,11 +195,21 @@ class ListStudents extends Component {
                 width: "30rem",
                 marginBottom: "2rem",
               }}
+              placeholder="Search by Current Class or Last Name"
             />
           </Grid>
           {this.filterStudents(this.state.students, this.state.searchQuery).map(
             (student) => (
-              <Grid item={true} xs={12} sm={6} md={4} lg={3} key={student.id}>
+              <Grid
+                item={true}
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                key={student.id}
+                label="Student Listings"
+                placeholder="Student Listings"
+              >
                 <Card className={classes.card}>
                   <CardActions>
                     <UpdateStudent student={student} />
@@ -210,6 +220,9 @@ class ListStudents extends Component {
                     </Typography>
                     <Typography className={classes.username}>
                       {student.studentUsername}
+                    </Typography>
+                    <Typography className={classes.username}>
+                      {student.currentClass.className}
                     </Typography>
                   </CardContent>
                   <CardActions

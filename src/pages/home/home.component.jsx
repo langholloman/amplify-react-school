@@ -30,7 +30,8 @@ const HomePage = () => {
       sx={{ flexGrow: 2 }}
       style={{
         backgroundImage:
-          "url(https://www.cyberstronger.com/assets/images/home-page-higher-ed-banner.jpg)",
+          // "url(https://www.cyberstronger.com/assets/images/home-page-higher-ed-banner.jpg)",
+          "url(https://www.comtech.com/images//cyber/cyber-background.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -74,7 +75,7 @@ const HomePage = () => {
         <Grid item xs={6} style={{ textAlign: "center" }}>
           <Item>
             <Link
-              to="/listStudents"
+              to="/manageStudents"
               style={{
                 textDecoration: "none",
                 color: "inherit",

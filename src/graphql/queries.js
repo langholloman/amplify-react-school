@@ -161,6 +161,7 @@ export const getModule = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -790,6 +791,7 @@ export const getClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -883,6 +885,7 @@ export const getClass = /* GraphQL */ `
           mandotoryStudy
           gpaw
           arbPending
+          currentClassID
           currentClass {
             id
             className
@@ -921,6 +924,7 @@ export const getClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1085,6 +1089,7 @@ export const getClass = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -1288,6 +1293,7 @@ export const listClasses = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -1536,6 +1542,7 @@ export const getClassInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -1958,6 +1965,7 @@ export const listClassInfos = /* GraphQL */ `
               mandotoryStudy
               gpaw
               arbPending
+              currentClassID
               currentClass {
                 id
                 className
@@ -2223,6 +2231,7 @@ export const getInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2433,6 +2442,7 @@ export const getInstructor = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -2760,6 +2770,7 @@ export const getStudent = /* GraphQL */ `
       mandotoryStudy
       gpaw
       arbPending
+      currentClassID
       currentClass {
         id
         className
@@ -2842,6 +2853,7 @@ export const getStudent = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -3085,6 +3097,7 @@ export const getStudent = /* GraphQL */ `
                 mandotoryStudy
                 gpaw
                 arbPending
+                currentClassID
                 createdAt
                 updatedAt
                 classStudentId
@@ -3221,6 +3234,7 @@ export const listStudents = /* GraphQL */ `
         mandotoryStudy
         gpaw
         arbPending
+        currentClassID
         currentClass {
           id
           className
@@ -3285,6 +3299,7 @@ export const listStudents = /* GraphQL */ `
               mandotoryStudy
               gpaw
               arbPending
+              currentClassID
               currentClass {
                 id
                 className
@@ -3665,6 +3680,7 @@ export const getModuleInfo = /* GraphQL */ `
             mandotoryStudy
             gpaw
             arbPending
+            currentClassID
             currentClass {
               id
               className
@@ -4215,6 +4231,7 @@ export const listModuleInfos = /* GraphQL */ `
               mandotoryStudy
               gpaw
               arbPending
+              currentClassID
               currentClass {
                 id
                 className

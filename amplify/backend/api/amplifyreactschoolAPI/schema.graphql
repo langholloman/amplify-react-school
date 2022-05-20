@@ -39,11 +39,11 @@ type ModuleTest @model @auth(rules: [{ allow: private }]) {
   instructor: Instructor! @belongsTo(fields: ["id"])
   moduleInfoID: ID! @index(name: "byModuleInfo")
   # moduleInfo: moduleInfo! @belongsTo(fields: ["id"])
-  testGrade: Int
+  testGrade: String
   testDate: AWSDateTime
   testType: String
   testEvent: String
-  retestRaw: Int
+  retestRaw: String
   useForGPA: Boolean
   status: String
 }
@@ -98,9 +98,10 @@ type Student @model @auth(rules: [{ allow: private }]) {
   rateRank: String
   newAssession: Boolean
   mandotoryStudy: Boolean
-  gpaw: Int
+  gpaw: String
   arbPending: Boolean
-  currentClass: Class! @belongsTo(fields: ["id"])
+  currentClassID: ID
+  currentClass: Class @belongsTo(fields: ["currentClassID"])
   setbackHistory: [SetbackHistory]
     @hasMany(indexName: "byStudent", fields: ["id"])
   comments: [Comments] @hasMany(indexName: "byStudent", fields: ["id"])
