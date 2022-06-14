@@ -733,6 +733,35 @@ export const listModuleTests = /* GraphQL */ `
     }
   }
 `;
+export const getCalendar = /* GraphQL */ `
+  query GetCalendar($id: ID!) {
+    getCalendar(id: $id) {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCalendars = /* GraphQL */ `
+  query ListCalendars(
+    $filter: ModelCalendarFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCalendars(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        day
+        dayType
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getClass = /* GraphQL */ `
   query GetClass($id: ID!) {
     getClass(id: $id) {

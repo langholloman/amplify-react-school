@@ -31,7 +31,7 @@ const HomePage = () => {
       style={{
         backgroundImage:
           // "url(https://www.cyberstronger.com/assets/images/home-page-higher-ed-banner.jpg)",
-          "url(https://www.comtech.com/images//cyber/cyber-background.jpg)",
+          "url(https://secureservercdn.net/198.71.233.55/zmm.cbb.myftpupload.com/wp-content/uploads/2022/03/cyber-background.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

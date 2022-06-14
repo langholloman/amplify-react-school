@@ -34,6 +34,9 @@ import ListInstructorsClasses from "./pages/instructors/classInfo/instructorsCla
 // Modules component
 import ListModules from "./pages/modules/listModules.component";
 
+// Calendar Days component
+import ListCalendarDays from "./pages/calendar/listCalendarDays.component";
+
 // configure Amplify
 Amplify.configure(awsConfig);
 
@@ -66,7 +69,7 @@ function App() {
           />
           <Route path="/modules" component={ListModules} />
           <Route path="/classes" component={ListClasses} />
-
+          <Route path="/listCalendarDays" component={ListCalendarDays} />
           <Route path="*" component={HomePage} />
         </Switch>
       </div>

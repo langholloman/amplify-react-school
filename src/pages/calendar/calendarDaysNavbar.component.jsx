@@ -4,7 +4,7 @@ import { withStyles } from "@mui/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import AddStudent from "./addStudent.component";
+import AddCalendarDay from "./addCalendarDay.component";
 
 const styles = (theme) => ({
   button: {
@@ -18,15 +18,12 @@ const styles = (theme) => ({
   },
   grow: {
     flexGrow: 1,
-    fontWeight: "bold",
-    paddingTop: "5px",
-    paddingBottom: "5px",
-    //justifyContent: "left",
-    //color: "#ffffff",
+    // justifyContent: "left",
+    // color: "#767676",
   },
 });
 
-class StudentsNavbar extends Component {
+class CalendarDaysNavbar extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -41,10 +38,10 @@ class StudentsNavbar extends Component {
           }}
         >
           <Toolbar>
-            <Typography variant="h4" color="inherit" className={classes.grow}>
-              STUDENT <br /> MANAGEMENT
+            <Typography variant="h4" color="#ffffff" className={classes.grow}>
+              Calendar Days
             </Typography>
-            <AddStudent />
+            <AddCalendarDay />
           </Toolbar>
         </AppBar>
       </div>
@@ -52,8 +49,8 @@ class StudentsNavbar extends Component {
   }
 }
 
-StudentsNavbar.propTypes = {
+CalendarDaysNavbar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(StudentsNavbar);
+export default withStyles(styles)(CalendarDaysNavbar);

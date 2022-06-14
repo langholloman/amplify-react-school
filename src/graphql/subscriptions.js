@@ -1273,6 +1273,39 @@ export const onDeleteModuleTest = /* GraphQL */ `
     }
   }
 `;
+export const onCreateCalendar = /* GraphQL */ `
+  subscription OnCreateCalendar {
+    onCreateCalendar {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateCalendar = /* GraphQL */ `
+  subscription OnUpdateCalendar {
+    onUpdateCalendar {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteCalendar = /* GraphQL */ `
+  subscription OnDeleteCalendar {
+    onDeleteCalendar {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateClass = /* GraphQL */ `
   subscription OnCreateClass {
     onCreateClass {

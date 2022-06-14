@@ -1318,6 +1318,48 @@ export const deleteModuleTest = /* GraphQL */ `
     }
   }
 `;
+export const createCalendar = /* GraphQL */ `
+  mutation CreateCalendar(
+    $input: CreateCalendarInput!
+    $condition: ModelCalendarConditionInput
+  ) {
+    createCalendar(input: $input, condition: $condition) {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateCalendar = /* GraphQL */ `
+  mutation UpdateCalendar(
+    $input: UpdateCalendarInput!
+    $condition: ModelCalendarConditionInput
+  ) {
+    updateCalendar(input: $input, condition: $condition) {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteCalendar = /* GraphQL */ `
+  mutation DeleteCalendar(
+    $input: DeleteCalendarInput!
+    $condition: ModelCalendarConditionInput
+  ) {
+    deleteCalendar(input: $input, condition: $condition) {
+      id
+      day
+      dayType
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createClass = /* GraphQL */ `
   mutation CreateClass(
     $input: CreateClassInput!

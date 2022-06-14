@@ -65,7 +65,7 @@ class UpdateStudent extends Component {
       studentFirstName: this.state.studentFirstName,
       studentLastName: this.state.studentLastName,
       studentUsername: this.state.studentUsername,
-      currentClass: this.state.currentClass,
+      //currentClass: this.state.currentClass,
       course: this.state.course,
       school: this.state.school,
       organization: this.state.organization,
@@ -90,6 +90,7 @@ class UpdateStudent extends Component {
           style={{
             cursor: "pointer",
             color: "#71C2FF",
+            fontSize: "20px",
           }}
         />
         <Dialog
@@ -141,7 +142,7 @@ class UpdateStudent extends Component {
                 onChange={this.handleChange("studentUsername")}
               />
             </Typography>
-            <Typography variant="h6">
+            {/* <Typography variant="h6">
               Current Class:{" "}
               <TextField
                 margin="dense"
@@ -152,8 +153,8 @@ class UpdateStudent extends Component {
                 fullwidth="true"
                 // value={this.state.currentClass}
                 onChange={this.handleChange("currentClass")}
-              />
-            </Typography>
+              /> 
+            </Typography>*/}
             <Typography variant="h6">
               Course:{" "}
               <TextField

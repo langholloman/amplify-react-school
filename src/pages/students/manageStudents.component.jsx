@@ -29,6 +29,8 @@ import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 import LinearProgress from "@mui/material/LinearProgress";
 import DeleteIcon from "@mui/icons-material/Delete";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 //import MenuItem from "@mui/material";
 
 // Process DataGridPro row update for Student
@@ -47,7 +49,7 @@ function ProcessStudentUpdate(row) {
     mandotoryStudy,
     gpaw,
     arbPending,
-    currentClass,
+    currentClassID,
   } = row;
   const input = {
     id,
@@ -63,7 +65,7 @@ function ProcessStudentUpdate(row) {
     mandotoryStudy,
     gpaw,
     arbPending,
-    ...currentClass,
+    currentClassID,
   };
   return (
     API.graphql(graphqlOperation(mutations.updateStudent, { input })) &&
@@ -76,6 +78,7 @@ function ProcessStudentUpdate(row) {
 // List of all students
 const ManageStudents = () => {
   const [students, setStudents] = useState([]);
+  const [classes, setClasses] = useState([]);
   const [nextToken, setNextToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [tableData, setTableData] = useState([]);
@@ -104,6 +107,24 @@ const ManageStudents = () => {
   // console.log("students", students);
   // console.log("tableData", tableData);
   console.log("students", students);
+
+  // Get all classes
+  useEffect(() => {
+    const fetchData = async () => {
+      const classes = await API.graphql(
+        graphqlOperation(queries.listClasses, {
+          // limit: 10,
+          // order by last name
+          sortDirection: "ASC",
+          sortField: "className",
+        })
+      );
+      setClasses(classes.data.listClasses.items);
+    };
+    fetchData();
+  }, []);
+
+  // console.log("classes", classes);
 
   // Update the tableData state when a new student is created
   useEffect(() => {
@@ -184,6 +205,21 @@ const ManageStudents = () => {
     const row = apiRef.current.getRow(id);
     if (row.isNew) {
       apiRef.current.updateRows([{ id, _action: "delete" }]);
+    }
+  };
+
+  // handleSearch for the AutoComplete to filter the students by className
+  const handleSearch = (event, value) => {
+    // update tableData where className matches value
+    // else update tableData to all students
+    if (value) {
+      const filteredData = tableData.filter(
+        (row) => row.currentClass.className === value
+      );
+      setTableData(filteredData);
+      console.log(filteredData);
+    } else {
+      setTableData(students);
     }
   };
 
@@ -365,6 +401,18 @@ const ManageStudents = () => {
           },
         }}
       >
+        <div style={{ paddingLeft: "2%", paddingBottom: "10px" }}>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={classes?.map((c) => c.className)}
+            sx={{ width: 300 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Search by Class" />
+            )}
+            onChange={handleSearch}
+          />
+        </div>
         <div style={{ width: "96%", height: "100%", paddingLeft: "2%" }}>
           <DataGridPro
             rows={tableData}

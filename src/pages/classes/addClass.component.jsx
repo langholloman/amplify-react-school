@@ -116,21 +116,6 @@ class AddClass extends Component {
   }
 
   render() {
-    /*     const {
-      open,
-      className,
-      shiftPeriod,
-      classConveneDate,
-      classProjectedDate,
-      building,
-      room,
-      location,
-      status,
-      graduated,
-      offsite,
-      classAdvisor,
-    } = this.state; */
-
     return (
       <div>
         <Button

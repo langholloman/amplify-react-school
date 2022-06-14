@@ -32,6 +32,13 @@ type Module @model @auth(rules: [{ allow: private }]) {
   moduleInfo: [moduleInfo] @hasMany
 }
 
+# needs pushed to environment
+type ModuleTestLibrary @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  moduleSubject: String!
+  moduleType: String!
+}
+
 type ModuleTest @model @auth(rules: [{ allow: private }]) {
   id: ID!
   studentID: ID! @index(name: "byStudent")
@@ -46,6 +53,12 @@ type ModuleTest @model @auth(rules: [{ allow: private }]) {
   retestRaw: String
   useForGPA: Boolean
   status: String
+}
+
+type Calendar @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  day: String!
+  dayType: String!
 }
 
 type Class @model @auth(rules: [{ allow: private }]) {
