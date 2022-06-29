@@ -14,7 +14,8 @@ const styles = (theme) => ({
   root: {
     flexGrow: 1,
     borderRadius: "5px",
-    paddingLeft: "2%",
+    paddingLeft: "15px",
+    paddingRight: "15px",
   },
   grow: {
     flexGrow: 1,
@@ -35,9 +36,10 @@ class StudentsNavbar extends Component {
           position="static"
           color="default"
           style={{
-            width: "98%",
+            //width: "100%",
             borderRadius: "5px",
             textAlign: "left",
+            boxShadow: "none",
           }}
         >
           <Toolbar>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import PropTypes from "prop-types";
 
 // AWS Amplify and GraphQL API and Mutations
 import { API, graphqlOperation } from "aws-amplify";
@@ -14,37 +13,33 @@ import {
 // Students Navbar Component
 import StudentsNavbar from "./studentsNavbar.component";
 // Update Student Component
-import UpdateStudent from "./updateStudent.component";
-// Update Module Info Component
-//import UpdateModuleInfo from "./moduleInfo/updateModuleInfo.component";
-// Delete Student Component
-import DeleteStudent from "./deleteStudent.component";
+// import UpdateStudent from "./updateStudent.component";
+// Edit Student Component
+import EditStudent from "./editStudent.component";
 
 // @mui Material-UI
-import { withStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Switch from "@mui/material/Switch";
-// import Autocomplete from "@mui/material/Autocomplete";
 import LinearProgress from "@mui/material/LinearProgress";
-//import CircularProgress from "@mui/material/CircularProgress";
-// import { Search } from "@mui/icons-material";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import IconButton from "@mui/material/IconButton";
+import ClearIcon from "@mui/icons-material/Clear";
 
 // List of all students
 const ListStudents = () => {
   const [students, setStudents] = useState([]);
-  // const [student, setStudent] = useState(null);
+  //const [student, setStudent] = useState([]);
   const [classes, setClasses] = useState([]);
+  const [clas, setClas] = useState([]);
+  const [currentClass, setCurrentClass] = useState([]);
   const [nextToken, setNextToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -69,7 +64,7 @@ const ListStudents = () => {
 
   // console.log("students", students);
   // console.log("tableData", tableData);
-  //console.log("students", students);
+  // console.log("students", students);
 
   // Get all classes
   useEffect(() => {
@@ -137,6 +132,55 @@ const ListStudents = () => {
   console.log("students", students);
   console.log("classes", classes);
 
+  // handleSearch for the Autocomplete to filter the students by className
+  const handleSearchClass = (event, value) => {
+    // update students where the className matches the value
+    // else update to all students
+    if (value) {
+      const filteredStudents = students.filter((s) =>
+        s.currentClass?.className.includes(value)
+      );
+      setStudents(filteredStudents);
+      setClas(value);
+      // set currentClass where currentClass.className matches the value
+      const filteredClass = students.filter((s) =>
+        s.currentClass?.className.includes(value)
+      );
+      setCurrentClass(filteredClass);
+      console.log("currentClass", students[0].currentClass);
+      // console.log("clas", clas);
+    } else {
+      // graphql query to get all students
+      async function fetchData() {
+        setIsLoading(true);
+        const students = await API.graphql(
+          graphqlOperation(queries.listStudents, {
+            // limit: 10,
+            // order by last name
+            sortDirection: "ASC",
+            sortField: "studentLastName",
+          })
+        );
+        setStudents(students.data.listStudents.items);
+        setClas([]);
+        setIsLoading(false);
+
+        console.log("students", students);
+      }
+      fetchData();
+    }
+  };
+
+  /* const getStudent = async (id) => {
+    const student = await API.graphql(
+      graphqlOperation(queries.getStudent, {
+        id: id,
+      })
+    );
+    setStudent(student.data.getStudent);
+    console.log("student", student);
+  }; */
+
   // return Grid with cards for each student
   return (
     <div
@@ -148,41 +192,362 @@ const ListStudents = () => {
       }}
     >
       <StudentsNavbar />
+      <div style={{ display: "flex", paddingLeft: "35px", paddingTop: "10px" }}>
+        <div>
+          <Autocomplete
+            disablePortal
+            id="search-by-class"
+            label="Search by class"
+            options={classes
+              ?.map((c) => c.className)
+              .sort(
+                // sort classes descending alphabetically
+                (a, b) => {
+                  if (a < b) {
+                    return 1;
+                  } else if (a > b) {
+                    return -1;
+                  } else {
+                    return 0;
+                  }
+                }
+              )}
+            sx={{ width: 300 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Search by Class" />
+            )}
+            onChange={handleSearchClass}
+          />
+        </div>
+        <div
+          style={{
+            paddingTop: "2px",
+            paddingLeft: "12px",
+            width: "150px",
+          }}
+        >
+          <Paper
+            component="form"
+            onSubmit={(e) => e.preventDefault()}
+            sx={{
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              width: 300,
+              backgroundColor: "#191919",
+              outline: "2px solid #4D4D4D",
+              height: "48px",
+            }}
+          >
+            <InputBase
+              sx={{
+                ml: 1,
+                flex: 1,
+                color: "#FFFFFF",
+              }}
+              placeholder="Search by Last Name"
+              inputProps={{ "aria-label": "search by last name" }}
+              label="Search by Last Name"
+              id="search-by-last-name"
+              onChange={
+                // if the user enters a value, filter the students by studentLastName else get all students
+                (event) => {
+                  event.preventDefault();
+                  if (event.target.value) {
+                    const filteredStudents = students.filter((s) =>
+                      s.studentLastName
+                        .toLowerCase()
+                        .includes(event.target.value)
+                    );
+                    setStudents(filteredStudents);
+                    // console.log("clas", clas);
+                  } else {
+                    // graphql query to get all students
+                    async function fetchData() {
+                      setIsLoading(true);
+                      const students = await API.graphql(
+                        graphqlOperation(queries.listStudents, {
+                          // limit: 10,
+                          // order by last name
+                          sortDirection: "ASC",
+                          sortField: "studentLastName",
+                        })
+                      );
+                      setStudents(students.data.listStudents.items);
+                      // console.log("clas", clas);
+
+                      setIsLoading(false);
+
+                      console.log("students", students);
+                    }
+                    fetchData();
+                  }
+                }
+              }
+            />
+            <IconButton
+              type="submit"
+              sx={{ p: "10px" }}
+              aria-label="clearInputBase"
+              // clear the InputBase value when the user clicks the IconButton to clear the search input and get all students
+              onClick={(event) => {
+                event.preventDefault();
+                document.getElementById("search-by-last-name").value = "";
+
+                // graphql query to get all students
+                async function fetchData() {
+                  setIsLoading(true);
+                  const students = await API.graphql(
+                    graphqlOperation(queries.listStudents, {
+                      // limit: 10,
+                      // order by last name
+                      sortDirection: "ASC",
+                      sortField: "studentLastName",
+                    })
+                  );
+                  setStudents(students.data.listStudents.items);
+
+                  setIsLoading(false);
+
+                  console.log("students", students);
+                }
+                fetchData();
+              }}
+            >
+              <ClearIcon />
+            </IconButton>
+          </Paper>
+        </div>
+      </div>
+      {
+        // if AutoComplete label is "Search by class" has a value, display the currentClass information in a card
+        currentClass?.length > 0 && clas.length > 0 ? (
+          <div
+            style={{
+              paddingLeft: "35px",
+              paddingRight: "30px",
+              paddingTop: "20px",
+            }}
+          >
+            <Card>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  backgroundColor: "#51ADFF",
+                  color: "#272727",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "flex-start",
+                    textAlign: "left",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      paddingLeft: "10px",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: "15px",
+                        fontWeight: "bold",
+                        marginTop: "10px",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      Advisor: {students[0].currentClass.classAdvisor}
+                    </Typography>
+                  </div>
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: "1.5rem",
+                        marginTop: "10px",
+                        marginBottom: "10px",
+                        textAlign: "center",
+                      }}
+                    >
+                      Class {students[0].currentClass.className}
+                      <br />
+                      {
+                        students[0].moduleInfo?.items[
+                          students[0].moduleInfo?.items.length - 1
+                        ]?.module?.moduleShortName
+                      }{" "}
+                      -{" "}
+                      {
+                        students[0].moduleInfo?.items[
+                          students[0].moduleInfo?.items.length - 1
+                        ]?.module?.moduleName
+                      }
+                    </Typography>
+                  </div>
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      paddingRight: "10px",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: "15px",
+                        marginTop: "10px",
+                        marginBottom: "10px",
+                        textAlign: "right",
+                      }}
+                    >
+                      Shift:{" "}
+                      {students[0].currentClass.shiftPeriod.toUpperCase()}
+                      <br />
+                      Bldg: {students[0].currentClass.building} {" | "} Room:{" "}
+                      {students[0].currentClass.room}
+                      <br />
+                      Class Size: {students.length}
+                      <br />
+                      Convene Date:{" "}
+                      {
+                        // format the students[0].currentClass.classConveneDate to display the date in the format of "MM/DD/YYYY"
+                        students[0].currentClass.classConveneDate
+                          .split("T")[0]
+                          .split("-")
+                          //.reverse()
+                          .join("/")
+                      }
+                      <br />
+                      Projected Grad Date:{" "}
+                      {
+                        // format the students[0].currentClass.classProjectedDate to display the date in the format of "MM/DD/YYYY"
+                        students[0].currentClass.classProjectedDate
+                          .split("T")[0]
+                          .split("-")
+                          //.reverse()
+                          .join("/")
+                      }
+                    </Typography>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        ) : null
+      }
+      {students.length === 0 ? (
+        <div
+          style={{
+            paddingLeft: "35px",
+            paddingRight: "35px",
+            paddingTop: "10px",
+          }}
+        >
+          <Card>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                backgroundColor: "#51ADFF",
+                color: "#272727",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "flex-start",
+                  textAlign: "left",
+                }}
+              >
+                <div
+                  style={{
+                    width: "50%",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    paddingLeft: "10px",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "15px",
+                      fontWeight: "bold",
+                      marginTop: "10px",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    No Students are in Class: {clas}
+                  </Typography>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      ) : null}
       {
         /* if isLoading is true, display LinearProgress */
         isLoading ? (
-          <LinearProgress
-            style={{
-              marginTop: "10px",
-              marginLeft: "40px",
-              marginRight: "30px",
-            }}
-          />
+          <div>
+            <LinearProgress
+              style={{
+                marginTop: "10px",
+                marginLeft: "40px",
+                marginRight: "30px",
+              }}
+            />
+            <Typography
+              style={{
+                fontWeight: "normal",
+                fontSize: "12px",
+              }}
+            >
+              Loading Students List
+            </Typography>
+          </div>
         ) : (
           <Grid
             container
             spacing={3}
             style={{
-              marginTop: "20px",
+              marginTop: "5px",
               marginLeft: "10px",
               width: "97%",
             }}
           >
             {
-              //map through students and sort by studentLastName
+              //map through students and sort by currentClass.className
               students
                 .sort((a, b) => {
-                  if (a.studentLastName < b.studentLastName) {
-                    return -1;
-                  }
-                  if (a.studentLastName > b.studentLastName) {
+                  if (a.currentClass?.className < b.currentClass?.className) {
                     return 1;
+                  } else if (
+                    a.currentClass?.className > b.currentClass?.className
+                  ) {
+                    return -1;
+                  } else {
+                    return 0;
                   }
-                  return 0;
                 })
                 .map((student) => (
                   <Grid item md={2} key={student.id}>
-                    <Card>
+                    <Card
+                      style={{
+                        backgroundColor: "#282828",
+                      }}
+                    >
                       <CardContent>
                         <div style={{ display: "flex", width: "100%" }}>
                           <div
@@ -238,7 +603,8 @@ const ListStudents = () => {
                               justifyContent: "flex-end",
                             }}
                           >
-                            <UpdateStudent student={student} />
+                            {/* use EditStudent component and set current student to student */}
+                            <EditStudent student={student} classes={classes} />
                           </div>
                         </div>
                         <hr
@@ -347,7 +713,7 @@ const ListStudents = () => {
                             <Typography
                               style={{
                                 display: "flex",
-                                fontSize: "10px",
+                                fontSize: "11px",
                                 //flexDirection: "column",
                                 justifyContent: "flex-start",
                               }}
@@ -369,7 +735,7 @@ const ListStudents = () => {
                             <Typography
                               style={{
                                 //display: "flex",
-                                fontSize: "10px",
+                                fontSize: "11px",
                               }}
                               id="studentFailsCount"
                               label="studentFailsCount"
@@ -399,6 +765,153 @@ const ListStudents = () => {
                             //height: "1px",
                           }}
                         />
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            justifyContent: "center",
+                            textAlign: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "50%",
+                              display: "flex",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <Typography
+                              style={{
+                                //display: "flex",
+                                fontSize: "14px",
+                              }}
+                              id="studentSetback"
+                              label="studentSetback"
+                            >
+                              SETBACK
+                            </Typography>
+                          </div>
+                          <div
+                            style={{
+                              width: "50%",
+                              display: "flex",
+                              justifyContent: "flex-end",
+                            }}
+                          >
+                            <Typography
+                              style={{
+                                //display: "flex",
+                                fontSize: "14px",
+                                paddingRight: "10px",
+                              }}
+                              id="studentMando"
+                              label="studentMando"
+                            >
+                              MANDO
+                            </Typography>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            justifyContent: "center",
+                            textAlign: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "50%",
+                              display: "flex",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <Checkbox
+                              // if checkbox is checked, then set background color to #FD9F4C
+                              style={{
+                                color:
+                                  student.setbackHistory?.items?.length > 0
+                                    ? "#FD9F4C"
+                                    : "white",
+                              }}
+                              id="studentSetbackCheckbox"
+                              label="studentSetbackCheckbox"
+                              checked={
+                                student.setbackHistory?.items?.length > 0
+                              }
+                              /* onChange={() => {
+                                // update the setback history for this student when the checkbox is checked
+                                if (student.setbackHistory?.items?.length > 0) {
+
+                                  // if the checkbox is checked, then remove the setback history for this student
+                                  updateStudentSetbackHistory(
+                                    student.studentId,
+                                    []
+                                  );
+                                } else {
+                                  // if the checkbox is unchecked, then add the setback history for this student
+                                  updateStudentSetbackHistory(
+                                    student.studentId,
+                                    [
+                                      {
+                                        setbackId: "1",
+                                        setbackDate: "2020-01-01",
+                                        setbackReason: "test",
+                                        setbackStatus: "test",
+                                      },
+                                    ]
+                                  );
+                                }
+                              }} */
+                            />
+                          </div>
+                          <div
+                            style={{
+                              width: "50%",
+                              display: "flex",
+                              justifyContent: "flex-end",
+                            }}
+                          >
+                            <FormControlLabel
+                              control={
+                                <Switch
+                                  //value={student.mandotoryStudy}
+                                  // if student.mandotoryStudy is true, then switch is on, else switch is off
+                                  checked={student.mandotoryStudy}
+                                  // if student.mandotoryStudy is true, then style is red, else style is green
+                                  style={
+                                    student.mandotoryStudy
+                                      ? { color: "red" }
+                                      : { color: "green" }
+                                  }
+                                  id="studentMandotoryStudy"
+                                  label="studentMandotoryStudy"
+                                />
+                              }
+                              label={
+                                // if student.mandotoryStudy is true, then label is "Yes", else label is "No"
+                                student.mandotoryStudy ? (
+                                  <span
+                                    style={{
+                                      fontSize: "14px",
+                                    }}
+                                  >
+                                    Yes
+                                  </span>
+                                ) : (
+                                  <span
+                                    style={{
+                                      fontSize: "14px",
+                                    }}
+                                  >
+                                    No
+                                  </span>
+                                )
+                              }
+                              labelPlacement="start"
+                            />
+                          </div>
+                        </div>
                       </CardContent>
                     </Card>
                   </Grid>

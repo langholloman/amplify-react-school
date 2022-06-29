@@ -49,7 +49,7 @@ class AddStudent extends Component {
     const { data } = await API.graphql(graphqlOperation(queries.listClasses));
     const { items: classes } = data.listClasses;
     this.setState({ classes });
-    console.log("classes", classes);
+    // console.log("classes", classes);
   }
 
   handleClickOpen = () => {
@@ -123,7 +123,7 @@ class AddStudent extends Component {
       arbPending: "",
       currentClassID: "",
     });
-    console.log(this.state.studentLastName + " added to students");
+    // console.log(this.state.studentLastName + " added to students");
     this.handleClose();
   };
 
@@ -309,7 +309,7 @@ class AddStudent extends Component {
               onChange={this.handleChange("gpaw")}
             />
             <FormControl variant="standard" sx={{ m: 1, minWidth: 80 }}>
-              <InputLabel id="organization-select-lable">
+              <InputLabel id="organization-select-label">
                 Organization
               </InputLabel>
               <Select
