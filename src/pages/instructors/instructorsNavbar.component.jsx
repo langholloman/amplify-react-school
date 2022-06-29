@@ -41,7 +41,7 @@ class InstructorsNavbar extends Component {
           <Toolbar>
             <PersonIcon fontSize="large" />
             <Typography variant="h4" color="inherit" className={classes.grow}>
-              STAFF
+              Staff
             </Typography>
             <AddInstructor />
           </Toolbar>
