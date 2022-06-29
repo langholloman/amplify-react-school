@@ -8,8 +8,6 @@ import Grid from "@mui/material/Grid";
 
 import "./networkwire.jpg";
 
-import "./home.styles.scss";
-
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body3,
   padding: theme.spacing(1),
