@@ -574,7 +574,7 @@ const ListStudents = () => {
                             <Typography
                               style={{
                                 // display: "flex",
-                                fontSize: "11px",
+                                fontSize: "15px",
                               }}
                               id="studentFirstName"
                               label="studentFirstName"
@@ -665,7 +665,9 @@ const ListStudents = () => {
                         >
                           <Typography
                             style={{
-                              // if student.gpaw is >= 75, then green, else red
+                              // if student.gpaw is >= 80, then green
+                              // if student.gpaw is between 75 and 79.99, then yellow
+                              // if student.gpaw is < 75, then red
                               backgroundColor:
                                 student.gpaw >= 75 ? "green" : "red",
                               width: "60px",

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { /* useEffect, */ useState } from "react";
 
 // AWS Amplify and GraphQL API and Mutations
-import { API, graphqlOperation } from "aws-amplify";
+/* import { API, graphqlOperation } from "aws-amplify";
 import * as queries from "../../graphql/queries";
-import * as mutations from "../../graphql/mutations";
+import * as mutations from "../../graphql/mutations"; */
 
 import PropTypes from "prop-types";
 
@@ -25,6 +25,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,8 +66,8 @@ export default function EditStudent(props) {
   // const [students, setStudents] = useState([]);
   const [student, setStudent] = useState(props);
   const [classes, setClasses] = useState(props);
-  const [clas, setClas] = useState(props);
-  const [loading, setLoading] = useState(false);
+  //const [clas, setClas] = useState(props);
+  //const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleChange = (event, newValue) => {
