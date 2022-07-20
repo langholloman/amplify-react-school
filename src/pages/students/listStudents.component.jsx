@@ -43,6 +43,8 @@ const ListStudents = () => {
   const [nextToken, setNextToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  //
+
   // Get all students
   useEffect(() => {
     const fetchData = async () => {
@@ -129,8 +131,8 @@ const ListStudents = () => {
     return () => subscription.unsubscribe();
   }, [students, isLoading]);
 
-  console.log("students", students);
-  console.log("classes", classes);
+  //console.log("students", students);
+  //console.log("classes", classes);
 
   // handleSearch for the Autocomplete to filter the students by className
   const handleSearchClass = (event, value) => {
@@ -147,7 +149,7 @@ const ListStudents = () => {
         s.currentClass?.className.includes(value)
       );
       setCurrentClass(filteredClass);
-      console.log("currentClass", students[0].currentClass);
+      //console.log("currentClass", students[0].currentClass);
       // console.log("clas", clas);
     } else {
       // graphql query to get all students
@@ -165,7 +167,7 @@ const ListStudents = () => {
         setClas([]);
         setIsLoading(false);
 
-        console.log("students", students);
+        //console.log("students", students);
       }
       fetchData();
     }
@@ -278,7 +280,7 @@ const ListStudents = () => {
 
                       setIsLoading(false);
 
-                      console.log("students", students);
+                      //console.log("students", students);
                     }
                     fetchData();
                   }
@@ -309,7 +311,7 @@ const ListStudents = () => {
 
                   setIsLoading(false);
 
-                  console.log("students", students);
+                  //console.log("students", students);
                 }
                 fetchData();
               }}
@@ -604,7 +606,7 @@ const ListStudents = () => {
                             }}
                           >
                             {/* use EditStudent component and set current student to student */}
-                            <EditStudent student={student} classes={classes} />
+                            <EditStudent student={student} />
                           </div>
                         </div>
                         <hr
@@ -669,7 +671,15 @@ const ListStudents = () => {
                               // if student.gpaw is between 75 and 79.99, then yellow
                               // if student.gpaw is < 75, then red
                               backgroundColor:
-                                student.gpaw >= 75 ? "green" : "red",
+                                student.gpaw >= 80
+                                  ? "green"
+                                  : "" ||
+                                    (student.gpaw >= 75 &&
+                                      student.gpaw < 79.9999)
+                                  ? "#DD6E0F"
+                                  : "" || student.gpaw < 74.9999
+                                  ? "red"
+                                  : "",
                               width: "60px",
                               height: "30px",
                               borderRadius: "5%",

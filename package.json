@@ -11,7 +11,6 @@
     "@mui/styled-engine-sc": "^5.7.0",
     "@mui/styles": "^5.7.0",
     "@mui/x-data-grid": "^5.10.0",
-    "@mui/x-data-grid-generator": "^5.10.0",
     "@mui/x-data-grid-pro": "^5.10.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -27,17 +26,24 @@
     "web-vitals": "^1.0.1",
     "yarn": "^1.22.19"
   },
+  "devDependencies": {
+    "react-error-overlay": "6.0.9"
+  },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "preinstall": "npx npm-force-resolutions"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
   },
   "browserslist": {
     "production": [

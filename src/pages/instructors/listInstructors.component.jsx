@@ -264,7 +264,7 @@ const ListInstructors = () => {
   return (
     <div
       style={{
-        height: 700,
+        height: 900,
         width: "100%",
         paddingTop: 100,
         paddingBottom: 100,
@@ -301,6 +301,9 @@ const ListInstructors = () => {
             initialState={{
               rowGrouping: {
                 model: INITIAL_GROUPING_COLUMN_MODEL,
+              },
+              sorting: {
+                sortModel: [{ field: "instructorLastName", sort: "asc" }],
               },
             }}
             editMode="row"

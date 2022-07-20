@@ -235,9 +235,7 @@ class AddStudent extends Component {
                   paddingLeft: "10px",
                 }}
                 margin="dense"
-                // labelId="shiftPeriod"
                 id="status"
-                // value={shiftPeriod}
                 label="status"
                 onChange={this.handleChange("status")}
                 defaultValue=""
@@ -249,7 +247,7 @@ class AddStudent extends Component {
               </Select>
             </FormControl>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 80 }}>
-              <InputLabel id="currentClass-select-lable">
+              <InputLabel id="currentClass-select-label">
                 Current Class
               </InputLabel>
               <Select

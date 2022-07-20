@@ -142,19 +142,6 @@ class UpdateStudent extends Component {
                 onChange={this.handleChange("studentUsername")}
               />
             </Typography>
-            {/* <Typography variant="h6">
-              Current Class:{" "}
-              <TextField
-                margin="dense"
-                id="currentClass"
-                placeholder={this.props.student.currentClass}
-                label={this.props.student.currentClass}
-                type="text"
-                fullwidth="true"
-                // value={this.state.currentClass}
-                onChange={this.handleChange("currentClass")}
-              /> 
-            </Typography>*/}
             <Typography variant="h6">
               Course:{" "}
               <TextField
